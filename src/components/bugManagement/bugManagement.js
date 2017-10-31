@@ -1,9 +1,9 @@
-import header from './base/header.vue';
-import footer from './base/footer.vue';
+import header from '../base/header.vue';
+import footer from '../base/footer.vue';
 import ElRow from "element-ui/packages/row/src/row";
 import ElCol from "element-ui/packages/col/src/col";
-import { getBugInfoListPage, saveOrUpdateBugInfo, deleteBugInfoById, exportBugInfoToExcel, downloadBugInfoFile} from '../api/api';
-import utils from "../common/js/util.js"
+import { getBugInfoListPage, saveOrUpdateBugInfo, deleteBugInfoById, exportBugInfoToExcel, downloadBugInfoFile} from '../../api/api';
+import utils from "../../common/js/util.js"
 import $ from 'jquery'
 
 export default {
@@ -245,9 +245,9 @@ export default {
     },
     loadAll() {
       return [
-        { "value": "CSICLab" },
-        { "value": "OpenCSIC"},
-        { "value": "resourcesManage"},
+        { "value": "ABC" },
+        { "value": "ADD"},
+        { "value": "EEE"},
         { "value": "个人输出"},
       ];
     },

@@ -1,5 +1,5 @@
 import Hello from '@/components/Hello.vue'
-import BugManagement from '@/components/BugManagement.vue'
+import BugManagement from './components/bugManagement/BugManagement.vue'
 import UserDetail from '@/components/UserDetail'
 
 const routes = [

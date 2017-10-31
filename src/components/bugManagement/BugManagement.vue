@@ -5,7 +5,7 @@
       <!--工具条-->
       <el-form :inline="true" :model="filters">
         <el-row >
-          <el-col :span="5" align="left" >
+          <el-col :span="7" align="left" >
             <el-form-item label="优先级">
               <el-select v-model="filters.level" clearable placeholder="请选择"  @change="getBugInfos">
                 <el-option v-for="(item, idx) in levelOptions" :key="idx" :label="item.label" :value="item.value">
@@ -13,7 +13,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="5"  align="left" style="min-width: 15%;padding-bottom: 0px;" >
+          <el-col :span="6"  align="left" style="padding-bottom: 0px;" >
             <el-form-item label="状态:">
               <el-select v-model="filters.status" clearable placeholder="请选择" @change="getBugInfos">
                 <el-option v-for="(item, idx) in statusOptions" :key="idx" :label="item.label" :value="item.value">
@@ -27,7 +27,7 @@
               </el-form-item>
           </el-col>
 
-          <el-col :span="1" align="left" style="width: 6%; margin-left: -100px">
+          <el-col :span="1" align="left" style="width: 6%;">
               <el-form-item>
                 <el-button type="primary" v-on:click="getBugInfos">查询</el-button>
               </el-form-item>
@@ -37,7 +37,7 @@
                 <el-button type="primary" @click="handleAdd">新增</el-button>
               </el-form-item>
           </el-col>
-          <el-col :span="1" align="left" style="width: 10%;">
+          <el-col :span="1" align="left" style="width: 5%;">
             <el-form-item>
               <el-button class="exportFile" type="primary" @click="exportToExcel">导出Excel</el-button>
             </el-form-item>
@@ -46,12 +46,12 @@
       </el-form>
 
       <!--列表-->
-      <el-table :data="bugInfos" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+      <el-table :data="bugInfos" highlight-current-row v-loading="listLoading" @selection-change="selsChange" >
         <!--<el-table-column type="selection" width="55">  </el-table-column>-->
         <el-table-column type="index" width="50"></el-table-column>
-        <el-table-column prop="bugName" label="名称" width="210" sortable show-overflow-tooltip></el-table-column>
-        <el-table-column prop="projectName" label="所属项目" width="160" show-overflow-tooltip  sortable></el-table-column>
-        <el-table-column prop="moduleName" label="所属模块" width="160"  show-overflow-tooltip sortable></el-table-column>
+        <el-table-column prop="bugName" label="名称" width="110" sortable show-overflow-tooltip></el-table-column>
+        <el-table-column prop="projectName" label="所属项目" width="100" show-overflow-tooltip  sortable></el-table-column>
+        <el-table-column prop="moduleName" label="所属模块" width="100"  show-overflow-tooltip sortable></el-table-column>
         <el-table-column prop="level" label="优先级" width="100" sortable>
           <template scope="scope">
             <div v-show='scope.row.level==0' >高</div>
@@ -59,16 +59,16 @@
             <div v-show='scope.row.level==2'>低</div>
           </template>
         </el-table-column>
-        <el-table-column prop="createTime" label="创建日期" width="120" sortable></el-table-column>
-        <el-table-column prop="closeTime" label="完成日期" width="120" sortable></el-table-column>
+        <el-table-column prop="createTime" label="创建日期" width="100" sortable></el-table-column>
+        <el-table-column prop="closeTime" label="完成日期" width="100" sortable></el-table-column>
         <el-table-column prop="status" label="状态" width="90" sortable :show-overflow-tooltip="true">
           <template scope="scope">
             <div v-show='scope.row.status==1' class='bugStatusOn'  @click='updateBugStatus(scope.$index, scope.row)'>打开</div>
             <div v-show='scope.row.status==0' class='bugStatusOff' @click='updateBugStatus(scope.$index, scope.row)'>关闭</div>
           </template>
         </el-table-column>
-        <el-table-column prop="personInCharge" label="责任人" width="150" sortable></el-table-column>
-        <el-table-column prop="desc" label="详细描述" width="160" show-overflow-tooltip sortable></el-table-column>
+        <el-table-column prop="personInCharge" label="责任人" width="100" sortable></el-table-column>
+        <el-table-column prop="desc" label="详细描述" width="100" show-overflow-tooltip sortable></el-table-column>
         <el-table-column label="操作" prop="btn" :show-overflow-tooltip="true">
           <template scope="scope" >
             <!--<i class="el-icon-edit" title="编辑" @click="handleEdit(scope.$index, scope.row)" style="cursor:pointer;"></i>-->
@@ -92,15 +92,15 @@
       </el-col>
 
       <!--新增界面-->
-      <el-dialog title="新增" style="min-width: 1900px !important;" v-model="dataFormVisible" :close-on-click-modal="false">
-        <el-form :model="dataForm" labelWidth="150px" :inline="true" ref="dataForm">
+      <el-dialog title="新增" style="" v-model="dataFormVisible" :close-on-click-modal="false">
+        <el-form :model="dataForm" labelWidth="80px" :inline="true" ref="dataForm">
           <el-row>
-            <el-col :span="12">
-                <el-form-item label="名称">
+            <el-col :span="11" >
+                <el-form-item label="名称"align="left">
                   <el-input v-model="dataForm.bugName" auto-complete="off"></el-input>
                 </el-form-item>
             </el-col >
-            <el-col :span="12">
+            <el-col :span="11">
                 <el-form-item label="所属项目">
                   <!--<el-input v-model="dataForm.projectName" auto-complete="off"></el-input>-->
                   <el-autocomplete
@@ -113,12 +113,12 @@
             </el-col>
           </el-row>
           <el-row>
-            <el-col :span="12">
+            <el-col :span="11">
                 <el-form-item label="所属模块">
                   <el-input v-model="dataForm.moduleName" auto-complete="off"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col :span="10">
+            <el-col :span="11">
                 <el-form-item label="责任人">
                   <el-input v-model="dataForm.personInCharge" auto-complete="off"></el-input>
                 </el-form-item>
@@ -126,12 +126,12 @@
           </el-row>
           <el-row >
 
-            <el-col :span="12">
+            <el-col :span="11">
                 <el-form-item label="创建日期">
                   <el-date-picker type="date"  placeholder="选择日期" format="yyyy-MM-dd" value-format="yyyy-MM-dd" v-model="dataForm.createTime" @change="getSTime"></el-date-picker>
                 </el-form-item>
             </el-col>
-            <el-col :span="10" >
+            <el-col :span="11" >
               <el-form-item label="优先级">
                 <el-select v-model="dataForm.level" clearable placeholder="请选择" style="width: 190px !important;">
                   <el-option v-for="(item, idx) in levelOptions" :key="idx" :label="item.label" :value="item.value" >
@@ -151,7 +151,7 @@
           <el-row >
             <el-col>
               <el-form-item label="详细描述" >
-                <el-input type="textarea" style="min-width: 650px" v-model="dataForm.desc" :autosize="{ minRows: 4, maxRows: 4}"></el-input>
+                <el-input type="textarea" style="min-width: 280%" v-model="dataForm.desc" :autosize="{ minRows: 4, maxRows: 4}"></el-input>
               </el-form-item>
             </el-col>
           </el-row >
@@ -176,7 +176,7 @@
     padding-left: 10%;
     width: 80%;
     min-height: 100px;
-    min-width:1424px;
+    /*min-width:1424px;*/
     padding-bottom: 50PX;
   }
   .container-title{
