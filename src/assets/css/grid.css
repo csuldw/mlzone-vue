@@ -1,0 +1,47 @@
+/*前缀g：grid；*/
+.g-container{
+	text-align: center;
+	/*background: url("../images/home.png");*/
+	/*background-color: #ccc;*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 600px;
+}
+.g-container h1{
+	font-weight: normal;
+	font-size: 30px;
+	padding: 70px 150px 10px 150px;
+	text-align: left;
+	position: relative;
+}
+.g-container h2{
+  font-size: 15px;
+  padding: 10px 0px 150px 200px;
+  text-align: left;
+}
+.g-container-up{
+	margin-left:15%;
+	width: 70%;
+	margin-top:0px;
+	min-height: 700px;
+}
+.g-container-up h1{
+	margin-top: 30px;
+	text-align: center;
+}
+.g-container-down{
+	padding-left: 10%;
+	width: 80%;
+	min-height: 300px;
+	padding-bottom: 50PX;
+}
+.g-container-down-subcontent{
+	padding-top: 20px;
+}
+.g-container-down h1{
+	height: 25px;
+	margin:0px;
+	padding:0px;
+	font-size: 21px;
+	font-weight: bolder;
+}
