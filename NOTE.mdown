@@ -32,3 +32,11 @@
 3. footer
 	- 声明相关
 
+
+注意在src中增加bootsrap，添加css、js和fonts三个文件/目录。
+
+- /src/assets/css/bootstrap.min.css
+- /src/assets/js/bootstrap.min.js
+- /src/assets/fonts/*
+
+这三个文件来自bootstrap中
