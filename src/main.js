@@ -12,6 +12,7 @@ import './assets/css/common.css'
 
 import './assets/js/bootstrap.min.js'
 import './assets/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.css'
 
 // Vue.use(VueResource);
 Vue.use(VueRouter);
