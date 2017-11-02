@@ -1,12 +1,14 @@
 <template>
-   <div id="header">
+  <div id="footer">
       {{msg}}
     </div>
 </template>
 
 <script>
+  import '../../assets/css/header.css'; //引入外部css
+
   export default {
-  name: 'header',
+  name: 'footer',
   data () {
     return {
       msg: 'footer part'
@@ -16,7 +18,7 @@
 </script>
 
 <style>
-#header {
+#footer {
   background-color: #fff;
   height: 40px;
   padding: 10px 60px;
