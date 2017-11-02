@@ -44,14 +44,7 @@
 import '../../assets/css/header.css'; //引入外部css
 import $ from 'jquery'
 
-$('.m-icon-nav').on('click', function(){
-  alert("fds");
-//  jsui.bd.addClass('m-nav-show')
-//  $('.m-mask').show()
-//
-//  jsui.bd.removeClass('search-on')
-//  $('.search-show .fa').removeClass('fa-remove')
-});
+
 
 export default {
   name: 'header',
