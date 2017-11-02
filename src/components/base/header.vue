@@ -1,90 +1,211 @@
 <template>
-   <header class="u-header">
-     <div class="header-container">
-       <h1 class="logo"><a href="http://www.csuldw.com/" title="机器学习-MLZone"><img src="http://www.daqianduan.com/wp-content/uploads/2015/01/logo.png">MLZone社区</a></h1>
-       <div class="brand">机器学习社区<br>MLZone 天地</div>
-       <ul class="site-nav site-navbar">
-       <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="#">首页</a></li>
-       <li id="menu-item-4244" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4244"><a href="#">机器学习</a>
-         <!--<ul class="sub-menu">-->
-           <!--<li id="menu-item-4438" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4438"><a href="#">HTML/CSS</a></li>-->
-           <!--<li id="menu-item-4439" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4439"><a href="#">JavaScript</a></li>-->
-           <!--<li id="menu-item-4437" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4437"><a href="#">技巧资源</a></li>-->
-         <!--</ul>-->
-       </li>
-       <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154"><a href="#">深度学习</a></li>
-       <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a rel="relexternal nofollow" href="#">开源传送门</a></li>
-       <li id="menu-item-5012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5012"><a href="#">生活天地</a></li>
-       <!--<li id="menu-item-6365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6365"><a target="_blank" href="#">关于本站</a></li>-->
-       <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
-     </ul>
-     <div class="topbar">
-       <ul class="site-nav topmenu">
-         <li id="menu-item-6360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6360"><a href="http://www.daqianduan.com/contact">联系站长</a></li>
-         <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6362"><a href="http://www.daqianduan.com/job-new">免费投稿</a></li>
-         <li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="http://www.daqianduan.com/links">友情链接</a></li>
-         <li class="menusns">
-           <a href="javascript:;">关于本站 <i class="fa fa-angle-down"></i></a>
-         </li>
-       </ul>
-     </div>
-       <!--<i class="fa fa-bars m-icon-nav"></i>-->
-     </div>
-   </header>
-   <!--<div class="site-search">-->
-     <!--<div class="container">-->
-       <!--<form method="get" class="site-search-form" action="#"><input class="search-input" name="s" type="text" placeholder="输入关键字" value=""><button class="search-btn" type="submit"><i class="fa fa-search"></i></button></form>	</div>-->
-   <!--</div>-->
-  <!--<a id="logo" href="https://CSIClab.org/">-->
-    <!--<span class='header-span'> {{msg}} </span>-->
-  <!--</a>-->
+  <div class="g-container">
+    <header-select></header-select>
+    <!--<h1> {{msg}}</h1>-->
+    <!--<h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>-->
+    <div class="g-container-up">
+      <el-carousel :interval="2000" type="card" height="360px">
+        <el-carousel-item v-for="item in images" :key="item.value">
+          <img :src="item.image" class="img-responsive">
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    <div class="g-container-down">
+      <div class="g-container-wrap">
+        <div class="g-content">
+          <div class="u-article-recent">
+            <h1>最新发布</h1>
+            <article class="u-article-excerpt">
+              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+              <h2><a href="#" title="教你添加网站浏览器图标 favicon.ico_WordPress使用教程_themebetter">教你添加网站浏览器图标 favicon.ico</a></h2>
+              <div class="note">每个网站都可以设置favicon，而且添加是非常简单的</div>
+              <div class="meta">
+                <time>2017-09-28</time>
+                <a class="meta-cat" href="#">WordPress使用教程</a>
+                <span class="meta-cmt">评论(11)</span>
+              </div>
+            </article>
+          </div>
+          <div class="u-article-push">
+            <h1>文章推荐</h1>
+            <article class="u-article-excerpt">
+              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+              <h2><a href="#" title="教你添加网站浏览器图标 favicon.ico_WordPress使用教程_themebetter">教你添加网站浏览器图标 favicon.ico</a></h2>
+              <div class="note">每个网站都可以设置favicon，而且添加是非常简单的</div>
+              <div class="meta">
+                <time>2017-09-28</time>
+                <a class="meta-cat" href="#">WordPress使用教程</a>
+                <span class="meta-cmt">评论(11)</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="g-sidebar">
+        <div class="u-widget u-widget-tops">
+          <ul class="u-widget-nav">
+            <li class="active">网站公告</li>
+          </ul>
+          <ul class="u-widget-navcontent">
+            <li class="item item-01 active">
+              <ul>
+                <li><time>07-27</time><a target="_blank" href="#">官方声明：大前端WordPress相关业务宣布themebetter独立运营</a></li>
+                <li><time>07-10</time><a target="_blank" href="#">重要声明：有问题你得提工单，邮箱和评论将不支持服务</a></li>
+                <li><time>07-02</time><a target="_blank" href="#">大前端工单服务系统上线 欢迎这里来问答</a></li>
+                <li><time>06-11</time><a target="_blank" href="#">对这段时间的大前端有个交代</a></li>
+                <li><time>04-01</time><a target="_blank" href="#">大前端和阿里百秀背后的团队</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="u-post-tag">
+          <h1>right tag</h1>
+        </div>
+        <div class="u-post-tag">
+          <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
+            <div class="items">
+              <a href="#">前端技巧 (61)</a>
+              <a href="#">CSS (53)</a>
+              <a href="#">JavaScript (50)</a>
+              <a href="#">用户体验 (46)</a>
+              <a href="h#">设计思路 (43)</a>
+              <a href="/tag/html5">HTML5 (40)</a>
+              <a href="">SEO (40)</a>
+              <a href="">网页设计 (40)</a>
+              <a href="">CSS3 (37)</a>
+              <a href="://../tag/professional">职业 (34)</a>
+              <a href="://../tag/front-resources">前端资源 (33)</a>
+              <a href="://..com/tag/daqianduan">大前端 (31)</a>
+              <a href="://..com/tag/company">企业公司 (30)</a>
+            </div>
+          </div>
+        </div>
+        <div class="u-post-archive">
+          <h1>right</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import '../../assets/css/header.css'; //引入外部css
-import $ from 'jquery'
+  import '../assets/css/grid.css'; //引入外部css
+  import header from './base/header.vue';
+  import footer from './base/footer.vue';
 
-
-
-export default {
-  name: 'header',
-  data () {
-    return {
-      msg: 'CSICLab',
-    }
-  },
-}
+  export default {
+    components: {
+      'header-select': header,
+      'footer-select': footer
+    },
+    data () {
+      return {
+        msg: '一切从这里开始...',
+        linkName: 'Mini项目管理工具入口',
+        currentDate: new Date(),
+        numSize: 5,
+        subTitle: "人物简介",
+        images: [
+          {
+            image:require("../assets/images/p1.jpg"),
+          },
+          {
+            image:require("../assets/images/p2.jpg"),
+          },
+          {
+            image:require("../assets/images/p3.jpg"),
+          },
+          {
+            image:require("../assets/images/p4.jpg"),
+          },
+          {
+            image:require("../assets/images/p5.jpg"),
+          }
+//			,
+//			{
+//				image:require("../assets/images/a6.jpg"),
+//			}
+        ],
+        userlist:[]
+      }
+    },
+    computed: {
+      ilength:function(){
+        return this.userlist.length
+      },
+    },
+//	created(){
+//		this.$http.get('/api2/users/getUserInfo', {
+//			headers: {
+//				'Access-Control-Allow-Origin': '*',
+//				'Access-Control-Allow-Headers': 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With',
+//				'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS'
+//			}
+//		}).then((res) => {
+//			this.userlist = res.data["userlist"];
+//		}, (error)=> {
+//			console.log(error)
+//		})
+//	}
+  }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+  }
 
-
-/*#header {*/
-  /*background-color: #272822;*/
-  /*height: 30px;*/
-  /*padding: 10px 60px;*/
-  /*position: relative;*/
-  /*z-index: 2;*/
-/*}*/
-/*#nav {*/
-  /*list-style-type: none;*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*position: absolute;*/
-  /*right: 30px;*/
-  /*top: 0px;*/
-  /*height: 40px;*/
-  /*line-height: 40px;*/
-/*}*/
-/*#logo {*/
-  /*display: inline-block;*/
-  /*font-size: 1.5em;*/
-  /*line-height: 40px;*/
-  /*color: #2c3e50;*/
-  /*font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;*/
-  /*font-weight: 500;*/
-/*}*/
-/*.header-span{*/
-  /*color: white;*/
-/*}*/
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+    height: 350px;
+  }
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+    height: 350px;
+  }
+  .el-row{
+    margin-top:30px;
+  }
+  .img-responsive {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+  .img-profile{
+    display: inline-block;
+    height: 100px;
+    padding-top: 20px;
+  }
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+  .button {
+    padding: 0;
+    float: right;
+  }
+  .image {
+    width: 100%;
+    display: block;
+  }
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+  .g-container-down-infos{
+    padding: 20px 0 20px 0;
+  }
 </style>
