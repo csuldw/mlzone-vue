@@ -4,11 +4,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import routes from './routes'
 import VueRouter from "vue-router"
-// import VueResource from 'vue-resource';
+ // import VueResource from 'vue-resource';
 import ElementUI from 'element-ui'
 
 import 'element-ui/lib/theme-default/index.css'
 import './assets/css/common.css'
+
+import './assets/js/bootstrap.min.js'
+import './assets/css/bootstrap.min.css'
 
 // Vue.use(VueResource);
 Vue.use(VueRouter);
