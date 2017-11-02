@@ -1,44 +1,103 @@
 <template>
 	<div class="g-container">
-    <h1> {{msg}}</h1>
-    <h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>
+     <header-select></header-select>
+    <!--<h1> {{msg}}</h1>-->
+    <!--<h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>-->
 		<div class="g-container-up">
-			<template>
-				<el-carousel :interval="2000" type="card" height="360px">
-					<el-carousel-item v-for="item in images" :key="item.value">
-						<img :src="item.image" class="img-responsive">
-					</el-carousel-item>
-				</el-carousel>
-			</template>
-			<h1>START</h1>
+      <el-carousel :interval="2000" type="card" height="360px">
+        <el-carousel-item v-for="item in images" :key="item.value">
+          <img :src="item.image" class="img-responsive">
+        </el-carousel-item>
+      </el-carousel>
 		</div>
 		<div class="g-container-down">
-      <h1>{{subTitle}}</h1>
-			<div class="g-container-down-subcontent" v-for="i in ilength" v-if="(i-1)% numSize==0">
-				<el-row>
-					<el-col :span="4" v-for="(o, index) in ((ilength - (i -1)) > numSize ? numSize : (ilength - (i -1)))" :key="o" :offset="index > 0 ? 1 : 0">
-						<el-card :body-style="{ padding: '0px' }">
-							<router-link :to="{path:'/userDetail',query:{id:userlist[index + i - 1].id}}">
-								<img :src="userlist[index + i - 1].image" class="img-profile">
-							</router-link>
-							<div class="g-container-down-infos">
-								<span>{{userlist[index + i - 1].username}}</span>
-								<div class="bottom clearfix">
-									<time class="time">{{ currentDate }}</time>
-								</div>
-							</div>
-						</el-card>
-					</el-col>
-				</el-row>
-			</div>
+      <div class="g-container-wrap">
+        <div class="g-content">
+          <div class="u-article-recent">
+            <h1>最新发布</h1>
+            <article class="u-article-excerpt">
+              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+              <h2><a href="#" title="教你添加网站浏览器图标 favicon.ico_WordPress使用教程_themebetter">教你添加网站浏览器图标 favicon.ico</a></h2>
+              <div class="note">每个网站都可以设置favicon，而且添加是非常简单的</div>
+              <div class="meta">
+                <time>2017-09-28</time>
+                <a class="meta-cat" href="#">WordPress使用教程</a>
+                <span class="meta-cmt">评论(11)</span>
+              </div>
+            </article>
+          </div>
+          <div class="u-article-push">
+            <h1>文章推荐</h1>
+            <article class="u-article-excerpt">
+              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+              <h2><a href="#" title="教你添加网站浏览器图标 favicon.ico_WordPress使用教程_themebetter">教你添加网站浏览器图标 favicon.ico</a></h2>
+              <div class="note">每个网站都可以设置favicon，而且添加是非常简单的</div>
+              <div class="meta">
+                <time>2017-09-28</time>
+                <a class="meta-cat" href="#">WordPress使用教程</a>
+                <span class="meta-cmt">评论(11)</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="g-sidebar">
+        <div class="u-widget u-widget-tops">
+          <ul class="u-widget-nav">
+            <li class="active">网站公告</li>
+          </ul>
+          <ul class="u-widget-navcontent">
+            <li class="item item-01 active">
+              <ul>
+                <li><time>07-27</time><a target="_blank" href="#">官方声明：大前端WordPress相关业务宣布themebetter独立运营</a></li>
+                <li><time>07-10</time><a target="_blank" href="#">重要声明：有问题你得提工单，邮箱和评论将不支持服务</a></li>
+                <li><time>07-02</time><a target="_blank" href="#">大前端工单服务系统上线 欢迎这里来问答</a></li>
+                <li><time>06-11</time><a target="_blank" href="#">对这段时间的大前端有个交代</a></li>
+                <li><time>04-01</time><a target="_blank" href="#">大前端和阿里百秀背后的团队</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="u-post-tag">
+          <h1>right tag</h1>
+        </div>
+        <div class="u-post-tag">
+          <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
+            <div class="items">
+              <a href="#">前端技巧 (61)</a>
+              <a href="#">CSS (53)</a>
+              <a href="#">JavaScript (50)</a>
+              <a href="#">用户体验 (46)</a>
+              <a href="h#">设计思路 (43)</a>
+              <a href="/tag/html5">HTML5 (40)</a>
+              <a href="">SEO (40)</a>
+              <a href="">网页设计 (40)</a>
+              <a href="">CSS3 (37)</a>
+              <a href="://../tag/professional">职业 (34)</a>
+              <a href="://../tag/front-resources">前端资源 (33)</a>
+              <a href="://..com/tag/daqianduan">大前端 (31)</a>
+              <a href="://..com/tag/company">企业公司 (30)</a>
+            </div>
+          </div>
+        </div>
+        <div class="u-post-archive">
+          <h1>right</h1>
+        </div>
+      </div>
 		</div>
 	</div>
 </template>
 
 <script>
 import '../assets/css/grid.css'; //引入外部css
+import header from './base/header.vue';
+import footer from './base/footer.vue';
 
 export default {
+  components: {
+    'header-select': header,
+    'footer-select': footer
+  },
 	data () {
 		return {
 			msg: '一切从这里开始...',
@@ -75,19 +134,19 @@ export default {
 			return this.userlist.length
 		},
 	},
-	created(){
-		this.$http.get('/api2/users/getUserInfo', {
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-				'Access-Control-Allow-Headers': 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With',
-				'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS'
-			}
-		}).then((res) => {
-			this.userlist = res.data["userlist"];
-		}, (error)=> {
-			console.log(error)
-		})
-	}
+//	created(){
+//		this.$http.get('/api2/users/getUserInfo', {
+//			headers: {
+//				'Access-Control-Allow-Origin': '*',
+//				'Access-Control-Allow-Headers': 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With',
+//				'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS'
+//			}
+//		}).then((res) => {
+//			this.userlist = res.data["userlist"];
+//		}, (error)=> {
+//			console.log(error)
+//		})
+//	}
 }
 </script>
 
@@ -100,12 +159,6 @@ export default {
 	line-height: 300px;
 	margin: 0;
 }
-
-a{ color:#2c850d; text-decoration:none;}
-a:link{ color:#2c850d; text-decoration:none;}
-a:visited{ color:#2c850d; text-decoration:none;}
-a:hover{ color:#ff2020; text-decoration:underline;}
-a:actived{ color:#2c850d; text-decoration:none;}
 
 .el-carousel__item:nth-child(2n) {
 	background-color: #99a9bf;
