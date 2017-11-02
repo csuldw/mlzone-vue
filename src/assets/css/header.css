@@ -4,15 +4,15 @@ a:hover{color: #45B6F7 !important;; text-decoration: none;}
 a:focus{outline: 0;}
 
 .u-header{
-  max-width: 1400px;
-  position: relative;
+  max-width: 1200px;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9;
   background-color: #fff;
-  padding: 40px 0 40px 0;
-  border-bottom: 1px solid #EAEAEA;
+  padding: 40px 20px 0 20px;
+  /*border-bottom: 1px solid #EAEAEA;*/
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 1px 3px rgba(0,0,0,.03)
 }
@@ -27,15 +27,15 @@ a:focus{outline: 0;}
 .logo{
   overflow: hidden;
   float:left;
-  margin: 0;
+  margin-top: -20px;
 }
 .logo a{
-  height: 32px;
+  height: 62px;
   display: block;
   overflow: hidden;
   font-size: 0;
 }
-.logo img{vertical-align: top;max-height: 32px;display: block;margin-bottom: 32px;}
+.logo img{vertical-align: top;max-height: 60px;display: block;margin-bottom: 32px;}
 
 .brand{
   font-size: 14px;
@@ -56,7 +56,7 @@ a:focus{outline: 0;}
 
 .site-navbar{
   float: right;
-  font-size: 18px;
+  font-size: 1.2em;
   margin-top: 7px;
   margin-right: -18%;
 }
@@ -88,7 +88,7 @@ a:focus{outline: 0;}
   top: -29px;
   left: 0;right: 0;
   margin-bottom: 20px;
-  margin-right: -15%;
+  margin-right: -13%;
   color: #999;
 }
 .topbar a{
@@ -128,12 +128,12 @@ a:focus{outline: 0;}
 @media screen and (max-width: 760px) {
   body{padding-top:77px;}
   .brand{display: none;}
-  .u-header{position: fixed;top: 0;left: 0;right: 0;text-align: center;padding: 15px 0;z-index: 9999;height: 62px;}
+  .u-header{top: 0;left: 0;right: 0;text-align: center;;z-index: 9999;height: 100px;}
   .u-header .header-container{margin: 0; }
 
   .logo{float: none;text-align: center;max-width: 100%;}
   .logo a{max-width: 180px;margin: 0 auto;text-align: center;}
-  .logo img{margin: 0 auto}
+  .logo img{margin: 0 auto; padding:15px 0 25px 0; max-height: 100px;}
 
   .topbar{display: none;}
 
@@ -165,7 +165,7 @@ a:focus{outline: 0;}
   .m-nav-show .m-mask{display: block;position: fixed;top: 0;right: 0;left: 0;bottom: 0;background-color: rgba(0,0,0,0.5);z-index: 99998;overflow: hidden;}
   .m-nav-show .m-icon-nav{color: #45B6F7;}
 
-
+  .navto-search{display:none}
   .site-search{top: -100px;}
   .search .site-search{top: 0}
   .site-navbar li.navto-search{position: absolute;top: -15px;right: 0;border-bottom: none;}

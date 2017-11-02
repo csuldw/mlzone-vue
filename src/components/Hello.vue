@@ -1,6 +1,7 @@
 <template>
 	<div class="g-container">
      <header-select></header-select>
+    <div style="height:100px;"></div>
     <!--<h1> {{msg}}</h1>-->
     <!--<h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>-->
 		<div class="g-container-up">
@@ -58,30 +59,25 @@
             </li>
           </ul>
         </div>
-        <div class="u-post-tag">
-          <h1>right tag</h1>
-        </div>
-        <div class="u-post-tag">
-          <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
-            <div class="items">
-              <a href="#">前端技巧 (61)</a>
-              <a href="#">CSS (53)</a>
-              <a href="#">JavaScript (50)</a>
-              <a href="#">用户体验 (46)</a>
-              <a href="h#">设计思路 (43)</a>
-              <a href="/tag/html5">HTML5 (40)</a>
-              <a href="">SEO (40)</a>
-              <a href="">网页设计 (40)</a>
-              <a href="">CSS3 (37)</a>
-              <a href="://../tag/professional">职业 (34)</a>
-              <a href="://../tag/front-resources">前端资源 (33)</a>
-              <a href="://..com/tag/daqianduan">大前端 (31)</a>
-              <a href="://..com/tag/company">企业公司 (30)</a>
-            </div>
+        <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
+          <div class="items">
+            <a href="#">前端技巧 (61)</a>
+            <a href="#">CSS (53)</a>
+            <a href="#">JavaScript (50)</a>
+            <a href="#">用户体验 (46)</a>
+            <a href="h#">设计思路 (43)</a>
+            <a href="/tag/html5">HTML5 (40)</a>
+            <a href="">SEO (40)</a>
+            <a href="">网页设计 (40)</a>
+            <a href="">CSS3 (37)</a>
+            <a href="://../tag/professional">职业 (34)</a>
+            <a href="://../tag/front-resources">前端资源 (33)</a>
+            <a href="://..com/tag/daqianduan">大前端 (31)</a>
+            <a href="://..com/tag/company">企业公司 (30)</a>
           </div>
         </div>
-        <div class="u-post-archive">
-          <h1>right</h1>
+        <div class="u-widget u-post-archive">
+          <h1>archive</h1>
         </div>
       </div>
 		</div>
@@ -94,6 +90,7 @@ import header from './base/header.vue';
 import footer from './base/footer.vue';
 
 export default {
+
   components: {
     'header-select': header,
     'footer-select': footer
@@ -152,6 +149,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+    height: 320px !important;
+  }
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+    height: 320px !important;
+  }
 .el-carousel__item h3 {
 	color: #475669;
 	font-size: 14px;

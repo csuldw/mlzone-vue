@@ -1,7 +1,8 @@
 <template>
+  <div style=""><!--position: fixed; width:100%;z-index: 9999-->
   <header class="u-header">
     <div class="header-container">
-      <h1 class="logo"><a href="http://www.csuldw.com/" title="机器学习-MLZone"><img src="http://www.daqianduan.com/wp-content/uploads/2015/01/logo.png">MLZone社区</a></h1>
+      <h1 class="logo"><a href="http://www.csuldw.com/" title="机器学习-MLZone"><img src="../../assets/images/log.png">MLZone社区</a></h1>
       <div class="brand">机器学习社区<br>MLZone 天地</div>
       <ul class="site-nav site-navbar">
         <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="#">首页</a></li>
@@ -20,17 +21,20 @@
       </ul>
       <div class="topbar">
         <ul class="site-nav topmenu">
-          <li id="menu-item-6360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6360"><a href="http://www.daqianduan.com/contact">联系站长</a></li>
-          <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6362"><a href="http://www.daqianduan.com/job-new">免费投稿</a></li>
-          <li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="http://www.daqianduan.com/links">友情链接</a></li>
+          <li id="menu-item-6360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6360"><a href="#">联系站长</a></li>
+          <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6362"><a href="#">免费投稿</a></li>
+          <li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="#s">友情链接</a></li>
           <li class="menusns">
-            <a href="javascript:;">关于本站 <i class="fa fa-angle-down"></i></a>
+            <a href="javascript:;">关于本站
+              <!--<i class="fa fa-angle-down"></i>-->
+            </a>
           </li>
         </ul>
       </div>
       <!--<i class="fa fa-bars m-icon-nav"></i>-->
     </div>
   </header>
+  </div>
   <!--<div class="site-search">-->
   <!--<div class="container">-->
   <!--<form method="get" class="site-search-form" action="#"><input class="search-input" name="s" type="text" placeholder="输入关键字" value=""><button class="search-btn" type="submit"><i class="fa fa-search"></i></button></form>	</div>-->

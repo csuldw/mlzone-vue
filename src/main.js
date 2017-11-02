@@ -10,8 +10,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import './assets/css/common.css'
 
-//import './assets/js/bootstrap.min.js'
-//import './assets/css/bootstrap.min.css'
+import './assets/js/bootstrap.min.js'
+import './assets/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.css'
 
 // Vue.use(VueResource);
