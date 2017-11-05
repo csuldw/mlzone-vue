@@ -1,0 +1,50 @@
+### 主要功能设计
+
+1. 界面设计
+2. 自适应功能
+
+参考
+
+1. http://www.daqianduan.com/
+2. https://themebetter.com/
+3. http://www.uugai.com/logoa/logokc.php:log制作网站
+
+主页三部分
+
+1. header
+	- 菜单栏
+		- 首页
+		- 机器学习
+		- 深度学习
+		- 开源传送门：我的开源项目和机器学习相关开源库传送门
+		- 生活天地
+		- 关于本站
+		<!-- - 文章归档：展示效果分多种，有直接按日期倒排、先按类别再按日期排列、先按标签再按日期排列等 -->
+	- 搜索框
+2. main主体：
+	- 轮显展示
+	- 最新发布
+	- 好文推荐
+	- 网站公告
+	- 文章类别   机器学习 大数据 自然语言处理
+	- 标签云
+	- 文章归档
+	- 我的开源项目
+3. footer
+	- 声明相关
+
+```
+this a latex file
+L
+```
+
+
+> fdsajfkldjsalkfsd
+
+注意在src中增加bootsrap，添加css、js和fonts三个文件/目录。
+
+- /src/assets/css/bootstrap.min.css
+- /src/assets/js/bootstrap.min.js
+- /src/assets/fonts/*
+
+这三个文件来自bootstrap中

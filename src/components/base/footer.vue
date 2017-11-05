@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import '../../assets/css/header.css'; //引入外部css
+  import '../../assets/css/header.styl'; //引入外部css
 
   export default {
   name: 'footer',

@@ -2,23 +2,30 @@
   <div style=""><!--position: fixed; width:100%;z-index: 9999-->
   <header class="u-header">
     <div class="header-container">
-      <h1 class="logo"><a href="http://www.csuldw.com/" title="机器学习-MLZone"><img src="../../assets/images/log.png">MLZone社区</a></h1>
+
+      <h1 class="logo">
+        <a href="http://www.csuldw.com/" title="机器学习-MLZone">
+          <img src="../../assets/images/log.png">MLZone社区
+        </a>
+      </h1>
       <div class="brand">机器学习社区<br>MLZone 天地</div>
-      <ul class="site-nav site-navbar">
-        <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="#">首页</a></li>
-        <li id="menu-item-4244" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4244"><a href="#">机器学习</a>
-          <!--<ul class="sub-menu">-->
-          <!--<li id="menu-item-4438" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4438"><a href="#">HTML/CSS</a></li>-->
-          <!--<li id="menu-item-4439" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4439"><a href="#">JavaScript</a></li>-->
-          <!--<li id="menu-item-4437" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4437"><a href="#">技巧资源</a></li>-->
-          <!--</ul>-->
-        </li>
-        <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154"><a href="#">深度学习</a></li>
-        <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a rel="relexternal nofollow" href="#">开源传送门</a></li>
-        <li id="menu-item-5012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5012"><a href="#">生活天地</a></li>
-        <!--<li id="menu-item-6365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6365"><a target="_blank" href="#">关于本站</a></li>-->
-        <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
-      </ul>
+      <div class="nav-container">
+        <ul class="site-nav site-navbar">
+          <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="#">首页</a></li>
+          <li id="menu-item-4244" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4244"><a href="#">机器学习</a>
+            <!--<ul class="sub-menu">-->
+            <!--<li id="menu-item-4438" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4438"><a href="#">HTML/CSS</a></li>-->
+            <!--<li id="menu-item-4439" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4439"><a href="#">JavaScript</a></li>-->
+            <!--<li id="menu-item-4437" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4437"><a href="#">技巧资源</a></li>-->
+            <!--</ul>-->
+          </li>
+          <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154"><a href="#">深度学习</a></li>
+          <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a rel="relexternal nofollow" href="#">开源传送门</a></li>
+          <li id="menu-item-5012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5012"><a href="#">生活天地</a></li>
+          <!--<li id="menu-item-6365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6365"><a target="_blank" href="#">关于本站</a></li>-->
+          <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
+        </ul>
+      </div>
       <div class="topbar">
         <ul class="site-nav topmenu">
           <li id="menu-item-6360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6360"><a href="#">联系站长</a></li>
@@ -33,6 +40,7 @@
       </div>
       <!--<i class="fa fa-bars m-icon-nav"></i>-->
     </div>
+    <div style="height:10px;"></div>
   </header>
   </div>
   <!--<div class="site-search">-->
@@ -45,7 +53,7 @@
 </template>
 
 <script>
-  import '../../assets/css/header.css'; //引入外部css
+  import '../../assets/css/header.styl'; //引入外部css
   import $ from 'jquery'
 
 

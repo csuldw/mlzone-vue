@@ -1,7 +1,7 @@
 <template>
 	<div class="g-container">
      <header-select></header-select>
-    <div style="height:100px;"></div>
+    <!--<div style="height:100px;"></div>-->
     <!--<h1> {{msg}}</h1>-->
     <!--<h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>-->
 		<div class="g-container-up">
@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import '../assets/css/grid.css'; //引入外部css
+import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
 

@@ -1,26 +1,34 @@
 ul{list-style: none;}
-a{color: #666 !important;; text-decoration: none !important;}
-a:hover{color: #45B6F7 !important;; text-decoration: none;}
-a:focus{outline: 0;}
+a{
+  color: #666 !important;
+  text-decoration: none !important;
+  &:hover{color: #45B6F7 !important; text-decoration: none;}
+  &:focus{outline: 0;}
+}
 
 .u-header{
-  max-width: 1200px;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9;
   background-color: #fff;
-  padding: 40px 20px 0 20px;
+  padding: 40px 20px 30px 20px;
   /*border-bottom: 1px solid #EAEAEA;*/
   border-color: rgba(0,0,0,.08);
   box-shadow: 0 1px 3px rgba(0,0,0,.03)
+  min-height: 80px;
 }
 
 .header-container{
+  max-width: 1200px;
   position: relative;
-  max-width: 86%;
   padding: 0;
+  margin: 0 auto;
+  ul li {
+    list-style: none
+    font-size: 1em
+  }
 }
 
 /* logo ======================================================================================================== */
@@ -28,14 +36,14 @@ a:focus{outline: 0;}
   overflow: hidden;
   float:left;
   margin-top: -20px;
+  a{
+    height: 62px;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+  }
+  img{vertical-align: top;max-height: 60px;display: block;margin-bottom: 32px;}
 }
-.logo a{
-  height: 62px;
-  display: block;
-  overflow: hidden;
-  font-size: 0;
-}
-.logo img{vertical-align: top;max-height: 60px;display: block;margin-bottom: 32px;}
 
 .brand{
   font-size: 14px;
@@ -51,6 +59,10 @@ a:focus{outline: 0;}
   height: 30px;
 }
 
+.nav-container{
+
+}
+
 
 /* site-navbar ======================================================================================================== */
 
@@ -58,62 +70,58 @@ a:focus{outline: 0;}
   float: right;
   font-size: 1.2em;
   margin-top: 7px;
-  margin-right: -18%;
+  li{
+    position: relative;
+    float: left;
+    &:hover{z-index: 2}
+  }
+  a{
+    display: block;
+    padding: 0 13px;
+    color: #666;
+  }
+  .fa{width: 15px;}
+  .fa-angle-down{width: 11px;}
 }
-.site-navbar li{
-  position: relative;
-  float: left;
-}
-.site-navbar li:hover{z-index: 2}
-.site-navbar a{
-  display: block;
-  padding: 0 15px;
-  color: #666;
-}
-.site-navbar li:hover > a,
-.site-navbar li.active a:hover,
-.site-navbar a:hover{
-  color: #45B6F7;
-}
-
-.site-navbar .fa{width: 18px;}
-.site-navbar .fa-angle-down{width: 11px;}
+//.site-navbar li:hover > a,
+//.site-navbar li.active a:hover,
+//.site-navbar a:hover{
+//  color: #45B6F7;
+//}
 
 .search-on .site-navbar li.navto-search a{color: #45B6F7;}
 
-.topbar .fa{width: 14px;}
-.topbar .fa-angle-down{width: 9px;}
+/* topbar ======================================================================================================== */
 .topbar{
   position: absolute;
   top: -29px;
   left: 0;right: 0;
   margin-bottom: 20px;
-  margin-right: -13%;
   color: #999;
-}
-.topbar a{
-  color: #999;
-}
-.topbar a:hover{
-  color: #45B6F7;
+  .fa{width: 14px;}
+  .fa-angle-down{width: 9px;}
+  a{
+    color: #999;
+    &:hover{
+      color: #45B6F7;
+    }
+  }
 }
 .topmenu{
   float: right;
+  li{
+    position: relative;
+    float: left;
+    &:hover{z-index: 2}
+  }
+  a{
+    display: block;
+    padding: 0 15px;
+    color: #999;
+  }
+  .red{color: #FF5E52;display: inline-block;}
+  .red:hover{color: #FF5E52;text-decoration: underline;}
 }
-.topmenu li{
-  position: relative;
-  float: left;
-}
-.topmenu li:hover{z-index: 2}
-.topmenu a{
-  display: block;
-  padding: 0 15px;
-  color: #999;
-}
-
-
-.topmenu .red{color: #FF5E52;display: inline-block;}
-.topmenu .red:hover{color: #FF5E52;text-decoration: underline;}
 
 .site-nav .sub-menu{display: none;position: absolute;top: 100%;left: 0;background-color: #fff;font-size: 13px;padding: 10px 0;border: 1px solid #ddd;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);line-height: 32px;width: 132px;font-weight: bold;border-radius: 4px;}
 .site-nav ul .sub-menu{left: 100%;top: -7px;border-radius: 0}
@@ -125,8 +133,7 @@ a:focus{outline: 0;}
 
 .m-icon-nav{display: none;}
 
-@media screen and (max-width: 760px) {
-  body{padding-top:77px;}
+@media screen and (max-width: 831px) {
   .brand{display: none;}
   .u-header{top: 0;left: 0;right: 0;text-align: center;;z-index: 9999;height: 100px;}
   .u-header .header-container{margin: 0; }
