@@ -32,7 +32,7 @@ $(function () {
     if (sTop >= 79 ) {
       let obj = $(".u-post-right")
       let sideWidth = obj.css("width");
-      obj.css({"position": "fixed", "top": "10px", "width": sideWidth});
+      obj.css({"position": "fixed", "top": "0px", "width": sideWidth});
     }else {
       $(".u-post-right").css({"position": "relative", "top": "0px", "min-width": "20%"});
     }

@@ -3,13 +3,13 @@
      <header-select></header-select>
 		<div class="g-container-down">
       <div class="g-container-wrap">
-        <div class="g-content">
-          <div class="">
+        <div class="g-page-sidebar">
+          <div class="u-page-left">
 
           </div>
         </div>
       </div>
-      <div class="g-sidebar">
+      <div class="g-page-container">
         <div class=" ">
 
         </div>
