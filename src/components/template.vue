@@ -1,7 +1,6 @@
 <template>
 	<div class="g-container">
      <header-select></header-select>
-    <div style="height:100px;"></div>
 		<div class="g-container-down">
       <div class="g-container-wrap">
         <div class="g-content">
