@@ -29,7 +29,7 @@ $(function () {
   $(window).bind("scroll", function () {
     var sTop = $(window).scrollTop();
     var sTop = parseInt(sTop);
-    if (sTop >= 79 ) {
+    if (sTop >= 100 ) {
       let obj = $(".u-post-right")
       let sideWidth = obj.css("width");
       obj.css({"position": "fixed", "top": "0px", "width": sideWidth});
