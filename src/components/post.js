@@ -34,7 +34,9 @@ $(function () {
       let sideWidth = obj.css("width");
       obj.css({"position": "fixed", "top": "0px", "width": sideWidth});
     }else {
-      $(".u-post-right").css({"position": "relative", "top": "0px", "min-width": "20%"});
+      let obj = $(".u-post-right")
+      obj.css("width", "");
+      obj.css({"position": "relative", "top": "0px", "min-width": "20%"});
     }
   });
 })
