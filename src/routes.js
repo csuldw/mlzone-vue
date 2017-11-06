@@ -11,6 +11,11 @@ const routes = [
     component: Hello
   },
   {
+    path: '/index',
+    name: 'Hello',
+    component: Hello
+  },
+  {
     path: '/page',
     name: 'Page',
     component: Page
