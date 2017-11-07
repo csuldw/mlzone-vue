@@ -21,6 +21,11 @@ const routes = [
     component: Page
   },
   {
+    path: '/postPage/:pageTitle',
+    name: 'PostPage',
+    component: Page
+  },
+  {
     path: '/post',
     name: 'Post',
     component: Post

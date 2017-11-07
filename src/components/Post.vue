@@ -47,9 +47,15 @@
             <p><b id="article-toc-title" title="收起" style="cursor:pointer;">目录[-]</b></p>
             <div id="article-toc-content"> </div>
           </div>
-        <p id="back-to-top"><a href="#" onclick="return false"><span><i class="fa fa-chevron-up" aria-hidden="true"></i></span></a></p>
+        <!--<p id="back-to-top">-->
+          <!--<a href="#" onclick="return false">-->
+            <!--<span><i class="fa fa-chevron-up" aria-hidden="true"></i>-->
+            <!--</span>-->
+          <!--</a>-->
+        <!--</p>-->
       </div>
 		</div>
+    <footer-select></footer-select>
 	</div>
 </template>
 
@@ -57,5 +63,4 @@
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

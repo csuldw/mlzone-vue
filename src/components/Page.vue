@@ -11,7 +11,8 @@
       </div>
       <div class="g-page-container">
           <div class="u-page-title">
-            <h1>{{pageTitle}}</h1>
+            <!--<h1>{{ $route.query.pageTitle }}</h1>-->
+            <h1>{{ $route.params.pageTitle }}</h1>
           </div>
           <div class="u-page-content">
             <article class="u-article-excerpt u-excerpt-page">
@@ -48,6 +49,7 @@
           </div>
       </div>
 		</div>
+    <footer-select></footer-select>
 	</div>
 </template>
 

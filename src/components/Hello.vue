@@ -81,6 +81,7 @@
         </div>
       </div>
 		</div>
+    <footer-select></footer-select>
 	</div>
 </template>
 

@@ -1,12 +1,44 @@
 <template>
-  <div id="footer">
-      {{msg}}
+  <div id="footer" class="g-container-footer">
+      <footer class="footer">
+        <div class="footer-inner"> <div class="copyright">
+          ©  2014 -
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love"><i class="icon-next-heart fa fa-heart"></i></span>
+          <span class="author" itemprop="copyrightHolder">刘帝伟</span>
+        </div>
+        <div class="powered-by">
+          Powered by <a class="theme-link" href="http://www.csuldw.com">@csuldw</a>
+        </div>
+        <div class="theme-info">
+          Theme -
+          <a class="theme-link" href="#">
+            MLZone
+          </a>
+          <span id="">
+            &nbsp; | &nbsp;  用户量: 10,000
+            <span id=""></span>
+          </span>
+          <span id="">
+            &nbsp; | &nbsp;  总访问量: 9,000,000
+            <span id=""></span>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <p id="back-to-top">
+      <a href="#" onclick="return false">
+            <span><i class="fa fa-chevron-up" aria-hidden="true"></i>
+            </span>
+      </a>
+    </p>
     </div>
 </template>
 
 <script>
+  import '../../assets/css/grid.styl';
   import '../../assets/css/header.styl'; //引入外部css
-
+  import '../../assets/css/footer.styl'
   export default {
   name: 'footer',
   data () {
@@ -18,11 +50,5 @@
 </script>
 
 <style>
-#footer {
-  background-color: #fff;
-  height: 40px;
-  padding: 10px 60px;
-  position: relative;
-  z-index: 2;
-}
+
 </style>
