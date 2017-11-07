@@ -5,6 +5,12 @@
       <div class="g-container-wrap">
         <div class="g-page-sidebar">
           <div class="u-page-left">
+            <h1>{{ $route.params.pageTitle }}</h1>
+          </div>
+          <div class="u-page-left" >
+            this is a sidenav;
+          </div>
+          <div class="u-page-left">
             this is a sidenav;
           </div>
         </div>
