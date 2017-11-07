@@ -1,4 +1,4 @@
-import Hello from '@/components/Hello.vue'
+import Hello from './components/Home.vue'
 import Page from '@/components/Page.vue'
 import Post from '@/components/Post.vue'
 import BugManagement from './components/bugManagement/BugManagement.vue'
