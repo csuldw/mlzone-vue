@@ -1,6 +1,7 @@
 import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
+import comment from './base/comment.vue';
 import marked from 'marked'
 import axios from 'axios'
 import '../assets/css/marked.styl'; //引入外部css
@@ -44,7 +45,8 @@ $(function () {
 export default {
   components: {
     'header-select': header,
-    'footer-select': footer
+    'footer-select': footer,
+    'comment-select':comment
   },
   data () {
     return {

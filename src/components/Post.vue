@@ -55,6 +55,7 @@
         <!--</p>-->
       </div>
 		</div>
+    <comment-select></comment-select>
     <footer-select></footer-select>
 	</div>
 </template>
@@ -63,4 +64,5 @@
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>
