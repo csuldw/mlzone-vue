@@ -2,7 +2,7 @@
 	<div class="g-container">
      <header-select></header-select>
 		<div class="g-container-down">
-      <div class="g-container-wrap">
+      <div class="g-container-wrap" id="container-wrap">
         <div class="g-post-container">
           <div class="u-post-main">
             <header class="u-post-header">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="g-post-sidebar">
+      <div class="g-post-sidebar" id="post-sidebar">
         <div class="u-post-right" id="article-toc" >
             <p><b id="article-toc-title" title="收起" style="cursor:pointer;">目录[-]</b></p>
             <div id="article-toc-content"> </div>
@@ -54,8 +54,10 @@
           <!--</a>-->
         <!--</p>-->
       </div>
-		</div>
-    <comment-select></comment-select>
+    </div>
+    <div class="g-post-plugin-comment">
+      <comment-select></comment-select>
+    </div>
     <footer-select></footer-select>
 	</div>
 </template>

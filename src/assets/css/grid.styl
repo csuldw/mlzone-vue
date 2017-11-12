@@ -110,6 +110,11 @@ body{
   BACKGROUND-COLOR: #FFF;
 }
 
+.g-post-plugin-comment{
+  width:100%;
+  //border-top: 1px solid #e4dddd;
+}
+
 .u-article-recent{
   width: 100%;
   padding: 5px;
@@ -441,7 +446,7 @@ img {
 
 @media screen and (max-width: 1023px) {
   .g-content{margin-right: 0;}
-  .g-sidebar {display: none;}
+  .g-sidebar {display: none !important;}
   .g-container-up{display: none;}
   .topbar{display: none;}
   .nav-container{text-align: center  }
@@ -463,7 +468,14 @@ img {
   //body{padding-top:77px;}
 //.site-navbar > li[id]{display: none;}
   .g-post-container { width: 100%; }
-  .u-post-right{ display: none}
+  .u-post-right{ display: none !important}
+  .g-container-comment{width: 100%;}
+  .g-container-comment {
+    float: left;
+    width: 90%;
+    margin: 0 3% 3% 2%;
+    border-top: 1px solid #e4dddd;
+  }
   /*body{-webkit-transition-duration:500ms;}*/
 
 

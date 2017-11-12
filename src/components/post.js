@@ -27,12 +27,19 @@ $(function() {
 
 $(function () {
   //绑定滚动条事件
+  var containerWrap = document.getElementById("container-wrap");
+  // let wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
   $(window).bind("scroll", function () {
     var sTop = $(window).scrollTop();
     var sTop = parseInt(sTop);
-    if (sTop >= 100 ) {
+    var wrapHeight = containerWrap.offsetHeight; //高度
+    if(sTop > wrapHeight) {
+      let obj = $(".u-post-right");
+      obj.css({"display": "none"});
+    }else if (sTop >= 100 && sTop < wrapHeight) {
       let obj = $(".u-post-right")
       let sideWidth = obj.css("width");
+      obj.css({"display": "block"});
       obj.css({"position": "fixed", "top": "0px", "width": sideWidth});
     }else {
       let obj = $(".u-post-right")
@@ -40,6 +47,7 @@ $(function () {
       obj.css({"position": "relative", "top": "0px", "min-width": "20%"});
     }
   });
+
 })
 
 export default {
