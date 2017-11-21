@@ -41,6 +41,9 @@
             <div v-html="compiledMarkdown" style="display: none"></div>
           </div>
         </div>
+        <div class="g-post-plugin-comment">
+          <comment-select></comment-select>
+        </div>
       </div>
       <div class="g-post-sidebar" id="post-sidebar">
         <div class="u-post-right" id="article-toc" >
@@ -54,10 +57,7 @@
           <!--</a>-->
         <!--</p>-->
       </div>
-    </div>
-    <div class="g-post-plugin-comment">
-      <comment-select></comment-select>
-    </div>
+    </div> 
     <footer-select></footer-select>
 	</div>
 </template>
