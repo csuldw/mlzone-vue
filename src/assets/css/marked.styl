@@ -79,12 +79,11 @@ ul{
 li ul { margin: 1em 0; padding: 0 0 0 2em; }
 
 .u-post-content pre {
-  //padding: 10.5px;
-
+  padding: 1px;
 }
 
 pre code {
- white-space: inherit !important;
+  white-space: inherit !important;
   line-height 1.6em;
   font-size: 14px !important;
 }
@@ -94,21 +93,29 @@ pre code {
 
 .hljs {
   overflow-x: visible;
-  padding: 0 30px;
-
+  padding: 0 50px;
+  margin-top:10px;
 }
 
 .pre-numbering {
+  margin-top:10px;
   float:left;
   position: relative;
-  width: 20px;
+  width: 30px;
   background-color: #EEE;
   text-align: left;
   font-size: 14px;
+  overflow-y: visible;
   li{
     list-style: none;
     line-height: 1.8em;
     vertical-align: middle;
+    text-align:right;
+    margin-right:10px;
   }
+  ul{
+    margin-bottom: 0;
+  }
+  border-right: 2px solid #68ef34;
 }
-pre ul {padding:0;}
+pre ul {padding:0; }
