@@ -73,14 +73,42 @@ ul{
   border: none;
   margin: 0;
   padding: 1px;
+  overflow: scroll;
 }
 
 li ul { margin: 1em 0; padding: 0 0 0 2em; }
 
 .u-post-content pre {
   padding: 10.5px;
+
 }
 
 pre code {
-  white-space: inherit !important;
+ white-space: inherit !important;
+  line-height 1.6em;
+  font-size: 14px !important;
 }
+
+.has-numbering {
+}
+
+.hljs {
+  overflow-x: visible;
+  padding: 0 30px;
+
+}
+
+.pre-numbering {
+  float:left;
+  position: relative;
+  width: 20px;
+  background-color: #EEE;
+  text-align: left;
+  font-size: 14px;
+  li{
+    list-style: none;
+    line-height: 1.8em;
+    vertical-align: middle;
+  }
+}
+pre ul {padding:0;}
