@@ -25,28 +25,43 @@ $(function() {
   });
 })
 
+var exchange = function(a,b){
+  var n = a.next(), p = b.prev();
+  b.insertBefore(n);
+  a.insertAfter(p);
+};
+
 $(function () {
   //绑定滚动条事件
-  var containerWrap = document.getElementById("container-wrap");
+
   // let wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
   $(window).bind("scroll", function () {
     var sTop = $(window).scrollTop();
     var sTop = parseInt(sTop);
+    var containerWrap = document.getElementById("container-wrap");
+    // var wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
     var wrapHeight = containerWrap.offsetHeight; //高度
+    console.log("wrapHeight:" + wrapHeight)
+    console.log("sTop:" + sTop)
     if(sTop > wrapHeight) {
+      console.log("a")
       let obj = $(".u-post-right");
       obj.css({"display": "none"});
     }else if (sTop >= 100 && sTop < wrapHeight) {
+      console.log("b")
       let obj = $(".u-post-right")
       let sideWidth = obj.css("width");
       obj.css({"display": "block"});
       obj.css({"position": "fixed", "top": "0px", "width": sideWidth});
     }else {
+      console.log("c")
       let obj = $(".u-post-right")
       obj.css("width", "");
       obj.css({"position": "relative", "top": "0px", "min-width": "20%"});
     }
   });
+
+
 
 })
 
@@ -135,6 +150,22 @@ export default {
       });
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]); //每次加载数据之后就加载一次mathjax
       $("#article-toc-content").append(content)
+      hljs.initHighlightingOnLoad();
+      $('pre code').each(function(i, block) {
+        //hljs.highlightBlock(block);
+        var lines = $(this).text().split('\n').length - 1;
+        var $numbering = $('<ul/>').addClass('pre-numbering');
+
+        for(i=1;i<=lines;i++){
+          $numbering.append($('<li/>').text(i));
+        }
+        $numbering.insertBefore($(this));
+        $(this)
+          .addClass('has-numbering')
+        // .parent()
+        // .append($numbering)
+
+      });
       return ""
     },
   },
@@ -155,7 +186,7 @@ export default {
       });
     },
     getFileContent: function () {
-      axios.get('/static/data/2016-08-28-adaboost-algorithm-theory.md').then((res) => {
+      axios.get('/static/data/2017-11-21-api.md').then((res) => {
         var result = res.data
         this.input = marked(result)
       })
