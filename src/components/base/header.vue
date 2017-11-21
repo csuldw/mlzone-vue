@@ -38,14 +38,10 @@
       </div>
       <div class="topbar">
         <ul class="site-nav topmenu">
-          <li id="menu-item-6360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6360"><a href="#">联系站长</a></li>
-          <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6362"><a href="#">免费投稿</a></li>
-          <li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="#s">友情链接</a></li>
-          <li class="menusns">
-            <a href="javascript:;">关于本站
-              <!--<i class="fa fa-angle-down"></i>-->
-            </a>
-          </li>
+          <li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="#/links">友情链接</a></li>
+          <li id="menu-item-6360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6360"><a href="#/contact">联系站长</a></li>
+          <!--<li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6362"><a href="#">免费投稿</a></li>-->
+          <li class="menusns"> <a href="#/about">关于本站     <!--<i class="fa fa-angle-down"></i>-->  </a> </li>
         </ul>
       </div>
       <!--<i class="fa fa-bars m-icon-nav"></i>-->
