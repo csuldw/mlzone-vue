@@ -24,7 +24,7 @@
           </li>
           <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154">
             <!--<router-link :to="{ path: 'page', query: { pageTitle: '深度学习' }}">深度学习</router-link>-->
-            <router-link :to="{ name: 'PostPage', params: { pageTitle: '深度学习' }}">机器学习</router-link>
+            <router-link :to="{ name: 'PostPage', params: { pageTitle: '深度学习' }}">深度学习</router-link>
           </li>
 
           <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015">

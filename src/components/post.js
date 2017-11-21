@@ -41,8 +41,8 @@ $(function () {
     var containerWrap = document.getElementById("container-wrap");
     // var wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
     var wrapHeight = containerWrap.offsetHeight; //高度
-    console.log("wrapHeight:" + wrapHeight)
-    console.log("sTop:" + sTop)
+    // console.log("wrapHeight:" + wrapHeight)
+    // console.log("sTop:" + sTop)
     if(sTop > wrapHeight) {
       console.log("a")
       let obj = $(".u-post-right");
@@ -151,21 +151,7 @@ export default {
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]); //每次加载数据之后就加载一次mathjax
       $("#article-toc-content").append(content)
       hljs.initHighlightingOnLoad();
-      $('pre code').each(function(i, block) {
-        //hljs.highlightBlock(block);
-        var lines = $(this).text().split('\n').length - 1;
-        var $numbering = $('<ul/>').addClass('pre-numbering');
-
-        for(i=1;i<=lines;i++){
-          $numbering.append($('<li/>').text(i));
-        }
-        $numbering.insertBefore($(this));
-        $(this)
-          .addClass('has-numbering')
-        // .parent()
-        // .append($numbering)
-
-      });
+      this.initCode()
       return ""
     },
   },
@@ -191,5 +177,22 @@ export default {
         this.input = marked(result)
       })
     },
+    initCode: function () {
+      $('pre code').each(function(i, block) {
+        //hljs.highlightBlock(block);
+        var lines = $(this).text().split('\n').length - 1;
+        var $numbering = $('<ul/>').addClass('pre-numbering');
+
+        for(i=1;i<=lines;i++){
+          $numbering.append($('<li/>').text(i));
+        }
+        $numbering.insertBefore($(this));
+        $(this)
+          .addClass('has-numbering')
+        // .parent()
+        // .append($numbering)
+
+      });
+    }
   }
 }

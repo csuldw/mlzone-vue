@@ -58,7 +58,6 @@ ul{
   -webkit-padding-start: 40px;
 }
 
-
 .post pre, .post .highlight {
   background: #f7f7f7;
   margin: 20px 0;
@@ -79,36 +78,39 @@ ul{
 li ul { margin: 1em 0; padding: 0 0 0 2em; }
 
 .u-post-content pre {
-  padding: 1px;
+  padding: 10px 1px;
+  background-color: #f8f8f8;
 }
 
 pre code {
   white-space: inherit !important;
-  line-height 1.6em;
+  line-height 1.4em;
   font-size: 14px !important;
 }
 
-.has-numbering {
+code .has-numbering {
+  padding-top: 10px;
 }
 
 .hljs {
   overflow-x: visible;
-  padding: 0 50px;
-  margin-top:10px;
+  padding: 0px 50px;
+  margin-top:0;
+  line-height: 1.3em;
 }
 
 .pre-numbering {
-  margin-top:10px;
+  margin:0 15px 0 0;
   float:left;
   position: relative;
-  width: 30px;
-  background-color: #EEE;
+  width: 40px;
+  background-color: #f8f8f8;
   text-align: left;
-  font-size: 14px;
+  font-size: 1em;
   overflow-y: visible;
   li{
     list-style: none;
-    line-height: 1.8em;
+    line-height: 1.6em;
     vertical-align: middle;
     text-align:right;
     margin-right:10px;
@@ -117,5 +119,6 @@ pre code {
     margin-bottom: 0;
   }
   border-right: 2px solid #68ef34;
+  //padding-top: 10px;
 }
 pre ul {padding:0; }
