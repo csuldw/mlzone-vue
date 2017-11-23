@@ -59,6 +59,7 @@
             </li>
           </ul>
         </div>
+
         <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
           <div class="items">
             <a href="#">前端技巧 (61)</a>
@@ -77,7 +78,36 @@
           </div>
         </div>
         <div class="u-widget u-post-archive">
-          <h1>archive</h1>
+          <h3>我的开源项目 <a href="https://github.com/csuldw?tab=repositories" target="_blank"><span style="font-size: 1em;float: right;">更多 »</span></a></h3>
+          <ul class="open-source-content">
+            <li>
+              <div>
+                <h5 class="prog-title">机器学习相关算法 <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=MachineLearning&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"></iframe></h5>
+                <p class="prog-detail">机器学习算法代码及个人总结整理，对于算法实现部分，在相应目录中都包含有源码和数据以及测试实例。</p>
+                <p class="prog-detail">地址：<a href="https://github.com/csuldw/MachineLearning" target="_blank">https://github.com/csuldw/MachineLearning</a></p>
+              </div>
+            </li>
+            <li class="mt10">
+              <div>
+                <h5 class="prog-title">WSpider <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=WSpider&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"></iframe></h5>
+                <p class="prog-detail">一个用于爬取新浪微博的爬虫项目.</p>
+                <p class="prog-detail">地址：<a href="https://github.com/csuldw/WSpider" target="_blank">https://github.com/csuldw/WSpider</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="u-widget u-post-archive">
+          <h3>归档</h3>
+          <ul class="archive-content">
+            <div class="archive-list">
+              <li><span class="archive-detail"> <a href="https://github.com/csuldw/MachineLearning" target="_blank">2017年10月</a>（3）</span></li>
+              <li><span class="archive-detail"> <a href="https://github.com/csuldw/MachineLearning" target="_blank">2017年09月</a>（13）</span></li>
+              <li><span class="archive-detail"> <a href="https://github.com/csuldw/MachineLearning" target="_blank">2017年08月</a>（33）</span></li>
+              <li><span class="archive-detail"> <a href="https://github.com/csuldw/MachineLearning" target="_blank">2017年07月</a>（23）</span></li>
+              <li><span class="archive-detail"> <a href="https://github.com/csuldw/MachineLearning" target="_blank">2017年06月</a>（3）</span></li>
+              <li><span class="archive-detail"> <a href="https://github.com/csuldw/MachineLearning" target="_blank">2017年05月</a>（43）</span></li>
+            </div>
+          </ul>
         </div>
       </div>
 		</div>
@@ -214,4 +244,22 @@ export default {
 .g-container-down-infos{
 	padding: 20px 0 20px 0;
 }
+  .archive-content li{
+    list-style: none;
+    padding-top: 5px;
+  }
+  .open-source-content li{
+    padding-top: 5px;
+  }
+  .open-source-content li{color:#CCC}  /*点的颜色*/
+  .open-source-content li div{color:#666666}  /*字的颜色*/
+
+  .archive-content{
+    padding: 10px 0 0 30px;
+  }
+
+  .u-post-archive ul{
+    padding-left: 28px;
+  }
+
 </style>
