@@ -7,6 +7,7 @@ import axios from 'axios'
 import '../assets/css/marked.styl'; //引入外部css
 import '../assets/css/highlight/highlight.styl'; //引入外部css
 import '../assets/js/back-to-top.js'; //引入外部css
+import {getArticleListByPage, getArticleCategoryListByParam} from '../api/api';
 
 $(function() {
   $(".anchor-link").click(function () {
@@ -74,7 +75,12 @@ export default {
   data () {
     return {
       input: 'abcd \n ```fdsafs```',
-      tocContent: "a"
+      tocContent: "a",
+      articleList:[],
+      filters : {
+        pageNum: 1,
+        pageSize: 10
+      },
     }
   },
   mounted() {
@@ -193,6 +199,17 @@ export default {
         // .append($numbering)
 
       });
-    }
+    },
+    getArticleInfos() {
+      let para = this.filters;
+      console.log(para.pageNum)
+      this.listLoading = true;
+      getArticleListByPage(para).then((res) => {
+        this.total = res.data.total;//res.data.total;
+        this.articleList = res.data.list; //res.data.articleList;
+        console.log(this.articleList)
+        this.listLoading = false;
+      });
+    },
   }
 }
