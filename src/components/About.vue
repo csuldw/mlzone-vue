@@ -31,32 +31,14 @@
         </div>
       </div>
       <div class="g-post-plugin-comment">
-        <comment-select></comment-select>
+        <comment-select :filter="{pageNum: 1, pageSize:0, articleId: 0, parentCommentId: 0 }"></comment-select>
       </div>
     </div>
-    <footer-select></footer-select>
+      <footer-select></footer-select>
 	</div>
 </template>
 
-<script>
-import '../assets/css/grid.styl'; //引入外部css
-import header from './base/header.vue';
-import footer from './base/footer.vue';
-import comment from './base/comment.vue';
-
-export default {
-  components: {
-    'header-select': header,
-    'footer-select': footer,
-    'comment-select':comment
-  },
-	data () {
-		return {
-		}
-	},
-	computed: {
-	},
-}
+<script src="./about.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

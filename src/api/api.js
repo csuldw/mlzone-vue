@@ -23,3 +23,7 @@ export const exportBugInfoToExcel = params => { return axios.post(`/api/ProjectP
 export const downloadBugInfoFile = params => { return instance.get(`/api/ProjectPlugin/file/bug/downloadFile.do`, { params: params }); };
 
 export const getArticleListByPage = params => { return axios.post(`/api/MLZone/articleInfo/getArticelInfoList.do`, qs.stringify(params)).then(res => res.data); };
+
+export const saveOrUpdateComment = params => { return axios.post(`/api/MLZone/comment/saveOrUpdateComment.do`, qs.stringify(params)).then(res => res.data); };
+
+export const getCommentListByParam = params => { return axios.post(`/api/MLZone/comment/getCommentListByParam.do`, qs.stringify(params)).then(res => res.data); };

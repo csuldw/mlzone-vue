@@ -79,7 +79,8 @@ export default {
       articleList:[],
       filters : {
         pageNum: 1,
-        pageSize: 10
+        pageSize: 10,
+        articleId : 1
       },
     }
   },
