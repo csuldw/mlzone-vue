@@ -14,7 +14,6 @@
             </div>
           </div>
 
-
         </div>
       </div>
       <div class="g-links-container">
@@ -30,7 +29,9 @@
           </article>
           <p>&nbsp;</p>
         </div>
-
+      </div>
+      <div class="g-post-plugin-comment">
+        <comment-select></comment-select>
       </div>
     </div>
     <footer-select></footer-select>
@@ -41,11 +42,13 @@
 import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
+import comment from './base/comment.vue';
 
 export default {
   components: {
     'header-select': header,
-    'footer-select': footer
+    'footer-select': footer,
+    'comment-select':comment
   },
 	data () {
 		return {
@@ -58,6 +61,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .g-container-comment{
+    float: right;
+    width: 75%;
+  }
   .g-links-sidebar {
     position: relative;
     min-height: 400px;
