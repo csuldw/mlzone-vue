@@ -200,16 +200,5 @@ export default {
 
       });
     },
-    getArticleInfos() {
-      let para = this.filters;
-      console.log(para.pageNum)
-      this.listLoading = true;
-      getArticleListByPage(para).then((res) => {
-        this.total = res.data.total;//res.data.total;
-        this.articleList = res.data.list; //res.data.articleList;
-        console.log(this.articleList)
-        this.listLoading = false;
-      });
-    },
   }
 }
