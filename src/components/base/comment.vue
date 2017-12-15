@@ -3,15 +3,53 @@
     <div id="comment-list" class="u-comment-list">
       <div class="u-comment-input">
         <form class="new-comment">
-          <a class="avatar">
+            <a class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
+            <textarea placeholder="写下你的评论..." @click="handleLogin"></textarea>
+            <div class="write-function-block">
+              <div data-v-b36e9416="" class="emoji-modal-wrap">
+                <a data-v-b36e9416="" class="emoji">
+                  <i data-v-b36e9416="" class="iconfont ic-comment-emotions"></i></a>
+              </div>
+              <div class="hint">Ctrl+Return 发表</div>
+              <a class="btn btn-send">发送</a>
+              <a class="cancel">取消</a>
+            </div>
+
+          <!--<a class="avatar">
             <img src="../../assets/images/avator.png">
           </a>
           <div class="sign-container">
-            <a href="/sign_in?utm_source=desktop&amp;utm_medium=not-signed-in-comment-form" class="btn btn-sign">登录</a>
+            <el-button type="primary" @click="handleLogin">登录</el-button>
             <span>后发表评论</span>
-          </div>
+          </div>-->
         </form> <!---->
       </div>
+
+      <!--登录界面-->
+      <el-dialog title="登录" v-model="loginFormVisible" :close-on-click-modal="false" class="el-dialog-login" style="width:800px;">
+        <el-form :model="dataForm" label-width="100px" :rules="dataFormRules" ref="dataForm" style="text-align:center;">
+          <el-row >
+            <el-col :span="18">
+              <el-form-item label="用户名：" prop="username">
+                <el-input  v-model="dataForm.username" auto-complete="off" >111</el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row >
+            <el-col :span="18">
+              <el-form-item label="密码：" prop="password">
+                <el-input  v-model="dataForm.password" auto-complete="off" type="password">111</el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+        <div slot="footer" class="dialog-footer" style="text-align: center">
+          <el-button @click.native="loginFormVisible=false"> &nbsp;取消&nbsp;</el-button>
+          <el-button type="primary" @click.native="loginSubmit" :loading="loginLoading">&nbsp;登录&nbsp;</el-button>
+        </div>
+      </el-dialog>
+
       <div id="normal-comment-list" class="normal-comment-list">
         <div>
           <div>
@@ -114,17 +152,66 @@
   import '../../assets/css/grid.styl';
   import '../../assets/css/header.styl'; //引入外部css
   import '../../assets/css/comment.styl'
+  import ElCol from "element-ui/packages/col/src/col";
 
   export default {
+    components: {ElCol},
     name: 'footer',
     data() {
       return {
-        msg: 'footer part'
+        msg: 'footer part',
+        loginFormVisible: false,
+        loginStatus : false,
+        loginLoading: false,
+        dataForm:{
+          username: '',
+          password: ''
+        },
+        dataFormRules: {
+          username: [
+            { required: true,message: '请输入用户名',trigger: 'blur' },
+          ],
+          password: [
+            {required: true, message: '请输入密码',trigger: 'blur'},
+          ]
+        },
       }
+    },
+    methods: {
+      loginSubmit: function () {
+        this.$refs.dataForm.validate((valid) => {
+          if (valid) {
+            this.$confirm('确认提交吗？', '提示', {}).then(() => {
+              let para = Object.assign({}, this.dataForm);
+              this.$message({
+                message: '提交成功',
+                type: 'success'
+              });
+              this.$refs['dataForm'].resetFields();
+              this.loginFormVisible = false
+              this.loginStatus = true
+            });
+          }
+        });
+      },
+      //显示新增界面
+      handleLogin: function () {
+        if(this.loginStatus === false){
+          this.loginFormVisible = true;
+        }
+      },
     }
   }
 </script>
 
 <style scoped>
-
+  .el-dialog-login{
+    position:fixed;
+    top:5%;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+    width: 1000px;
+  }
 </style>
