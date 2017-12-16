@@ -2,7 +2,7 @@
   <div class="g-container-comment">
     <div id="comment-list" class="u-comment-list">
       <div class="u-comment-input">
-        <el-form :model="commentForm" class="new-comment" ref="commentForm" :rules="commentFormRules">
+        <el-form :model="commentForm" class="new-comment" ref="commentForm" ><!-- :rules="commentFormRules"-->
             <a class="avatar">
               <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
           <el-form-item prop="content">
@@ -87,10 +87,15 @@
                   </a>
                 </div>
                 <div :id="'index' + index" style="display: none;">
-                  <el-input
-                    placeholder="请输入内容"
-                    clearable>
-                  </el-input>
+                  <el-form :model="subCommentForm" class="new-comment" ref="subCommentForm" > <!--:rules="commentFormRules"-->
+                    <el-form-item prop="subContent">
+                      <el-input v-model="subCommentForm.content" @click="handleLogin" style="resize:none !important;"  :autosize="{minRows: 4, maxRows:6}" type="textarea"  :rows="2"  placeholder="写下你的评论..." ></el-input>
+                    </el-form-item>
+                    <div class="write-function-block">
+                      <a class="btn btn-send" type="primary" @click="saveSubComment(comment.id)" :loading="commentLoading">&nbsp;发送</a>
+                      <a class="cancel" @click="cancelSubComment">取消</a>
+                    </div>
+                  </el-form>
                 </div>
               </div>
 
@@ -126,5 +131,11 @@
   }
   .el-textarea__inner{
     max-height: 90px !important;
+  }
+  .el-message__group p {
+    font-size: 14px;
+    margin: 5px 34px 0 0 !important;
+    color: #8391a5;
+    text-align: justify;
   }
 </style>

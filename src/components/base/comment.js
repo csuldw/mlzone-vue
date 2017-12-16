@@ -33,9 +33,16 @@ export default {
         articleId: 0,
         parentCommentId: 0
       },
+      subCommentForm :{
+        content: '',
+        fromUserId:  1,
+        toUserId: 1,
+        articleId: 0,
+        parentCommentId: 0
+      },
       commentFormRules: {
         content: [
-          { required: true,message: '评论内容不能为空',trigger: 'blur' },
+          // { required: true,message: '评论内容不能为空',trigger: 'blur' },
         ],
       },
       dataFormRules: {
@@ -72,12 +79,20 @@ export default {
         this.loginFormVisible = true;
       }
     },
+    //保存一级评论
     saveComment: function () {
-      this.$refs.commentForm.validate((valid) => {
-        if (valid) {
+      // this.$refs.commentForm.validate((valid) => {
+      //   if (valid) {
           this.commentForm = Object.assign({}, this.commentForm);
           let para = this.commentForm;
-          console.log(para)
+          if(this.commentForm.content === "" || this.commentForm.content == null)
+          {
+            this.$message({
+              message: '评论内容为空!',
+              type: 'error'
+            });
+            return
+          }
           saveOrUpdateComment(para).then((res) => {
             this.$message({
               message: '评论成功',
@@ -88,7 +103,38 @@ export default {
           }).catch(function (error) {
             console.log(error);
           });
-        }
+        // }
+      // });
+    },
+
+    //保存子评论
+    saveSubComment: function (parentCommentId) {
+      this.subCommentForm = Object.assign({}, this.subCommentForm);
+      //this.subCommentForm.fromUserId = ""
+      this.subCommentForm.parentCommentId = parentCommentId
+      let para = this.subCommentForm;
+
+      if(this.subCommentForm.content === "" || this.subCommentForm.content == null)
+      {
+        this.$message({
+          message: '评论内容为空!',
+          type: 'error'
+        });
+        return
+      }
+      saveOrUpdateComment(para).then((res) => {
+        this.$message({
+          message: '评论成功',
+          type: 'success'
+        });
+        this.subCommentForm.content = ""
+        this.getCommentList();
+        $("[id^='index']").each(function(){
+          $(this).css("display","none");
+        });
+      }).catch(function (error) {
+        alert(error)
+        console.log(error);
       });
     },
 
@@ -96,16 +142,30 @@ export default {
       let para = this.filter;
       this.commentLoading = true
       getCommentListByParam(para).then((res) => {
-        this.total = res.data.total;//res.data.total;
+        this.total = res.data.total; //res.data.total;
         this.commentList = res.data.list; //res.data.articleList;
         this.commentLoading = false
       });
     },
     showReply : function (x) {
+      // $(".u-comment-input").css("display", "none");
+      if($("#" + x).css("display") == "block") {
+        $("#" + x).css("display","none");
+      }
+      else {
+        $("[id^='index']").each(function(){
+          $(this).css("display","none");
+        });
+        $("#" + x).css("display","block");
+      }
+
+
+    },
+    cancelSubComment : function () {
+      // $(".u-comment-input").css("display", "block");
       $("[id^='index']").each(function(){
         $(this).css("display","none");
       });
-      $("#" + x).css("display","block");
     }
   },
   mounted () {

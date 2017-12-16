@@ -4,7 +4,7 @@ import Post from '@/components/Post.vue'
 import BugManagement from './components/bugManagement/BugManagement.vue'
 import UserDetail from '@/components/UserDetail'
 import Links from '@/components/Links'
-import About from '@/components/About'
+import About from '@/components/AboutUs'
 import Contact from '@/components/Contact'
 
 const routes = [
@@ -13,11 +13,11 @@ const routes = [
     name: 'Hello',
     component: Hello
   },
-  {
-    path: '/index',
-    name: 'Hello',
-    component: Hello
-  },
+  // {
+  //   path: '/index',
+  //   name: 'Hello',
+  //   component: Hello
+  // },
   {
     path: '/page',
     name: 'Page',

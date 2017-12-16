@@ -1,6 +1,6 @@
 <template>
-	<div class="g-container">
-     <header-select></header-select>
+  <div class="g-container">
+    <header-select></header-select>
     <div class="g-container-down">
       <div class="g-container-wrap">
         <div class="g-links-sidebar">
@@ -34,8 +34,8 @@
         <comment-select :filter="{pageNum: 1, pageSize:0, articleId: 0, parentCommentId: 0 }"></comment-select>
       </div>
     </div>
-      <footer-select></footer-select>
-	</div>
+    <footer-select></footer-select>
+  </div>
 </template>
 
 <script src="./about.js">
@@ -129,4 +129,3 @@
     padding-bottom: 10px;
   }
 </style>
-About.vue
