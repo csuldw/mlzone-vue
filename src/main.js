@@ -20,8 +20,8 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
-// import axios from 'axios'
-// axios.defaults.withCredentials = true
+import axios from 'axios'
+axios.defaults.withCredentials = true
 
 
 const router = new VueRouter({

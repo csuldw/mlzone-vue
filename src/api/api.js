@@ -12,6 +12,11 @@ var instance = axios.create({
 
 // export const getBugInfoListPage = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 
+
+export const login = params => { return axios.post(`/api/MLZone/user/login.do`, qs.stringify(params)).then(res => res.data); };
+
+export const getAuth = params => { return axios.get(`/api/MLZone/user/getAuth.do`, { params: params }); };
+
 export const getBugInfoListPage = params => { return axios.post(`/api/ProjectPlugin/bug/getBugInfoListByParam.do`, qs.stringify(params)).then(res => res.data); };
 
 export const saveOrUpdateBugInfo = params => { return axios.post(`/api/ProjectPlugin/bug/saveOrUpdateBugInfo.do`, qs.stringify(params)).then(res => res.data); };

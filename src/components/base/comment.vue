@@ -1,24 +1,10 @@
 <template>
   <div class="g-container-comment">
     <div id="comment-list" class="u-comment-list">
-      <div class="u-comment-input">
-        <el-form :model="commentForm" class="new-comment" ref="commentForm" ><!-- :rules="commentFormRules"-->
-            <a class="avatar">
-              <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
-          <el-form-item prop="content">
-            <el-input v-model="commentForm.content" @click="handleLogin" style="resize:none !important;"  :autosize="{minRows: 4, maxRows:6}" type="textarea"  :rows="2"  placeholder="写下你的评论..." ></el-input>
-          </el-form-item>
-          <div class="write-function-block">
-              <div data-v-b36e9416="" class="emoji-modal-wrap">
-                <a data-v-b36e9416="" class="emoji">
-                  <i data-v-b36e9416="" class="iconfont ic-comment-emotions"></i></a>
-              </div>
-            <a class="btn btn-send" type="primary" @click="saveComment" :loading="commentLoading">&nbsp;发送</a>
-            <a class="cancel">取消</a>
-          </div>
-        </el-form>
+      <div id="before-comment" style="text-align: center;height: 50px;">
+        目前您尚未登录，请 <a @click="login">登录</a> 或 <a>注册</a> 后进行评论
       </div>
-      <!--登录界面-->
+
       <el-dialog title="登录" v-model="loginFormVisible" :close-on-click-modal="false" class="el-dialog-login" style="width:800px;">
         <el-form :model="dataForm" label-width="100px" :rules="dataFormRules" ref="dataForm" style="text-align:center;">
           <el-row >
@@ -41,6 +27,25 @@
           <el-button type="primary" @click.native="loginSubmit" :loading="loginLoading">&nbsp;登录&nbsp;</el-button>
         </div>
       </el-dialog>
+      <div id="comment-main" class="u-comment-input" style="display: none">
+        <el-form :model="commentForm" class="new-comment" ref="commentForm" ><!-- :rules="commentFormRules"-->
+            <a class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
+          <el-form-item prop="content">
+            <el-input v-model="commentForm.content" @click="handleLogin" style="resize:none !important;"  :autosize="{minRows: 4, maxRows:6}" type="textarea"  :rows="2"  placeholder="写下你的评论..." ></el-input>
+          </el-form-item>
+          <div class="write-function-block">
+              <div data-v-b36e9416="" class="emoji-modal-wrap">
+                <a data-v-b36e9416="" class="emoji">
+                  <i data-v-b36e9416="" class="iconfont ic-comment-emotions"></i></a>
+              </div>
+            <a class="btn btn-send" type="primary" @click="saveComment" :loading="commentLoading">&nbsp;发送</a>
+            <a class="cancel">取消</a>
+          </div>
+        </el-form>
+      </div>
+      <!--登录界面-->
+
 
       <div id="normal-comment-list" class="normal-comment-list">
         <div>
@@ -52,7 +57,7 @@
                 <a class="">按时间正序</a><a class="">按时间倒序</a>
               </div>
             </div>
-          </div> <!----> <!---->
+          </div>
           <div class="comments-placeholder" style="display: none;">
             <div class="author">
               <div class="avatar"></div>

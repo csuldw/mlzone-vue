@@ -2,7 +2,8 @@ import '../../assets/css/grid.styl';
 import '../../assets/css/header.styl'; //引入外部css
 import '../../assets/css/comment.styl'
 import ElCol from "element-ui/packages/col/src/col";
-import { saveOrUpdateComment, getCommentListByParam } from "../../api/api"
+import { saveOrUpdateComment, getCommentListByParam, login, getAuth } from "../../api/api"
+import {checkCookie, getCookie, setCookie} from '../../common/js/cookieUtils.js'
 
 export default {
   components: {ElCol},
@@ -60,16 +61,35 @@ export default {
     loginSubmit: function () {
       this.$refs.dataForm.validate((valid) => {
         if (valid) {
-          this.$confirm('确认提交吗？', '提示', {}).then(() => {
-            let para = Object.assign({}, this.dataForm);
-            this.$message({
-              message: '提交成功',
-              type: 'success'
-            });
-            this.$refs['dataForm'].resetFields();
-            this.loginFormVisible = false
-            this.loginStatus = true
+          let para = Object.assign({}, this.dataForm);
+          login(para).then((res) => {
+            console.log("login:", res)
+            if(res.result != null && res.result == "success")
+            {
+              this.$message({
+                message: '登录成功',
+                type: 'success'
+              });
+              let expireDays = 1000 * 60 * 60 * 24 * 15;
+              setCookie('session', res.session, expireDays);
+              this.$refs['dataForm'].resetFields();
+              this.loginFormVisible = false
+              this.loginStatus = true
+              $("#before-comment").css("display", "none")
+              $("#comment-main").css("display", "block")
+            }
+            else
+            {
+              this.$message({
+                message: '登录失败，用户名或密码错误!',
+                type: 'error'
+              });
+            }
+
+          }).catch(function (error) {
+            console.log(error);
           });
+          this.checkLogin()
         }
       });
     },
@@ -166,9 +186,35 @@ export default {
       $("[id^='index']").each(function(){
         $(this).css("display","none");
       });
+    },
+
+    login: function () {
+      this.loginFormVisible = true
+      // $("#before-comment").css("display", "none")
+      // $("#comment-main").css("display", "block")
+    },
+
+    getAuth : function () {
+      let para = "";
+      getAuth(para).then((res) => {
+        console.log(res)
+      });
+    },
+    checkLogin(){
+      //检查是否存在session
+      //cookie操作方法在源码里有或者参考网上的即可
+      if(!getCookie('session')){
+        //如果没有登录状态则跳转到登录页
+        alert("not")
+      }else{
+        //否则跳转到登录后的页面
+        alert("success")
+      }
     }
   },
   mounted () {
-    this.getCommentList()
+    this.getCommentList();
+    this.getAuth();
+    this.checkLogin();
   }
 }
