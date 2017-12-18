@@ -38,12 +38,9 @@ module.exports = {
     //     }
     // },
     proxyTable: {
-      '/api/':{
+      '/MLZone':{
         target:'http://localhost:8080/',
         changeOrigin: true,
-        pathRewrite:{
-          '^/api/':'/'
-        }
       },
       '/api2':{
         target:'http://localhost:3030/',
