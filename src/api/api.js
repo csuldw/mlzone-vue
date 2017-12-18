@@ -10,6 +10,14 @@ var instance = axios.create({
     headers: headers
 });
 
+let AUTH_TOKEN = "123123"
+axios.defaults.headers.common['O-Auth-Token'] = AUTH_TOKEN;
+if(AUTH_TOKEN != null)
+{
+  axios.defaults.headers.common['O-Auth-Token'] = AUTH_TOKEN;
+}
+
+
 // export const getBugInfoListPage = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 
 

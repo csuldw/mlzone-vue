@@ -205,10 +205,10 @@ export default {
       //cookie操作方法在源码里有或者参考网上的即可
       if(!getCookie('session')){
         //如果没有登录状态则跳转到登录页
-        alert("not")
+        console.log("not")
       }else{
         //否则跳转到登录后的页面
-        alert("success")
+        console.log("success")
       }
     }
   },
