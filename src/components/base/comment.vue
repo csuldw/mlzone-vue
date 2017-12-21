@@ -40,7 +40,7 @@
                   <i data-v-b36e9416="" class="iconfont ic-comment-emotions"></i></a>
               </div>
             <a class="btn btn-send" type="primary" @click="saveComment" :loading="commentLoading">&nbsp;发送</a>
-            <a class="cancel">取消</a>
+            <a class="cancel" @click="logout" >退出</a>
           </div>
         </el-form>
       </div>

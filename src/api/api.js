@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+import cookieUtils from "../common/js/cookieUtils.js"
 
 let base = '';
 let headers = {
@@ -10,24 +11,28 @@ var instance = axios.create({
     headers: headers
 });
 
-let AUTH_TOKEN = "123123"
-axios.defaults.headers.common['O-Auth-Token'] = AUTH_TOKEN;
-if(AUTH_TOKEN != null)
-{
-  axios.defaults.headers.common['O-Auth-Token'] = AUTH_TOKEN;
+function setHeader() {
+  let auth_token = cookieUtils.getTokenId();
+  let userId = cookieUtils.getUserId();
+  if(auth_token != null)
+  {
+    axios.defaults.headers.common['O-Auth-Token'] = auth_token;
+    axios.defaults.headers.common['O-Auth-UserId'] = userId;
+  }
 }
-
 
 // export const getBugInfoListPage = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 
 
 export const login = params => { return axios.post(`/MLZone/user/login.do`, qs.stringify(params)).then(res => res.data); };
 
-export const getAuth = params => { return axios.get(`/MLZone/user/getAuth.do`, { params: params }); };
+export const getAuth = params => { setHeader(); return axios.get(`/MLZone/user/getAuth.do`, { params: params }); };
 
 export const getBugInfoListPage = params => { return axios.post(`/api/ProjectPlugin/bug/getBugInfoListByParam.do`, qs.stringify(params)).then(res => res.data); };
 
-export const saveOrUpdateBugInfo = params => { return axios.post(`/api/ProjectPlugin/bug/saveOrUpdateBugInfo.do`, qs.stringify(params)).then(res => res.data); };
+export const saveOrUpdateBugInfo = params => {
+  setHeader();
+  return axios.post(`/api/ProjectPlugin/bug/saveOrUpdateBugInfo.do`, qs.stringify(params)).then(res => res.data); };
 
 export const deleteBugInfoById = params => { return axios.post(`/api/ProjectPlugin/bug/deleteBugInfo.do`, qs.stringify(params)).then(res => res.data); };
 

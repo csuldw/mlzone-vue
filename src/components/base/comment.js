@@ -3,7 +3,7 @@ import '../../assets/css/header.styl'; //引入外部css
 import '../../assets/css/comment.styl'
 import ElCol from "element-ui/packages/col/src/col";
 import { saveOrUpdateComment, getCommentListByParam, login, getAuth } from "../../api/api"
-import {checkCookie, getCookie, setCookie} from '../../common/js/cookieUtils.js'
+import cookieUtils from '../../common/js/cookieUtils.js'
 
 export default {
   components: {ElCol},
@@ -54,8 +54,14 @@ export default {
           {required: true, message: '请输入密码',trigger: 'blur'},
         ]
       },
-      commentList : []
+      commentList : [],
+      isAuth : false,
+      userId : '',
+      tokenId: ''
     }
+  },
+  computed:{
+
   },
   methods: {
     loginSubmit: function () {
@@ -64,19 +70,23 @@ export default {
           let para = Object.assign({}, this.dataForm);
           login(para).then((res) => {
             console.log("login:", res)
-            if(res.result != null && res.result == "success")
+            if(res.msg != null && res.msg == "success")
             {
               this.$message({
                 message: '登录成功',
                 type: 'success'
               });
+              this.userId = res.userId;
+              this.tokenId = res.tokenId;
+              cookieUtils.setAuthData(res.tokenId, res.userId);
+
               let expireDays = 1000 * 60 * 60 * 24 * 15;
-              setCookie('session', res.session, expireDays);
+              cookieUtils.setCookie('session', res.session, expireDays);
+
               this.$refs['dataForm'].resetFields();
               this.loginFormVisible = false
               this.loginStatus = true
-              $("#before-comment").css("display", "none")
-              $("#comment-main").css("display", "block")
+              this.getAuth();
             }
             else
             {
@@ -123,8 +133,6 @@ export default {
           }).catch(function (error) {
             console.log(error);
           });
-        // }
-      // });
     },
 
     //保存子评论
@@ -178,8 +186,6 @@ export default {
         });
         $("#" + x).css("display","block");
       }
-
-
     },
     cancelSubComment : function () {
       // $(".u-comment-input").css("display", "block");
@@ -193,28 +199,36 @@ export default {
       // $("#before-comment").css("display", "none")
       // $("#comment-main").css("display", "block")
     },
-
+    logout: function () {
+      alert()
+      localStorage.clear();
+      getAuth();
+    },
     getAuth : function () {
       let para = "";
       getAuth(para).then((res) => {
-        console.log(res)
+        if(res.data.code == "1000"){
+          this.isAuth = true;
+        }
+        else{
+          this.isAuth = false;
+        }
+        this.checkLogin();
       });
     },
+
     checkLogin(){
-      //检查是否存在session
-      //cookie操作方法在源码里有或者参考网上的即可
-      if(!getCookie('session')){
-        //如果没有登录状态则跳转到登录页
-        console.log("not")
+      if(this.isAuth == true){
+        $("#before-comment").css("display", "none")
+        $("#comment-main").css("display", "block")
       }else{
-        //否则跳转到登录后的页面
-        console.log("success")
+        $("#before-comment").css("display", "block")
+        $("#comment-main").css("display", "none")
       }
     }
   },
   mounted () {
     this.getCommentList();
     this.getAuth();
-    this.checkLogin();
   }
 }

@@ -14,27 +14,41 @@
 		<div class="g-container-down">
       <div class="g-container-wrap">
         <div class="g-content">
-          <div class="u-article-recent">
+
+
+
+          <div class="u-article-recent" >
             <h1>最新发布</h1>
-            <article class="u-article-excerpt">
+            <article class="u-article-excerpt" v-for="article in articleList">
               <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
-              <h2><a href="#" title="教你添加网站浏览器图标 favicon.ico_WordPress使用教程_themebetter">教你添加网站浏览器图标 favicon.ico</a></h2>
-              <div class="note">每个网站都可以设置favicon，而且添加是非常简单的</div>
+              <h2>
+                <span>[{{article.postType}}] </span>
+                <a href="#" title="article.title">
+                {{ article.title }}</a>
+              </h2>
+              <div class="note">{{ article.title }}</div>
               <div class="meta">
-                <time>2017-09-28</time>
+                <time>{{ article.publicDate }}</time>
                 <a class="meta-cat" href="#">WordPress使用教程</a>
                 <span class="meta-cmt">评论(11)</span>
               </div>
             </article>
           </div>
+
+
+
           <div class="u-article-push">
             <h1>文章推荐</h1>
-            <article class="u-article-excerpt">
+            <article class="u-article-excerpt" v-for="article in articleList">
               <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
-              <h2><a href="#" title="教你添加网站浏览器图标 favicon.ico_WordPress使用教程_themebetter">教你添加网站浏览器图标 favicon.ico</a></h2>
-              <div class="note">每个网站都可以设置favicon，而且添加是非常简单的</div>
+              <h2>
+                <span>[{{article.postType}}] </span>
+                <a href="#" title="article.title">
+                  {{ article.title }}</a>
+              </h2>
+              <div class="note">{{ article.title }}</div>
               <div class="meta">
-                <time>2017-09-28</time>
+                <time>{{ article.publicDate }}</time>
                 <a class="meta-cat" href="#">WordPress使用教程</a>
                 <span class="meta-cmt">评论(11)</span>
               </div>
@@ -115,67 +129,7 @@
 	</div>
 </template>
 
-<script>
-import '../assets/css/grid.styl'; //引入外部css
-import header from './base/header.vue';
-import footer from './base/footer.vue';
-
-export default {
-
-  components: {
-    'header-select': header,
-    'footer-select': footer
-  },
-	data () {
-		return {
-			msg: '一切从这里开始...',
-      linkName: 'Mini项目管理工具入口',
-			currentDate: new Date(),
-			numSize: 5,
-			subTitle: "人物简介",
-			images: [
-			{
-				image:require("../assets/images/p1.jpg"),
-			},
-			{
-				image:require("../assets/images/p2.jpg"),
-			},
-			{
-				image:require("../assets/images/p3.jpg"),
-			},
-			{
-				image:require("../assets/images/p4.jpg"),
-			},
-			{
-				image:require("../assets/images/p5.jpg"),
-			}
-//			,
-//			{
-//				image:require("../assets/images/a6.jpg"),
-//			}
-			],
-			userlist:[]
-		}
-	},
-	computed: {
-		ilength:function(){
-			return this.userlist.length
-		},
-	},
-//	created(){
-//		this.$http.get('/api2/users/getUserInfo', {
-//			headers: {
-//				'Access-Control-Allow-Origin': '*',
-//				'Access-Control-Allow-Headers': 'Content-Type,Content-Length, Authorization, Accept,X-Requested-With',
-//				'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS'
-//			}
-//		}).then((res) => {
-//			this.userlist = res.data["userlist"];
-//		}, (error)=> {
-//			console.log(error)
-//		})
-//	}
-}
+<script src="./home.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
