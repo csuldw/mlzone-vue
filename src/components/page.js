@@ -14,7 +14,7 @@ export default {
         pageNum: 1,
         pageSize: 10
       },
-      pageTitle: "机器学习",
+      pageTitle: "",
       articleList: [],
       total : 0,
     }

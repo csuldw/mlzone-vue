@@ -42,6 +42,12 @@ export const downloadBugInfoFile = params => { return instance.get(`/api/Project
 
 export const getArticleListByPage = params => { return axios.post(`/MLZone/articleInfo/getArticelInfoList.do`, qs.stringify(params)).then(res => res.data); };
 
+export const getArticleStatInfoByParam = params => { return axios.post(`/MLZone//article/getArticleCountStatByParam.do`, qs.stringify(params)).then(res => res.data); };
+
+export const getArticelDetailInfoById = params => { return axios.post(`/MLZone/articleInfo/getArticelInfoById.do`, qs.stringify(params)).then(res => res.data); };
+
 export const saveOrUpdateComment = params => { return axios.post(`/MLZone/comment/saveOrUpdateComment.do`, qs.stringify(params)).then(res => res.data); };
 
 export const getCommentListByParam = params => { return axios.post(`/MLZone/comment/getCommentListByParam.do`, qs.stringify(params)).then(res => res.data); };
+
+

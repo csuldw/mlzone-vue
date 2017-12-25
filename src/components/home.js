@@ -1,7 +1,7 @@
 import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
-import {getArticleListByPage, getArticleCategoryListByParam} from '../api/api';
+import {getArticleListByPage, getArticleCategoryListByParam, getArticleStatInfoByParam} from '../api/api';
 
 export default {
 
@@ -38,8 +38,12 @@ export default {
         pageNum: 1,
         pageSize: 10
       },
+      queryParam: {
+        queryType: 'month'
+      },
       pageTitle: "机器学习",
       articleList: [],
+      articleCountStat: [],
       total : 0,
     }
   },
@@ -58,8 +62,19 @@ export default {
         console.log(this.articleList)
       });
     },
+
+    getArticleStatInfo() {
+      let para = this.filters;
+      getArticleStatInfoByParam(para).then((res) => {
+        console.log(res)
+        let result = res.result;  //res.data.total;
+        this.articleCountStat = res.articleCountStat; //res.data.articleList;
+        console.log(this.articleCountStat)
+      });
+    },
   },
   mounted:  function () {
     this.getArticleInfos();
+    this.getArticleStatInfo();
   }
 }

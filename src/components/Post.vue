@@ -7,20 +7,20 @@
           <div class="u-post-main">
             <header class="u-post-header">
               <h1 class="u-post-title" itemprop="name headline">
-                  张某某是个小笨猪
+                  {{articleInfo.title}}
               </h1>
               <div class="u-post-meta">
                 <span class="u-post-time">
                   Posted on
                   <time itemprop="dateCreated" datetime="2017-09-22T23:10:00+08:00" content="2017-09-22">
-                    2017-09-22 23:10
+                    {{articleInfo.publicDate}}
                   </time>
                 </span>
                 <span class="u-post-category">
                   &nbsp; | &nbsp; In
                   <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                     <a href="/categories/杂谈/" itemprop="url" rel="index">
-                      <span itemprop="name">杂谈</span>
+                      <span itemprop="name">{{articleInfo.articleCategoryEntity.categoryName}}</span>
                     </a>
                   </span>
                 </span>
@@ -57,7 +57,7 @@
           <!--</a>-->
         <!--</p>-->
       </div>
-    </div> 
+    </div>
     <footer-select></footer-select>
 	</div>
 </template>

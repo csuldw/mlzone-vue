@@ -7,7 +7,7 @@ import axios from 'axios'
 import '../assets/css/marked.styl'; //引入外部css
 import '../assets/css/highlight/highlight.styl'; //引入外部css
 import '../assets/js/back-to-top.js'; //引入外部css
-import {getArticleListByPage, getArticleCategoryListByParam} from '../api/api';
+import {getArticleListByPage, getArticleCategoryListByParam, getArticelDetailInfoById} from '../api/api';
 
 $(function() {
   $(".anchor-link").click(function () {
@@ -82,9 +82,15 @@ export default {
         pageSize: 10,
         articleId : 1
       },
+      articleInfo : {
+        "title": "",
+        "publicDate":"",
+        "author":"author"
+      }
     }
   },
   mounted() {
+    this.getArticleDetailInfo()
     this.getFileContent();
 //    this.compileMarked ();
     this.markdown();
@@ -178,8 +184,20 @@ export default {
         }
       });
     },
-    getFileContent: function () {
-      axios.get('/static/data/2017-11-21-api.md').then((res) => {
+    getArticleDetailInfo: function () {
+      let articleId = this.$route.params.articleId;
+      let params = {
+        "id": articleId
+      };
+      getArticelDetailInfoById(params).then((res) => {
+        this.result = res.result;//res.data.total;
+        this.articleInfo = res.data; //res.data.articleList;
+        console.log("articleInfo:",  this.articleInfo)
+      });
+    } ,
+    getFileContent: function (filePath) {
+      ///static/data/2017-11-21-api.md
+      axios.get(filePath).then((res) => {
         var result = res.data
         this.input = marked(result)
       })
