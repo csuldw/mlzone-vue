@@ -27,10 +27,12 @@
       </div>
     </footer>
     <p id="back-to-top">
-      <a href="#" onclick="return false">
+      <el-button v-on:click="backToTop">
+      <!--<a href="#" onclick="return false" v-on="backToTop">-->
             <span><i class="fa fa-chevron-up" aria-hidden="true"></i>
             </span>
-      </a>
+      <!--</a>-->
+      </el-button>
     </p>
     </div>
 </template>
@@ -39,11 +41,18 @@
   import '../../assets/css/grid.styl';
   import '../../assets/css/header.styl'; //引入外部css
   import '../../assets/css/footer.styl'
+  import ElButton from "../../../node_modules/element-ui/packages/button/src/button.vue";
   export default {
-  name: 'footer',
+    components: {ElButton},
+    name: 'footer',
   data () {
     return {
       msg: 'footer part'
+    }
+  },
+  methods:{
+    backToTop:function () {
+      $('body,html').animate({scrollTop: 1}, 800);
     }
   }
 }

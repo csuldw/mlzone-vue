@@ -34,35 +34,26 @@ var exchange = function(a,b){
 
 $(function () {
   //绑定滚动条事件
-
   // let wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
   $(window).bind("scroll", function () {
     var sTop = $(window).scrollTop();
     var sTop = parseInt(sTop);
-    var containerWrap = document.getElementById("container-wrap");
-    // var wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
-    var wrapHeight = containerWrap.offsetHeight; //高度
-    // console.log("wrapHeight:" + wrapHeight)
-    // console.log("sTop:" + sTop)
+    // var containerWrap = document.getElementById("container-wrap");
+    var wrapHeight = $('.g-container-wrap div').get(0).offsetHeight
     if(sTop > wrapHeight) {
-      console.log("a")
       let obj = $(".u-post-right");
       obj.css({"display": "none"});
     }else if (sTop >= 100 && sTop < wrapHeight) {
-      console.log("b")
       let obj = $(".u-post-right")
       let sideWidth = obj.css("width");
       obj.css({"display": "block"});
       obj.css({"position": "fixed", "top": "0px", "width": sideWidth});
     }else {
-      console.log("c")
       let obj = $(".u-post-right")
       obj.css("width", "");
       obj.css({"position": "relative", "top": "0px", "min-width": "20%"});
     }
   });
-
-
 
 })
 
@@ -85,13 +76,17 @@ export default {
       articleInfo : {
         "title": "",
         "publicDate":"",
-        "author":"author"
+        "author":"author",
+        "filePath":"",
+        "articleCategoryEntity": {
+          categoryName:""
+        }
       }
     }
   },
   mounted() {
     this.getArticleDetailInfo()
-    this.getFileContent();
+
 //    this.compileMarked ();
     this.markdown();
   },
@@ -192,11 +187,12 @@ export default {
       getArticelDetailInfoById(params).then((res) => {
         this.result = res.result;//res.data.total;
         this.articleInfo = res.data; //res.data.articleList;
+        this.getFileContent(this.articleInfo.filePath);
         console.log("articleInfo:",  this.articleInfo)
       });
     } ,
     getFileContent: function (filePath) {
-      ///static/data/2017-11-21-api.md
+      ///"static/data/2017-11-21-api.md"
       axios.get(filePath).then((res) => {
         var result = res.data
         this.input = marked(result)

@@ -1,42 +1,49 @@
 import Hello from './components/Home.vue'
-import Page from '@/components/Page.vue'
+import MLPage from '@/components/MLPage.vue'
+import Archives from '@/components/Archives.vue'
+import QueryPage from '@/components/QueryPage.vue'
+import OpenSource from '@/components/OpenSource.vue'
 import Post from '@/components/Post.vue'
 import BugManagement from './components/bugManagement/BugManagement.vue'
 import UserDetail from '@/components/UserDetail'
 import Links from '@/components/Links'
 import About from '@/components/AboutUs'
 import Contact from '@/components/Contact'
-
 const routes = [
   {
     path: '/',
     name: 'Hello',
     component: Hello
   },
-  // {
-  //   path: '/index',
-  //   name: 'Hello',
-  //   component: Hello
-  // },
   {
-    path: '/page',
-    name: 'Page',
-    component: Page
+    path: '/mlPage',
+    name: 'MLPage',
+    component: MLPage
   },
   {
-    path: '/postPage/:pageTitle',
+    path: '/openSource',
+    name: 'OpenSource',
+    component: OpenSource
+  },
+  {
+    path: '/postPage/:categoryName',
     name: 'PostPage',
-    component: Page
+    component: MLPage
+  },
+  {
+    path: '/query',
+    name: 'QueryPage',
+    component: QueryPage
+  },
+  {
+    path: '/archives',
+    name: 'Archives',
+    component: Archives
   },
   {
     path: '/postDetail/:articleId',
     name: 'PostDetail',
     component: Post
-  },
-  {
-    path: '/projectManagement',
-    name: 'BugManagement',
-    component: BugManagement
   },
   {
     path: '/userDetail',

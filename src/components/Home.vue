@@ -14,10 +14,6 @@
 		<div class="g-container-down">
       <div class="g-container-wrap">
         <div class="g-content">
-
-          深度学习
-
-
           <div class="u-article-recent" >
             <h1>最新发布</h1>
             <article class="u-article-excerpt" v-for="article in articleList">
@@ -36,17 +32,15 @@
               </div>
             </article>
           </div>
-
-
-
           <div class="u-article-push">
             <h1>文章推荐</h1>
             <article class="u-article-excerpt" v-for="article in articleList">
               <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
               <h2>
                 <span>[{{article.postType}}] </span>
-                <a href="#" title="article.title">
-                  {{ article.title }}</a>
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                  {{ article.title }}
+                </router-link>
               </h2>
               <div class="note">{{ article.title }}</div>
               <div class="meta">
@@ -118,7 +112,10 @@
             <div class="archive-list">
               <li v-for="item in articleCountStat">
                 <span class="archive-detail">
-                  <a href="https://github.com/csuldw/MachineLearning" target="_blank">{{item.queryType}}</a>（{{item.articleNumber}}）
+                  <router-link :to="{ name: 'QueryPage', params: { publicDate: item.queryType }}">
+                    {{ item.queryType }}
+                  </router-link>
+                  （{{item.articleNumber}}）
                 </span>
               </li>
             </div>

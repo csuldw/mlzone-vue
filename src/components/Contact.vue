@@ -23,7 +23,8 @@
             <h1 class="article-title"><a href="#">关于MLZone</a></h1>
           </header>
           <article class="article-content">
-            <p>作者：csuldw。</p>
+            <p>作者：刘帝伟. </br>
+               2017年毕业于中南大学，硕士。
             <p>Email: csu.ldw@csu.edu.cn</p>
             <p>&nbsp;</p>
             <h2></h2>

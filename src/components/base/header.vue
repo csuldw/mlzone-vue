@@ -14,25 +14,16 @@
           <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="#/">首页</a></li>
           <li id="menu-item-4244" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4244">
             <!--<router-link :to="{ path: 'page', query: { pageTitle: '机器学习' }}">机器学习</router-link>-->
-            <router-link :to="{ name: 'PostPage', params: { pageTitle: '机器学习' }}">机器学习</router-link>
-            <!--<a v-link="{name: 'page', params: {'pageTitle' : '机器学习'}}">机器学习 </a>-->
-            <!--<ul class="sub-menu">-->
-            <!--<li id="menu-item-4438" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4438"><a href="#">HTML/CSS</a></li>-->
-            <!--<li id="menu-item-4439" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4439"><a href="#">JavaScript</a></li>-->
-            <!--<li id="menu-item-4437" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4437"><a href="#">技巧资源</a></li>-->
-            <!--</ul>-->
+            <router-link :to="{ name: 'PostPage', params: { categoryName: 'ML' }}">机器学习</router-link>
           </li>
           <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154">
-            <!--<router-link :to="{ path: 'page', query: { pageTitle: '深度学习' }}">深度学习</router-link>-->
-            <router-link :to="{ name: 'PostPage', params: { pageTitle: '深度学习' }}">深度学习</router-link>
+            <router-link :to="{ name: 'Archives'}">文章列表</router-link>
           </li>
 
           <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015">
-            <router-link :to="{ path: '/post'}">开源传送门</router-link>
-            <!--<a rel="relexternal nofollow" href="#">开源传送门</a>-->
+            <router-link :to="{ path: '/openSource'}">开源传送门</router-link>
           </li>
           <li id="menu-item-5012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5012"><a href="#">生活天地</a></li>
-          <!--<li id="menu-item-6365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6365"><a target="_blank" href="#">关于本站</a></li>-->
           <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
         </ul>
       </div>
@@ -63,6 +54,7 @@
   import '../../assets/css/header.styl'; //引入外部css
   import $ from 'jquery'
   import Vue from 'vue';
+  import comment from "./comment.js"
   import VueRouter from "vue-router";
   var VueResource = require('vue-resource');
   Vue.use(VueRouter);

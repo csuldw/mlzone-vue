@@ -167,7 +167,7 @@ export default {
     },
 
     getCommentList : function () {
-      let para = this.filter;
+      let para = this.filters;
       this.commentLoading = true
       getCommentListByParam(para).then((res) => {
         this.total = res.data.total; //res.data.total;
