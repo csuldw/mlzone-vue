@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="g-post-plugin-comment">
-          <comment-select></comment-select>
+          <comment-select :articleId="articleInfo.id"></comment-select>
         </div>
       </div>
       <div class="g-post-sidebar" id="post-sidebar">

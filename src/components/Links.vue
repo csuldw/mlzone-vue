@@ -123,12 +123,11 @@ export default {
     position: relative;
     min-height: 500px;
     margin-bottom: 15px;
-    padding: 20px;
+    padding: 0 20px 0 20px;
   }
   .article-header {
     margin-bottom: 20px;
-    padding: 25px 0;
-    border-bottom: 1px solid #eee;
+    //border-bottom: 1px solid #eee;
     text-align: center;
   }
   .article-title {

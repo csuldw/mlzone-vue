@@ -104,7 +104,7 @@
   .article-header {
     margin-bottom: 20px;
     padding: 25px 0;
-    border-bottom: 1px solid #eee;
+    //border-bottom: 1px solid #eee;
     text-align: center;
   }
   .article-content {

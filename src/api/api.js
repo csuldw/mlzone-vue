@@ -27,13 +27,17 @@ export const getAuth = params => { setHeader(); return axios.get(`/MLZone/user/g
 
 export const getArticleListByPage = params => { return axios.post(`/MLZone/articleInfo/getArticelInfoList.do`, qs.stringify(params)).then(res => res.data); };
 
-export const getArticleStatInfoByParam = params => { return axios.post(`/MLZone//article/getArticleCountStatByParam.do`, qs.stringify(params)).then(res => res.data); };
+export const getArticleStatInfoByParam = params => { return axios.post(`/MLZone/article/getArticleCountStatByParam.do`, qs.stringify(params)).then(res => res.data); };
 
 export const getArticelDetailInfoById = params => { return axios.post(`/MLZone/articleInfo/getArticelInfoById.do`, qs.stringify(params)).then(res => res.data); };
 
 export const saveOrUpdateComment = params => { return axios.post(`/MLZone/comment/saveOrUpdateComment.do`, qs.stringify(params)).then(res => res.data); };
 
 export const getCommentListByParam = params => { return axios.post(`/MLZone/comment/getCommentListByParam.do`, qs.stringify(params)).then(res => res.data); };
+
+export const loadContentByPath = params => { return axios.post(`/MLZone/file/loadContentByPath.do`, qs.stringify(params)).then(res => res.data); };
+
+
 
 // export const getBugInfoListPage = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 // export const getBugInfoListPage = params => { return axios.post(`/api/ProjectPlugin/bug/getBugInfoListByParam.do`, qs.stringify(params)).then(res => res.data); };

@@ -9,13 +9,15 @@ export default {
   components: {ElCol},
   name: 'footer',
   props: [
-    'filter'
+    'filter',
+    'articleId'
   ],
   data() {
     return {
       filters: {
         pageNum : 1,
-        pageSize : 0
+        pageSize : 0,
+        articleId : ''
       },
       commentLoading : false,
       msg: 'footer part',
@@ -76,9 +78,9 @@ export default {
                 message: '登录成功',
                 type: 'success'
               });
-              this.userId = res.userId;
-              this.tokenId = res.tokenId;
-              cookieUtils.setAuthData(res.tokenId, res.userId);
+              this.userId = res.data.userId;
+              this.tokenId = res.data.tokenId;
+              cookieUtils.setAuthData(this.tokenId, this.userId);
 
               let expireDays = 1000 * 60 * 60 * 24 * 15;
               cookieUtils.setCookie('session', res.session, expireDays);
@@ -113,6 +115,7 @@ export default {
     saveComment: function () {
       // this.$refs.commentForm.validate((valid) => {
       //   if (valid) {
+          this.commentForm.articleId = this.articleId;
           this.commentForm = Object.assign({}, this.commentForm);
           let para = this.commentForm;
           if(this.commentForm.content === "" || this.commentForm.content == null)
@@ -137,6 +140,7 @@ export default {
 
     //保存子评论
     saveSubComment: function (parentCommentId) {
+      this.subCommentForm.articleId = this.articleId;
       this.subCommentForm = Object.assign({}, this.subCommentForm);
       //this.subCommentForm.fromUserId = ""
       this.subCommentForm.parentCommentId = parentCommentId
@@ -167,6 +171,7 @@ export default {
     },
 
     getCommentList : function () {
+      this.filters.articleId = this.articleId;
       let para = this.filters;
       this.commentLoading = true
       getCommentListByParam(para).then((res) => {
@@ -207,7 +212,7 @@ export default {
     getAuth : function () {
       let para = "";
       getAuth(para).then((res) => {
-        if(res.data.code == "1000"){
+        if(res.data.code == 1000){
           this.isAuth = true;
         }
         else{
@@ -216,19 +221,27 @@ export default {
         this.checkLogin();
       });
     },
-
     checkLogin(){
       if(this.isAuth == true){
         $("#before-comment").css("display", "none")
         $("#comment-main").css("display", "block")
+        $("#comment-reply").css("display", "block")
       }else{
         $("#before-comment").css("display", "block")
         $("#comment-main").css("display", "none")
+        $("#comment-reply").css("display", "none")
       }
     }
   },
   mounted () {
     this.getCommentList();
     this.getAuth();
-  }
+  },
+  updated:function(){
+    this.$nextTick(function(){
+      this.checkLogin();
+    })
+  },
+
+
 }

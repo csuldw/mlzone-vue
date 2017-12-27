@@ -52,7 +52,7 @@
   },
   methods:{
     backToTop:function () {
-      $('body,html').animate({scrollTop: 1}, 800);
+      $('body,html').animate({scrollTop: 1}, 500);
     }
   }
 }

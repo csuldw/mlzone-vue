@@ -86,7 +86,7 @@
                 <div class="tool-group">
                   <a class="" @click="showReply('index' + index)">
                     <i class="iconfont ic-comment"></i>
-                    <span style="color: #4093c6;">回复</span>
+                    <span style="color: #4093c6;" id="comment-reply">回复</span>
                   </a>
                 </div>
                 <div :id="'index' + index" style="display: none;">

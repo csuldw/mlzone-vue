@@ -24,7 +24,7 @@
           </header>
           <article class="article-content">
             <p>作者：刘帝伟. </br>
-               2017年毕业于中南大学，硕士。
+              中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。
             <p>Email: csu.ldw@csu.edu.cn</p>
             <p>&nbsp;</p>
             <h2></h2>
@@ -117,7 +117,7 @@ export default {
   .article-header {
     margin-bottom: 20px;
     padding: 25px 0;
-    border-bottom: 1px solid #eee;
+    //border-bottom: 1px solid #eee;
     text-align: center;
   }
   .article-content {
