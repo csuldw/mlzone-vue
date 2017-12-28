@@ -1,134 +1,81 @@
-<template>
-	<div class="g-container">
-     <header-select></header-select>
-    <!--<div style="height:100px;"></div>-->
-    <!--<h1> {{msg}}</h1>-->
-    <!--<h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>-->
-		<div class="g-container-up">
-      <el-carousel :interval="2000" type="card" height="360px">
-        <el-carousel-item v-for="item in images" :key="item.value">
-          <img :src="item.image" class="img-responsive">
-        </el-carousel-item>
-      </el-carousel>
-		</div>
-		<div class="g-container-down">
-      <div class="g-container-wrap">
-        <div class="g-content">
-          <div class="u-article-recent" >
-            <h1>最新发布</h1>
-            <article class="u-article-excerpt" v-for="article in articleList">
-              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
-                <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
-              <h2>
-                <span>[{{article.postType}}] </span>
-                  {{ article.title }}
-              </h2>
-              <div class="note">{{ article.title }}</div>
-              <div class="meta">
-                <time>{{ article.publicDate }}</time>
-                <a class="meta-cat" href="#">WordPress使用教程</a>
-                <span class="meta-cmt">评论(11)</span>
-              </div>
-              </router-link>
-            </article>
-          </div>
-          <div class="u-article-push">
-            <h1>文章推荐</h1>
-            <article class="u-article-excerpt" v-for="article in articleList">
-              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
-              <h2>
-                <span>[{{article.postType}}] </span>
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
-                  {{ article.title }}
-                </router-link>
-              </h2>
-              <div class="note">{{ article.title }}</div>
-              <div class="meta">
-                <time>{{ article.publicDate }}</time>
-                <a class="meta-cat" href="#">WordPress使用教程</a>
-                <span class="meta-cmt">评论(11)</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-      <div class="g-sidebar">
-        <div class="u-widget u-widget-tops">
-          <ul class="u-widget-nav">
-            <li class="active">网站公告</li>
-          </ul>
-          <ul class="u-widget-navcontent">
-            <li class="item item-01 active">
-              <ul>
-                <li><time>07-27</time><a target="_blank" href="#">官方声明：ML网站</a></li>
-                <li><time>07-10</time><a target="_blank" href="#">重要声明：ML网站</a></li>
-                <li><time>07-02</time><a target="_blank" href="#">MLzero工单服务系统上线 欢迎这里来问答</a></li>
-                <li><time>06-11</time><a target="_blank" href="#">对这段时间的MLzero有个交代</a></li>
-                <li><time>04-01</time><a target="_blank" href="#">MLzero</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+import '../assets/css/grid.styl'; //引入外部css
+import header from './base/header.vue';
+import footer from './base/footer.vue';
+import {getArticleListByPage, getArticleCategoryListByParam, getArticleStatInfoByParam} from '../api/api';
 
-        <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
-          <div class="items">
-            <a href="#">前端技巧 (61)</a>
-            <a href="#">CSS (53)</a>
-            <a href="#">JavaScript (50)</a>
-            <a href="#">用户体验 (46)</a>
-            <a href="h#">设计思路 (43)</a>
-            <a href="/tag/html5">HTML5 (40)</a>
-            <a href="">SEO (40)</a>
-            <a href="">网页设计 (40)</a>
-            <a href="">CSS3 (37)</a>
-            <a href="://../tag/professional">职业 (34)</a>
-            <a href="://../tag/front-resources">前端资源 (33)</a>
-            <a href="://..com/tag/daqianduan">大前端 (31)</a>
-            <a href="://..com/tag/company">企业公司 (30)</a>
-          </div>
-        </div>
-        <div class="u-widget u-post-archive">
-          <h3>我的开源项目 <a href="https://github.com/csuldw?tab=repositories" target="_blank"><span style="font-size: 1em;float: right;">更多 »</span></a></h3>
-          <ul class="open-source-content">
-            <li>
-              <div>
-                <h5 class="prog-title">机器学习相关算法 <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=MachineLearning&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"></iframe></h5>
-                <p class="prog-detail">机器学习算法代码及个人总结整理，对于算法实现部分，在相应目录中都包含有源码和数据以及测试实例。</p>
-                <p class="prog-detail">地址：<a href="https://github.com/csuldw/MachineLearning" target="_blank">https://github.com/csuldw/MachineLearning</a></p>
-              </div>
-            </li>
-            <li class="mt10">
-              <div>
-                <h5 class="prog-title">WSpider <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=WSpider&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"></iframe></h5>
-                <p class="prog-detail">一个用于爬取新浪微博的爬虫项目.</p>
-                <p class="prog-detail">地址：<a href="https://github.com/csuldw/WSpider" target="_blank">https://github.com/csuldw/WSpider</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="u-widget u-post-archive">
-          <h3>归档</h3>
-          <ul class="archive-content">
-            <div class="archive-list">
-              <li v-for="item in articleCountStat">
-                <span class="archive-detail">
-                  <router-link :to="{ name: 'QueryPage', params: { publicDate: item.queryType }}">
-                    {{ item.queryType }}
-                  </router-link>
-                  （{{item.articleNumber}}）
-                </span>
-              </li>
-            </div>
-          </ul>
-        </div>
-      </div>
-		</div>
-    <footer-select></footer-select>
-	</div>
-</template>
+export default {
 
-<script src="./home.js">
-</script>
+  components: {
+    'header-select': header,
+    'footer-select': footer
+  },
+  data () {
+    return {
+      msg: '一切从这里开始...',
+      linkName: 'Mini项目管理工具入口',
+      currentDate: new Date(),
+      numSize: 5,
+      subTitle: "人物简介",
+      images: [
+        {
+          image:require("../assets/images/p1.jpg"),
+        },
+        {
+          image:require("../assets/images/p2.jpg"),
+        },
+        {
+          image:require("../assets/images/p3.jpg"),
+        },
+        {
+          image:require("../assets/images/p4.jpg"),
+        },
+        {
+          image:require("../assets/images/p5.jpg"),
+        }
+      ],
+      userlist:[],
+      filters : {
+        pageNum: 1,
+        pageSize: 5,
+        isPublish: 1
+      },
+      queryParam: {
+        queryType: 'month'
+      },
+      pageTitle: "机器学习",
+      articleList: [],
+      articleCountStat: [],
+      total : 0,
+    }
+  },
+  computed: {
+    ilength:function(){
+      return this.userlist.length
+    },
+  },
+  methods: {
+    getArticleInfos() {
+      let para = this.filters;
+      console.log(para.pageNum)
+      getArticleListByPage(para).then((res) => {
+        this.total = res.data.total;//res.data.total;
+        this.articleList = res.data.list; //res.data.articleList;
+        console.log(this.articleList)
+      });
+    },
 
-<style scoped>
-</style>
+    getArticleStatInfo() {
+      let para = this.queryParam;
+      getArticleStatInfoByParam(para).then((res) => {
+        console.log(res)
+        let result = res.result;  //res.data.total;
+        this.articleCountStat = res.articleCountStat; //res.data.articleList;
+        console.log(this.articleCountStat)
+      });
+    },
+  },
+  mounted:  function () {
+    this.getArticleInfos();
+    this.getArticleStatInfo();
+  }
+}
