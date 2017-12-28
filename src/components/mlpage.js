@@ -12,7 +12,7 @@ export default {
     return {
       queryData : {
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 5,
         categoryName: '',
         title:'',
         tags:'',
@@ -28,6 +28,15 @@ export default {
   computed: {
   },
   methods: {
+    handleSizeChange(val) {
+      this.queryData.pageSize = val;
+      this.handleCurrentChange(1);
+      this.getArticleInfos();
+    },
+    handleCurrentChange(val) {
+      this.queryData.pageNum = val;
+      this.getArticleInfos();
+    },
     getArticleInfos() {
       let cname = this.$route.params.categoryName;
       if(cname != null && cname !='')
