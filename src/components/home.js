@@ -36,7 +36,7 @@ export default {
       userlist:[],
       filters : {
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 5,
         isPublish: 1
       },
       queryParam: {
