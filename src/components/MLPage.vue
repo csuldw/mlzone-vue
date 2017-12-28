@@ -5,7 +5,7 @@
       <div class="g-container-wrap">
         <div class="g-page-sidebar">
           <div class="u-page-left-search">
-            <el-input v-model="input" placeholder="关键字" @keyup.enter.native=""></el-input>
+            <el-input placeholder="关键字" @keyup.enter.native=""></el-input>
           </div>
           <div class="u-page-left-up" >
             <div class="notice-content">
