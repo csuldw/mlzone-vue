@@ -2,6 +2,7 @@ import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
 import {getArticleListByPage, getArticleCategoryListByParam} from '../api/api';
+import utils from "../common/js/util.js"
 
 export default {
   components: {
@@ -12,7 +13,7 @@ export default {
     return {
       queryData : {
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 5,
         categoryName: '',
         title:'',
         tags:'',
@@ -28,6 +29,15 @@ export default {
   computed: {
   },
   methods: {
+    handleSizeChange(val) {
+      this.queryData.pageSize = val;
+      this.handleCurrentChange(1);
+      this.getArticleInfos();
+    },
+    handleCurrentChange(val) {
+      this.queryData.pageNum = val;
+      this.getArticleInfos();
+    },
     getArticleInfos() {
       let cname = this.$route.params.categoryName;
       if(cname != null && cname !='')
@@ -45,6 +55,9 @@ export default {
         console.log(this.articleList)
       });
     },
+    getDateFromStr(dataStr) {
+      return utils.formatDate.format(new Date(dataStr), "yyyy-MM-dd hh:mm")
+    }
   },
   mounted() {
     this.getArticleInfos();
