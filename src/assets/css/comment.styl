@@ -25,7 +25,7 @@
   display: inline-block;
 }
   .new-comment{
-    height:200px;
+    height:100px;
     background-color white
     padding: 15px 15px;
     width: 100%;
@@ -60,6 +60,7 @@
 .info {
   display: inline-block;
   vertical-align: middle;
+  width: 95%;
 }
 .note .post .u-comment-list
 .new-comment .avatar {
@@ -119,8 +120,8 @@ span {
 
 .note .post .comment-list
 .sub-comment-list {
-  padding: 5px 0 5px 20px;
-  border-left: 2px solid #d9d9d9;
+  padding: 0 0 0px 40px;
+  margin-left:30px;
 }
 .note .post .comment-list .new-comment .sign-container,
 .note .post .comment-list .new-comment textarea {
@@ -155,7 +156,7 @@ a {
   cursor: pointer;
 }
 .avatar {
-  width: 32px;
+  width: 30px;
   height: 32px;
   display: inline-block;
   cursor: pointer;
@@ -176,7 +177,7 @@ a {
 .sign-container {
   text-align: center;
 }
-.u-comment-list .new-comment .sign-container, .note .post .u-comment-list .new-comment
+.note .post .u-comment-list .new-comment .sign-container, .note .post .u-comment-list .new-comment
 textarea {
   padding: 10px 15px;
   width: 100%;
@@ -184,55 +185,32 @@ textarea {
   font-size: 13px;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
-  background-color: hsla(0,0%,71%,.1);
+  background-color: #1d8ce0;
   resize: none;
   display: inline-block;
   vertical-align: top;
   outline-style: none;
 }
-
+.note .post
 .u-comment-list {
   padding-top: 20px;
 }
-.u-comment-list
+.note .post .u-comment-list
 .normal-u-comment-list {
   margin-top: 30px;
 }
-.u-comment-list
+.note .post .u-comment-list
 .author {
   margin-bottom: 15px;
 }
-
-.u-comment-list .new-comment .btn-send:hover {
-  background-color: #3db922;
-}
-.u-comment-list .new-comment .btn-send {
-  float: right;
-  width: 78px;
-  margin: 10px 0;
-  padding: 8px 18px;
-  font-size: 16px;
-  border: none;
-  border-radius: 20px;
-  color: #fff!important;
-  background-color: #42c02e;
-  cursor: pointer;
-  outline: none;
-  display: block;
-}
-.u-comment-list .new-comment .cancel {
-  float: right;
-  margin: 18px 30px 0 0;
-  font-size: 16px;
-  color: #969696;
+.comment-item{
+  padding: 20px 0 10px 10px;
+  border-bottom: 1px dashed #e5e5e5;
 }
 
-
-.emoji-modal-wrap[data-v-b36e9416] {
-  position: relative;
+.comment-wrap{
+  padding-left:40px;
 }
-
-.comment-header{
-  width: 95%;
-  float: right;
+.sub-comment-content{
+  padding-left: 40px;
 }
