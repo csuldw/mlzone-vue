@@ -56,29 +56,12 @@
               </div>
             </div>
           </div>
-          <div class="comments-placeholder" style="display: none;">
-            <div class="author">
-              <div class="avatar"></div>
-              <div class="info">
-                <div class="name"></div>
-                <div class="meta"></div>
-              </div>
-            </div>
-            <div class="text"></div>
-            <div class="text animation-delay"></div>
-            <div class="tool-group">
-              <i class="iconfont ic-zan-active"></i>
-              <div class="zan"></div>
-              <i class="iconfont ic-list-comments"></i>
-              <div class="zan"></div>
-            </div>
-          </div>
 
           <!-- 评论 -->
           <div id="comment-17064420" class="comment-item" v-for="( comment, index) in commentList" >
               <div class="author"><a href="/u/c98a25c65544" target="_blank" class="avatar">
                 <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
-                <div class="info"><a href="/u/c98a25c65544" target="_blank" class="name"><span style="color: #4093c6;">{{ comment.userEntityFrom.username }} </span></a> <!---->
+                <div class="comment-header"><a href="/u/c98a25c65544" target="_blank" class="name"><span style="color: #4093c6;">{{ comment.userEntityFrom.username }} </span></a> <!---->
                   <span style="color: #ccc;">{{ comment.sendDate }} </span> <span style="color: #ccc; float:right;">{{ index + 1 }}楼 </span>
                 </div>
               </div>
@@ -105,7 +88,10 @@
               <div class="sub-comment-list" v-for="(subComment, index) in  comment.subCommentEntity" v-if="subComment !='null'">
                 <div class="author"><a href="/u/c98a25c65544" target="_blank" class="avatar">
                   <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
-                  <div class="info"><a href="/u/c98a25c65544" target="_blank" class="name"><span style="color: #4093c6;">{{ comment.userEntityFrom.username }} </span></a> <!---->
+                  <div class="comment-header">
+                    <a href="/u/c98a25c65544" target="_blank" class="name">
+                      <span style="color: #4093c6;">{{ comment.userEntityFrom.username }} </span>
+                    </a> <!---->
                     <span style="color: #ccc;">{{ subComment.sendDate }} </span>
                   </div>
                 </div>
