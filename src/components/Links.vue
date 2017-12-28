@@ -21,20 +21,19 @@
             <span class="container-title">友情链接</span>
           </header>
           <article class="article-content">
-            <p>展示本站所有友情站点，排列不分先后；如需友链，请先添加本站首页链接后再评论告知（小说站、下载站、采集站请勿扰，性格不符）。</p>
+            <p>展示本站所有友情站点，排列不分先后；</p>
+            <p>如需友链，请先添加本站首页链接后再评论告知（小说站、下载站、采集站请勿扰，性格不符）。</p>
           </article>
 
           <div class="plinks">
             <div id="linkcat-2" class="linkcat">
-              <h2>友情链接</h2>
               <div style="width:100%; left: 0; position: absolute;">
                 <ul class="xoxo blogroll">
                   <li><a href="#" target="_blank"><img src="#">嗨酷哥</a></li>
-                  <li><a href="#" target="_blank"><img src="#">我的那些事儿</a></li>
-                  <li><a href="#" target="_blank"><img src="#">伯乐网</a></li>
-                  <li><a href="#" target="_blank"><img src="#">王振拯</a></li>
-                  <li><a href="#" target="_blank"><img src="#">WEB前端开发网</a></li>
-                  <li><a href="#" target="_blank"><img src="#">勇周博客</a></li>
+                  <li><a href="#" target="_blank"><img src="#">百度程序媛</a></li>
+                  <li><a href="#" target="_blank"><img src="#">pluskid</a></li>
+                  <li><a href="#" target="_blank"><img src="#">csuldw</a></li>
+                  <li><a href="#" target="_blank"><img src="#">拾毅者</a></li>
                 </ul>
               </div>
             </div>

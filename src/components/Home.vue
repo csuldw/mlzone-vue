@@ -16,39 +16,43 @@
         <div class="g-content">
           <div class="u-article-recent" >
             <h1>最新发布</h1>
-            <article class="u-article-excerpt" v-for="article in articleList">
-              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
-                <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
-              <h2>
-                <span>[{{article.postType}}] </span>
-                  {{ article.title }}
-              </h2>
-              <div class="note">{{ article.title }}</div>
-              <div class="meta">
-                <time>{{ article.publicDate }}</time>
-                <a class="meta-cat" href="#">WordPress使用教程</a>
-                <span class="meta-cmt">评论(11)</span>
-              </div>
-              </router-link>
-            </article>
+            <div class="article-item" v-for="article in articleList">
+              <article class="u-article-excerpt">
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                  <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
+                <h2>
+                  <span>[{{article.postType}}] </span>
+                    {{ article.title }}
+                </h2>
+                <div class="note">{{ article.title }}</div>
+                <div class="meta">
+                  <time>{{ article.publicDate }}</time>
+                  <a class="meta-cat" href="#">WordPress使用教程</a>
+                  <span class="meta-cmt">评论(11)</span>
+                </div>
+                </router-link>
+              </article>
+            </div>
           </div>
           <div class="u-article-push">
             <h1>文章推荐</h1>
-            <article class="u-article-excerpt" v-for="article in articleList">
-              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
-              <h2>
-                <span>[{{article.postType}}] </span>
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
-                  {{ article.title }}
-                </router-link>
-              </h2>
-              <div class="note">{{ article.title }}</div>
-              <div class="meta">
-                <time>{{ article.publicDate }}</time>
-                <a class="meta-cat" href="#">WordPress使用教程</a>
-                <span class="meta-cmt">评论(11)</span>
-              </div>
-            </article>
+            <div class="article-item" v-for="article in articleList">
+              <article class="u-article-excerpt" >
+                <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+                <h2>
+                  <span>[{{article.postType}}] </span>
+                  <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                    {{ article.title }}
+                  </router-link>
+                </h2>
+                <div class="note">{{ article.title }}</div>
+                <div class="meta">
+                  <time>{{ article.publicDate }}</time>
+                  <a class="meta-cat" href="#">WordPress使用教程</a>
+                  <span class="meta-cmt">评论(11)</span>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </div>

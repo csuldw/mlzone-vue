@@ -21,8 +21,8 @@
             <span class="container-title">关于站长</span>
           </header>
           <article class="article-content">
-            <p>作者：刘帝伟. </br>
-              中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。
+            <p>作者：刘帝伟. </p>
+            <p>中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。</p>
             <p>Email: csu.ldw@csu.edu.cn</p>
           </article>
           <p>&nbsp;</p>
