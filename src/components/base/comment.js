@@ -225,12 +225,15 @@ export default {
       if(this.isAuth == true){
         $("#before-comment").css("display", "none")
         $("#comment-main").css("display", "block")
-        $("#comment-reply").css("display", "block")
+        $("[id^=comment-reply]").css("display", "block")
       }else{
         $("#before-comment").css("display", "block")
         $("#comment-main").css("display", "none")
-        $("#comment-reply").css("display", "none")
+        $("[id^=comment-reply]").css("display", "none")
       }
+    },
+    generateId(prefix, index) {
+      return prefix + index;
     }
   },
   mounted () {
