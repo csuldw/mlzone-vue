@@ -185,7 +185,6 @@
     -webkit-margin-after: 3em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-
   }
   .dialog-footer{
     text-align: center;

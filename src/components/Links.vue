@@ -18,7 +18,7 @@
       <div class="g-container-content">
         <div class="containter-right">
           <header class="containter-right-header">
-            <h1 class="container-title"><a href="#">友情链接</a></h1>
+            <span class="container-title">友情链接</span>
           </header>
           <article class="article-content">
             <p>展示本站所有友情站点，排列不分先后；如需友链，请先添加本站首页链接后再评论告知（小说站、下载站、采集站请勿扰，性格不符）。</p>

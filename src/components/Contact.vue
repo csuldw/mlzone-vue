@@ -13,22 +13,17 @@
               </ul>
             </div>
           </div>
-
-
         </div>
       </div>
       <div class="g-container-content">
         <div class="containter-right">
           <header class="containter-right-header">
-            <h1 class="container-title"><a href="#">关于MLZone</a></h1>
+            <span class="container-title">关于站长</span>
           </header>
           <article class="article-content">
             <p>作者：刘帝伟. </br>
               中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。
             <p>Email: csu.ldw@csu.edu.cn</p>
-            <p>&nbsp;</p>
-            <h2></h2>
-            <p></p>
           </article>
           <p>&nbsp;</p>
         </div>
