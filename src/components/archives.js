@@ -17,7 +17,8 @@ export default {
         title:'',
         tags:'',
         keywords:'',
-        publicDate: ''
+        publicDate: '',
+        isPublish: 1
       },
       pageTitle: "",
       articleList: [],
