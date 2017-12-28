@@ -64,7 +64,7 @@ export default {
     },
 
     getArticleStatInfo() {
-      let para = this.filters;
+      let para = this.queryParam;
       getArticleStatInfoByParam(para).then((res) => {
         console.log(res)
         let result = res.result;  //res.data.total;
