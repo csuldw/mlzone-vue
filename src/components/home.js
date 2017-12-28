@@ -36,7 +36,8 @@ export default {
       userlist:[],
       filters : {
         pageNum: 1,
-        pageSize: 10
+        pageSize: 10,
+        isPublish: 1
       },
       queryParam: {
         queryType: 'month'
