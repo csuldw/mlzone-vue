@@ -5,7 +5,7 @@
       <div class="g-container-wrap">
         <div class="g-page-sidebar">
           <div class="u-page-left-search">
-            <el-input placeholder="关键字" @keyup.enter.native=""></el-input>
+            <el-input v-model="queryData.keywords" placeholder="关键字" @keyup.enter.native="getArticleInfos"></el-input>
           </div>
           <div class="u-page-left-up" >
             <div class="notice-content">
@@ -28,13 +28,16 @@
                 </a>
                 <header>
                   <h2>
+                    [{{ getPostType(article.postType)}}]
                     <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
                       {{ article.title }}
                     </router-link>
                   </h2>
                 </header>
                 <p class="meta">
-                  <time><i class="fa fa-clock-o"></i>{{ article.publicDate }}</time>
+                  <time><i class="fa fa-clock-o"></i>
+                    {{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}
+                  </time>
                   <span class="author"><i class="fa fa-user"></i>{{ article.author }}</span>
                 </p>
                 <p class="note">工作累，拿钱少？想转行，但是自己学历不高，又没有其他技能怎么办？难道自己一辈子就这样了......不，我要逆袭！敲敲代码，照样月月高薪，0基础也不怕，快来看腾讯前端大咖揭秘月薪30k的方法......</p>

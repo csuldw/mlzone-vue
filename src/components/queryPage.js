@@ -29,9 +29,16 @@ export default {
   methods: {
     getArticleInfos() {
       let publicDate = this.$route.params.publicDate;
+      let categoryName = this.$route.params.categoryName;
       if(publicDate != null && publicDate !='')
       {
           this.queryData.publicDate = publicDate;
+          this.pageTitle = publicDate
+      }
+      if(categoryName != null && categoryName !='')
+      {
+        this.queryData.categoryName = categoryName;
+        this.pageTitle = categoryName
       }
       let para = this.queryData;
       console.log(para)

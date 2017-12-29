@@ -20,7 +20,11 @@
                   &nbsp; | &nbsp; In
                   <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                     <a href="/categories/杂谈/" itemprop="url" rel="index">
-                      <span itemprop="name">{{articleInfo.articleCategoryEntity.categoryName}}</span>
+                      <span itemprop="name">
+                        <router-link :to="{ name: 'QueryPage', params: { categoryName: articleInfo.articleCategoryEntity.categoryName}}">
+                          {{articleInfo.articleCategoryEntity.categoryName}}
+                      </router-link>
+                      </span>
                     </a>
                   </span>
                 </span>

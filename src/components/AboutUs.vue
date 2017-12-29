@@ -19,7 +19,7 @@
       <div class="g-container-content">
         <div class="containter-right">
           <header class="containter-right-header">
-            <span class="container-title">关于MLZone</span>
+            <span class="container-title">关于MLZero</span>
           </header>
           <article class="article-content">
             <p>MLZone是一个专门收集机器学习相关资料的网站。</p>

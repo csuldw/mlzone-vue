@@ -5,7 +5,7 @@
       <div class="g-container-wrap">
         <div class="g-page-sidebar">
           <div class="u-page-left-search">
-            <el-input  placeholder="关键字" @keyup.enter.native=""></el-input>
+            <el-input v-model="queryData.keywords"  placeholder="关键字" @keyup.enter.native="getArticleInfos"></el-input>
           </div>
           <div class="u-page-left">
           </div>
@@ -19,7 +19,7 @@
             <article class="u-archive-main" v-for="article in articleList">
                 {{getDateFromStr(article.publicDate)}}
                 <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
-                  【{{article.articleCategoryEntity.categoryName}}】 {{ article.title }}
+                  [{{article.articleCategoryEntity.categoryName}}] {{ article.title }}
                 </router-link>
             </article>
           </div>

@@ -1,6 +1,7 @@
 import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
+import utils from "../common/js/util.js"
 import {getArticleListByPage, getArticleCategoryListByParam, getArticleStatInfoByParam} from '../api/api';
 
 export default {
@@ -14,7 +15,7 @@ export default {
       msg: '一切从这里开始...',
       linkName: 'Mini项目管理工具入口',
       currentDate: new Date(),
-      numSize: 5,
+      numSize: 4,
       subTitle: "人物简介",
       images: [
         {
@@ -36,7 +37,7 @@ export default {
       userlist:[],
       filters : {
         pageNum: 1,
-        pageSize: 5,
+        pageSize: 4,
         isPublish: 1
       },
       queryParam: {
@@ -72,6 +73,16 @@ export default {
         this.articleCountStat = res.articleCountStat; //res.data.articleList;
         console.log(this.articleCountStat)
       });
+    },
+    getPostType(postType) {
+      if(postType == 0){
+        return "原创";
+      }else {
+        return "转载";
+      }
+    },
+    getDateFromStr(dataStr, pattern) {
+      return utils.getDateFromStr(dataStr, pattern)
     },
   },
   mounted:  function () {

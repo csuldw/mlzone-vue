@@ -4,21 +4,16 @@
 		<div class="g-container-down">
       <div class="g-container-wrap">
         <div class="g-page-sidebar">
-          <div class="u-page-left">
-            <h1>{{ $route.params.pageTitle }}</h1>
-          </div>
-          <div class="u-page-left" >
-            this is a sidenav;
+          <div class="u-page-left-search">
+            <el-input v-model="queryData.keywords"  placeholder="关键字" @keyup.enter.native="getArticleInfos"></el-input>
           </div>
           <div class="u-page-left">
-            this is a sidenav;
           </div>
         </div>
       </div>
       <div class="g-page-container">
           <div class="u-page-title">
-            <!--<h1>{{ $route.query.pageTitle }}</h1>-->
-            <h1>{{ $route.params.pageTitle }}</h1>
+            <h1> {{ pageTitle }} </h1>
           </div>
           <div class="u-page-content" >
             <article class="u-article-excerpt" v-for="article in articleList">

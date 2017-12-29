@@ -56,8 +56,8 @@ export default {
       });
     },
     getDateFromStr(dataStr) {
-      return utils.formatDate.format(new Date(dataStr), "yyyy-MM-dd hh:mm")
-    }
+      return utils.getDateFromStr(dataStr, "yyyy-MM-dd hh:mm")
+    },
   },
   mounted() {
     this.getArticleInfos();

@@ -18,19 +18,21 @@
             <h1>最新发布</h1>
             <div class="article-item" v-for="article in articleList">
               <article class="u-article-excerpt">
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
                   <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
                 <h2>
-                  <span>[{{article.postType}}] </span>
-                    {{ article.title }}
+                  <span>[{{ getPostType(article.postType)}}] </span>
+                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                      {{ article.title }}
+                    </router-link>
                 </h2>
                 <div class="note">{{ article.title }}</div>
                 <div class="meta">
-                  <time>{{ article.publicDate }}</time>
-                  <a class="meta-cat" href="#">WordPress使用教程</a>
-                  <span class="meta-cmt">评论(11)</span>
+                  <time>{{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}</time>
+                  <router-link :to="{ name: 'QueryPage', params: { categoryName: article.articleCategoryEntity.categoryName}}">
+                    {{article.articleCategoryEntity.categoryName}}
+                  </router-link>
+                  <span class="meta-cmt">评论数({{article.commentCount}})</span>
                 </div>
-                </router-link>
               </article>
             </div>
           </div>
@@ -38,18 +40,23 @@
             <h1>文章推荐</h1>
             <div class="article-item" v-for="article in articleList">
               <article class="u-article-excerpt" >
-                <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+                <a class="focus" href="#">
+                  <img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+                <!--<img :src="article.imagePath" class="thumb"></a>-->
                 <h2>
-                  <span>[{{article.postType}}] </span>
+                  <span>[{{ getPostType(article.postType)}}] </span>
                   <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
                     {{ article.title }}
                   </router-link>
                 </h2>
                 <div class="note">{{ article.title }}</div>
                 <div class="meta">
-                  <time>{{ article.publicDate }}</time>
-                  <a class="meta-cat" href="#">WordPress使用教程</a>
-                  <span class="meta-cmt">评论(11)</span>
+                  <time>{{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}</time>
+                  归类于
+                  <router-link :to="{ name: 'QueryPage', params: { categoryName: article.articleCategoryEntity.categoryName}}">
+                    {{article.articleCategoryEntity.categoryName}}
+                  </router-link>
+                  <span class="meta-cmt">评论({{article.commentCount}})</span>
                 </div>
               </article>
             </div>
@@ -57,6 +64,7 @@
         </div>
       </div>
       <div class="g-sidebar">
+        <!--公告 -->
         <div class="u-widget u-widget-tops">
           <ul class="u-widget-nav">
             <li class="active">网站公告</li>
@@ -74,6 +82,49 @@
           </ul>
         </div>
 
+        <!--归档-->
+        <div class="u-widget u-post-archive">
+          <h3>归档</h3>
+          <ul class="archive-content">
+            <div class="archive-list">
+              <li v-for="item in articleCountStat">
+                <span class="archive-detail">
+                  <router-link :to="{ name: 'QueryPage', params: { publicDate: item.queryType }}">
+                    {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
+                  </router-link>
+                  （{{item.articleNumber}}）
+                </span>
+              </li>
+            </div>
+          </ul>
+        </div>
+
+        <!-- 开源项目 -->
+        <div class="u-widget u-post-archive">
+          <h3>我的开源项目 <a href="https://github.com/csuldw?tab=repositories" target="_blank"><span style="font-size: 1em;float: right;">更多 »</span></a></h3>
+          <ul class="open-source-content">
+            <li>
+              <div>
+                <h5 class="prog-title">
+                  <a href="https://github.com/csuldw/MachineLearning/" target="_blank">机器学习相关算法</a>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=MachineLearning&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"/>
+                </h5>
+                <p class="prog-detail">机器学习算法代码及个人总结整理，对于算法实现部分，在相应目录中都包含有源码和数据以及测试实例。</p>
+              </div>
+            </li>
+            <li class="mt10">
+              <div>
+                <h5 class="prog-title">
+                  <a href="https://github.com/csuldw/WSpider" target="_blank">WSpider</a>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=WSpider&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"/>
+                </h5>
+                <p class="prog-detail">一个用于爬取新浪微博的爬虫项目.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 标签云 -->
         <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
           <div class="items">
             <a href="#">前端技巧 (61)</a>
@@ -90,40 +141,6 @@
             <a href="://..com/tag/daqianduan">大前端 (31)</a>
             <a href="://..com/tag/company">企业公司 (30)</a>
           </div>
-        </div>
-        <div class="u-widget u-post-archive">
-          <h3>我的开源项目 <a href="https://github.com/csuldw?tab=repositories" target="_blank"><span style="font-size: 1em;float: right;">更多 »</span></a></h3>
-          <ul class="open-source-content">
-            <li>
-              <div>
-                <h5 class="prog-title">机器学习相关算法 <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=MachineLearning&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"></iframe></h5>
-                <p class="prog-detail">机器学习算法代码及个人总结整理，对于算法实现部分，在相应目录中都包含有源码和数据以及测试实例。</p>
-                <p class="prog-detail">地址：<a href="https://github.com/csuldw/MachineLearning" target="_blank">https://github.com/csuldw/MachineLearning</a></p>
-              </div>
-            </li>
-            <li class="mt10">
-              <div>
-                <h5 class="prog-title">WSpider <iframe src="https://ghbtns.com/github-btn.html?user=csuldw&amp;repo=WSpider&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px" class="ml10" style="vertical-align:-5px;"></iframe></h5>
-                <p class="prog-detail">一个用于爬取新浪微博的爬虫项目.</p>
-                <p class="prog-detail">地址：<a href="https://github.com/csuldw/WSpider" target="_blank">https://github.com/csuldw/WSpider</a></p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="u-widget u-post-archive">
-          <h3>归档</h3>
-          <ul class="archive-content">
-            <div class="archive-list">
-              <li v-for="item in articleCountStat">
-                <span class="archive-detail">
-                  <router-link :to="{ name: 'QueryPage', params: { publicDate: item.queryType }}">
-                    {{ item.queryType }}
-                  </router-link>
-                  （{{item.articleNumber}}）
-                </span>
-              </li>
-            </div>
-          </ul>
         </div>
       </div>
 		</div>
