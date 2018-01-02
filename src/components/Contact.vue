@@ -17,9 +17,9 @@
       </div>
       <div class="g-container-content">
         <div class="containter-right">
-          <header class="containter-right-header">
+          <!--<header class="containter-right-header">
             <span class="container-title">关于站长</span>
-          </header>
+          </header>-->
           <div class="containter-right-top">
             <div class="weblog-author-widget">
               <a href="https://www.acmethemes.com/themes/weblog" target="_blank">
@@ -28,7 +28,7 @@
             </div>
             <div class="weblog-author-content">
               <div>站长：刘帝伟. </div>
-              <div>中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。</div>
+              <div>介绍: 中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。</div>
               <div>Email: csu.ldw@csu.edu.cn</div>
               <div>新浪微博：@拾毅者</div>
             </div>
