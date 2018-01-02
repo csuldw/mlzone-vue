@@ -4,16 +4,17 @@
     <div class="g-container-down">
       <div class="g-container-wrap">
         <div class="g-container-sidebar">
-          <div class="pageside">
-            <div class="pagemenus">
-              <ul class="pagemenu">
-                <li class="active"><a href="#/about">关于本站</a></li>
-                <li><a href="#/links">友情链接</a></li>
-                <li><a href="#/contact">联系站长</a></li>
-              </ul>
-            </div>
+          <div class="weblog-author-widget">
+            <a href="https://www.acmethemes.com/themes/weblog" target="_blank">
+              <img height="150px" src="https://avatars2.githubusercontent.com/u/12168831?s=400&u=386a38a3e437e0d26e4317ff24c9cb471e357d79&v=4">
+            </a>
           </div>
-
+          <div class="weblog-author-widget">
+            <div>作者：刘帝伟. </div>
+            <div>中南大学硕士毕业，关注机器学习、数据挖掘和人工智能领域.。</div>
+            <div>Email: csu.ldw@csu.edu.cn</div>
+            <div>新浪微博：@拾毅者</div>
+          </div>
         </div>
       </div>
       <div class="g-container-content">
@@ -24,8 +25,6 @@
             <p>答：主要是机器学习，其次还有大数据、数据挖掘、人工智能、云计算等领域的相关内容。</p>
           </div>
           <div class="u-container-content">
-
-
           </div>
         </div>
       </div>

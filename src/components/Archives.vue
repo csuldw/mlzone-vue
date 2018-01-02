@@ -17,10 +17,10 @@
           </div>
           <div class="u-archive-content" >
             <article class="u-archive-main" v-for="article in articleList">
+              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
                 {{getDateFromStr(article.publicDate)}}
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
-                  [{{article.articleCategoryEntity.categoryName}}] {{ article.title }}
-                </router-link>
+                [{{article.articleCategoryEntity.categoryName}}] {{ article.title }}
+              </router-link>
             </article>
           </div>
           <div class="archive-pagination-meta">

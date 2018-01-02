@@ -5,7 +5,8 @@
         目前您尚未登录，请 <a @click="login">登录</a> 或 <a>注册</a> 后进行评论
       </div>
 
-      <el-dialog title="登录" v-model="loginFormVisible" :close-on-click-modal="false" class="el-dialog-login" style="width:800px;">
+      <!--登录界面-->
+      <el-dialog title="登录" @keyup.enter.native="loginSubmit" v-model="loginFormVisible" :close-on-click-modal="false" class="el-dialog-login" style="width:800px;">
         <el-form :model="dataForm" label-width="100px" :rules="dataFormRules" ref="dataForm" style="text-align:center;">
           <el-row >
             <el-col :span="18">
@@ -27,6 +28,7 @@
           <el-button type="primary" @click.native="loginSubmit" :loading="loginLoading">&nbsp;登录&nbsp;</el-button>
         </div>
       </el-dialog>
+
       <div id="comment-main" class="u-comment-input" style="display: none">
         <el-form :model="commentForm" class="new-comment" ref="commentForm" ><!-- :rules="commentFormRules"-->
             <a class="avatar">
@@ -44,7 +46,7 @@
           </div>
         </el-form>
       </div>
-      <!--登录界面-->
+
       <div id="normal-comment-list" class="normal-comment-list">
         <div>
           <div>
@@ -61,13 +63,16 @@
           <div id="comment-17064420" class="comment-item" v-for="( comment, index) in commentList" >
               <div class="author"><a href="/u/c98a25c65544" target="_blank" class="avatar">
                 <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
-                <div class="comment-header"><a href="/u/c98a25c65544" target="_blank" class="name"><span style="color: #4093c6;">{{ comment.userEntityFrom.username }} </span></a> <!---->
+                <div class="comment-header">
+                  <a href="/u/c98a25c65544" target="_blank" class="name">
+                  <span style="color: #4093c6;">{{ getUsernameByComment(comment, "from") }} </span>
+                  </a>
                   <span style="color: #ccc;">{{ comment.sendDate }} </span> <span style="color: #ccc; float:right;">{{ index + 1 }}楼 </span>
                 </div>
               </div>
               <div class="comment-wrap"><span>{{ comment.content }}</span>
                 <div class="tool-group">
-                  <a class="" @click="showReply('index' + index)">
+                  <a class="" @click="showReply('index' + index, comment.fromUserId)">
                     <i class="iconfont ic-comment"></i>
                     <span style="color: #4093c6;" :id="generateId('comment-reply', index)">回复</span>
                   </a>
@@ -90,12 +95,12 @@
                   <img src="//upload.jianshu.io/users/upload_avatars/8191521/e5473c34-1a23-45f8-a99e-4ad4adf73987?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114"></a>
                   <div class="comment-header">
                     <a href="/u/c98a25c65544" target="_blank" class="name">
-                      <span style="color: #4093c6;">{{ comment.userEntityFrom.username }} </span>
+                      <span style="color: #4093c6;">{{ getUsernameByComment(subComment,"from")}} </span>
                     </a> <!---->
                     <span style="color: #ccc;">{{ subComment.sendDate }} </span>
                   </div>
                 </div>
-                <div class="sub-comment-content">回复 {{ comment.userEntityTo.username }}：{{ subComment.content}}</div>
+                <div class="sub-comment-content">回复 {{ getUsernameByComment(subComment, "to") }}：{{ subComment.content}}</div>
               </div>
             </div>
           </div>

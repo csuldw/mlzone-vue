@@ -30,7 +30,8 @@ export default {
         "filePath": "",
         "articleCategoryEntity": {
           categoryName: ""
-        }
+        },
+        "userId": ''
       }
     }
   },

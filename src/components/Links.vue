@@ -7,9 +7,8 @@
           <div class="pageside">
             <div class="pagemenus">
               <ul class="pagemenu">
-                <li><a href="#/about">关于本站</a></li>
+                <!--<li><a href="#/about">关于本站</a></li>-->
                 <li class="active"><a href="#/links">友情链接</a></li>
-                <li><a href="#/contact">联系站长</a></li>
               </ul>
             </div>
           </div>

@@ -46,7 +46,8 @@
           </div>
         </div>
         <div class="g-post-plugin-comment">
-          <comment-select :articleId="articleInfo.id"></comment-select>
+          <comment-select :articleId="articleInfo.id" :articleUserId="articleInfo.userId"></comment-select>
+          <!--<comment-select :to="{articleId:'articleInfo.id',userId:'articleInfo.userEntity.id'}"></comment-select>-->
         </div>
       </div>
       <div class="g-post-sidebar" id="post-sidebar">

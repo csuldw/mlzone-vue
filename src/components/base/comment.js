@@ -10,14 +10,15 @@ export default {
   name: 'footer',
   props: [
     'filter',
-    'articleId'
+    'articleId',
+    'articleUserId'
   ],
   data() {
     return {
       filters: {
         pageNum : 1,
         pageSize : 0,
-        articleId : ''
+        articleId : '',
       },
       commentLoading : false,
       msg: 'footer part',
@@ -59,7 +60,8 @@ export default {
       commentList : [],
       isAuth : false,
       userId : '',
-      tokenId: ''
+      tokenId: '',
+      toUserId :''
     }
   },
   computed:{
@@ -116,6 +118,8 @@ export default {
       // this.$refs.commentForm.validate((valid) => {
       //   if (valid) {
           this.commentForm.articleId = this.articleId;
+          this.commentForm.fromUserId = cookieUtils.getUserId();
+          this.commentForm.toUserId = this.articleUserId;
           this.commentForm = Object.assign({}, this.commentForm);
           let para = this.commentForm;
           if(this.commentForm.content === "" || this.commentForm.content == null)
@@ -141,9 +145,10 @@ export default {
     //保存子评论
     saveSubComment: function (parentCommentId) {
       this.subCommentForm.articleId = this.articleId;
-      this.subCommentForm = Object.assign({}, this.subCommentForm);
-      //this.subCommentForm.fromUserId = ""
+      this.subCommentForm.fromUserId = cookieUtils.getUserId();
       this.subCommentForm.parentCommentId = parentCommentId
+      this.subCommentForm.toUserId = this.toUserId;
+      this.subCommentForm = Object.assign({}, this.subCommentForm);
       let para = this.subCommentForm;
 
       if(this.subCommentForm.content === "" || this.subCommentForm.content == null)
@@ -180,7 +185,9 @@ export default {
         this.commentLoading = false
       });
     },
-    showReply : function (x) {
+    showReply : function (x, userId) {
+      this.toUserId = userId;
+      alert(userId)
       // $(".u-comment-input").css("display", "none");
       if($("#" + x).css("display") == "block") {
         $("#" + x).css("display","none");
@@ -205,9 +212,17 @@ export default {
       // $("#comment-main").css("display", "block")
     },
     logout: function () {
-      alert()
-      localStorage.clear();
-      getAuth();
+      this.$confirm('确认退出登录吗？', '提示', {}).then(() => {
+        this.$message({
+          message: '您已退出登录！',
+          type: 'success'
+        });
+        localStorage.clear();
+        getAuth();
+        $("#before-comment").css("display", "block");
+        $("#comment-main").css("display", "none");
+        $("[id^=comment-reply]").css("display", "none")
+      })
     },
     getAuth : function () {
       let para = "";
@@ -234,6 +249,17 @@ export default {
     },
     generateId(prefix, index) {
       return prefix + index;
+    },
+    getUsernameByComment(comment, userType){
+      if(comment !== null){
+        if(comment.userEntityFrom !== null && userType ==="from") {
+          return comment.userEntityFrom.username;
+        }
+        if(comment.userEntityTo !== null && userType ==="to") {
+          return comment.userEntityTo.username;
+        }
+      }
+      return "-1";
     }
   },
   mounted () {
