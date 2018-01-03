@@ -1,6 +1,7 @@
 import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
+import utils from "../common/js/util.js"
 import {getArticleListByPage, getArticleCategoryListByParam} from '../api/api';
 
 export default {
@@ -47,6 +48,16 @@ export default {
         this.articleList = res.data.list; //res.data.articleList;
         console.log(this.articleList)
       });
+    },
+    getPostType(postType) {
+      if(postType == 0){
+        return "原创";
+      }else {
+        return "转载";
+      }
+    },
+    getDateFromStr(dataStr, pattern) {
+      return utils.getDateFromStr(dataStr, pattern)
     },
   },
   mounted() {
