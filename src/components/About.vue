@@ -28,9 +28,10 @@
           </div>
         </div>
       </div>
-      <!--<div class="g-post-plugin-comment">
-        <comment-select :filter="{pageNum: 1, pageSize:0, articleId: 0, parentCommentId: 0 }"></comment-select>
-      </div>-->
+      <div class="g-post-plugin-comment">
+        <comment-select :articleId="0" :articleUserId="712"></comment-select>
+        <!--<comment-select :to="{articleId:'articleInfo.id',userId:'articleInfo.userEntity.id'}"></comment-select>-->
+      </div>
     </div>
     <footer-select></footer-select>
   </div>
@@ -40,4 +41,7 @@
 </script>
 
 <style scoped>
+  .g-container-comment{
+    float: right;
+  }
 </style>
