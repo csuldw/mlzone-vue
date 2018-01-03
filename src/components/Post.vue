@@ -43,6 +43,7 @@
             </header>
             <div id="post-content" class="u-post-content"></div>
             <div v-html="compiledMarkdown" style="display: none"></div>
+            <div class="artical-copyright">版权声明：原创作品，如需转载，请注明出处。</div>
           </div>
         </div>
         <div class="g-post-plugin-comment">
@@ -68,8 +69,12 @@
 </template>
 
 <script src="./post.js">
+
+
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .g-container-comment{
+    float: left;
+  }
 </style>
