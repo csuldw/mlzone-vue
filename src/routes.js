@@ -4,9 +4,10 @@ import Archives from '@/components/Archives.vue'
 import QueryPage from '@/components/QueryPage.vue'
 import OpenSource from '@/components/OpenSource.vue'
 import Post from '@/components/Post.vue'
-import BugManagement from './components/bugManagement/BugManagement.vue'
 import UserDetail from '@/components/UserDetail'
 import Links from '@/components/Links'
+import Jobdesc from '@/components/Jobdesc'
+import Copyright from '@/components/Copyright'
 import About from '@/components/About.vue'
 const routes = [
   {
@@ -55,9 +56,19 @@ const routes = [
     component: Links
   },
   {
+    path: '/job-desc',
+    name: 'job-desc',
+    component: Jobdesc
+  },
+  {
     path: '/about',
     name: 'about',
     component: About
+  },
+  {
+    path: '/copyright',
+    name: 'copyright',
+    component: Copyright
   }
 ]
 export default routes
