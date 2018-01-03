@@ -6,6 +6,8 @@ import marked from 'marked'
 import '../assets/css/marked.styl'; //引入外部css
 import '../assets/css/highlight/highlight.styl'; //引入外部css
 import '../assets/js/back-to-top.js'; //引入外部css
+import $ from 'jquery'
+
 import {
   loadContentByPath,
   getArticelDetailInfoById
@@ -39,7 +41,6 @@ export default {
     this.getArticleDetailInfo()
     this.openOrCloseToc();
     this.scrollAction();
-//    this.compileMarked ();
     this.markdown();
   },
   computed: {
@@ -105,10 +106,24 @@ export default {
         }
       });
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]); //每次加载数据之后就加载一次mathjax
+
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+
       $("#article-toc-content").append(content);
       hljs.initHighlightingOnLoad();
       this.initCode();
-      return ""
     },
   },
   updated:function(){
@@ -204,7 +219,8 @@ export default {
           obj.css({"position": "relative", "top": "0px", "min-width": "20%"});
         }
       });
-    }
-  }
+    },
+  },
+
 }
 
