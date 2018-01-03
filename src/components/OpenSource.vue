@@ -5,18 +5,16 @@
       <div class="g-container-wrap">
         <div class="g-page-sidebar">
           <div class="u-page-left">
-            <h1>开源推荐</h1>
+            <h1></h1>
           </div>
           <div class="u-page-left" >
-            this is a sidenav;
           </div>
           <div class="u-page-left">
-            this is a sidenav;
           </div>
         </div>
       </div>
       <div class="g-page-container">
-
+        <h1>此功能尚未开放！</h1>
       </div>
 		</div>
     <footer-select></footer-select>
