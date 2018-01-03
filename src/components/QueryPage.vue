@@ -15,23 +15,28 @@
           <div class="u-page-title">
             <h1> {{ pageTitle }} </h1>
           </div>
-          <div class="u-page-content" >
-            <article class="u-article-excerpt" v-for="article in articleList">
-              <a class="focus" href="#"><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></a>
+        <div class="u-page-content">
+          <article class="u-article-excerpt" v-for="article in articleList">
+            <a onclick="_hmt.push(['_trackEvent', 'kgc', 'click', 'home'])" class="focus" href="#" target="_blank">
+              <img src="http://www.daqianduan.com/wp-content/uploads/2017/10/kgc2.jpg" class="thumb">
+            </a>
+            <header>
               <h2>
-                <span>[{{article.postType}}] </span>
+                [{{ getPostType(article.postType)}}]
                 <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
                   {{ article.title }}
                 </router-link>
               </h2>
-              <div class="note">{{ article.title }}</div>
-              <div class="meta">
-                <time>{{ article.publicDate }}</time>
-                <a class="meta-cat" href="#">WordPress使用教程</a>
-                <span class="meta-cmt">评论(11)</span>
-              </div>
-            </article>
-          </div>
+            </header>
+            <p class="meta">
+              <time><i class="fa fa-clock-o"></i>
+                {{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}
+              </time>
+              <span class="author"><i class="fa fa-user"></i>{{ article.author }}</span>
+            </p>
+            <p class="note">工作累，拿钱少？想转行，但是自己学历不高，又没有其他技能怎么办？难道自己一辈子就这样了......不，我要逆袭！敲敲代码，照样月月高薪，0基础也不怕，快来看腾讯前端大咖揭秘月薪30k的方法......</p>
+          </article>
+        </div>
       </div>
 		</div>
     <footer-select></footer-select>
