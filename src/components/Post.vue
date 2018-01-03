@@ -11,9 +11,9 @@
               </h1>
               <div class="u-post-meta">
                 <span class="u-post-time">
-                  发布于
+                  发表于
                   <time itemprop="dateCreated" datetime="2017-09-22T23:10:00+08:00" content="2017-09-22">
-                    {{articleInfo.publicDate}}
+                    {{getDateFromStr(articleInfo.publicDate)}}
                   </time>
                 </span>
                 <span class="u-post-category">
@@ -28,15 +28,15 @@
                 </span>
                 <span class="u-post-comments-count">
                   &nbsp; | &nbsp;
-                  <a href="/2017/09/22/2017-09-22-hello-september/#comments" itemprop="discussionUrl">
+                  <!--<a href="/2017/09/22/2017-09-22-hello-september/#comments" itemprop="discussionUrl">-->
                     <span class="u-post-comments-count u-disqus-comment-count" data-disqus-identifier="2017/09/22/2017-09-22-hello-september/" itemprop="commentsCount">
                       评论数：{{articleInfo.commentCount}}
                     </span>
-                  </a>
+                  <!--</a>-->
                 </span>
                 <span id="/2017/09/22/2017-09-22-hello-september/" class="u-leancloud_visitors" data-flag-title="Hello，九月">
                   &nbsp; | &nbsp;
-                  阅读
+                  阅读量
                   : {{articleInfo.viewCount}}
                 </span>
               </div>

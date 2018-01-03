@@ -7,6 +7,7 @@ import '../assets/css/marked.styl'; //引入外部css
 import '../assets/css/highlight/highlight.styl'; //引入外部css
 import '../assets/js/back-to-top.js'; //引入外部css
 import $ from 'jquery'
+import utils from "../common/js/util.js"
 
 import {
   loadContentByPath,
@@ -146,6 +147,9 @@ export default {
           return require('highlight.js').highlightAuto(code).value;
         }
       });
+    },
+    getDateFromStr(dataStr) {
+      return utils.getDateFromStr(dataStr, "yyyy-MM-dd hh:mm")
     },
     getArticleDetailInfo: function () {
       let articleId = this.$route.params.articleId;

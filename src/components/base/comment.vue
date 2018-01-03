@@ -32,7 +32,7 @@
       <div id="comment-main" class="u-comment-input" style="display: none">
         <el-form :model="commentForm" class="new-comment" ref="commentForm" ><!-- :rules="commentFormRules"-->
             <a class="avatar">
-              <img src="http://ucenter.51cto.com/images/noavatar_middle.gif"></a>
+              <img src="../../../static/image/noavatar_middle.gif"></a>
           <el-form-item prop="content">
             <el-input v-model="commentForm.content" @click="handleLogin" style="resize:none !important;"  :autosize="{minRows: 4, maxRows:6}" type="textarea"  :rows="2"  placeholder="写下你的评论..." ></el-input>
           </el-form-item>
@@ -62,7 +62,7 @@
           <!-- 评论 -->
           <div id="comment-17064420" class="comment-item" v-for="( comment, index) in commentList" >
               <div class="author"><a href="/u/c98a25c65544" target="_blank" class="avatar">
-                <img src="http://ucenter.51cto.com/images/noavatar_middle.gif"></a>
+                <img src="../../../static/image/noavatar_middle.gif"></a>
                 <div class="comment-header">
                   <a href="/u/c98a25c65544" target="_blank" class="name">
                   <span style="color: #4093c6;">{{ getUsernameByComment(comment, "from") }} </span>

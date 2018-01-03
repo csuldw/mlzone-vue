@@ -180,7 +180,7 @@ export default {
       let para = this.filters;
       this.commentLoading = true
       getCommentListByParam(para).then((res) => {
-        this.total = res.data.total; //res.data.total;
+        this.total = res.commentCount; //res.data.total;
         this.commentList = res.data.list; //res.data.articleList;
         this.commentLoading = false
       });
