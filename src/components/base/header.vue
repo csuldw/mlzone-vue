@@ -14,19 +14,26 @@
           <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="/">首页</a></li>
           <li id="menu-item-4244" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4244">
             <!--<router-link :to="{ path: 'page', query: { pageTitle: '机器学习' }}">机器学习</router-link>-->
-            <a href="/mlPage">机器学习</a>
+            <a href="/machine-learning">机器学习</a>
             <!--<router-link :to="{ name: 'PostPage', params: { categoryName: 'ML' }}">机器学习</router-link>-->
           </li>
           <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154">
-            <router-link :to="{ name: 'Archives'}">文章列表</router-link>
+            <!--<router-link :to="{ name: 'Archives'}">文章列表</router-link>-->
+            <a href="/archives">文章列表</a>
           </li>
  <!--         <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015">
             <router-link :to="{ path: '/openSource'}">开源传送门</router-link>
           </li>-->
           <!--<li id="menu-item-5012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5012"><a href="#">生活天地</a></li>-->
           <!--<li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="#">招聘信息</a></li>-->
-          <li class="menusns"><a href="/links">友情链接</a></li>
-          <li class="menusns"><a href="/about">关于本站</a></li>
+          <li class="menusns">
+            <!--<a href="/links">友情链接</a>-->
+            <router-link :to="{ name: 'links'}">友情链接</router-link>
+          </li>
+          <li class="menusns">
+            <!--<a href="/about">关于本站</a>-->
+            <router-link :to="{ name: 'about'}">关于本站</router-link>
+          </li>
           <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
         </ul>
       </div>

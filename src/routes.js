@@ -16,7 +16,7 @@ const routes = [
     component: Hello
   },
   {
-    path: '/mlPage',
+    path: '/machine-learning',
     name: 'MLPage',
     component: MLPage
   },
@@ -31,7 +31,7 @@ const routes = [
     component: MLPage
   },
   {
-    path: '/query',
+    path: '/query/:queryType/:keyword',
     name: 'QueryPage',
     component: QueryPage
   },
@@ -41,7 +41,7 @@ const routes = [
     component: Archives
   },
   {
-    path: '/postDetail/:articleId',
+    path: '/details/:path/:articleId',
     name: 'PostDetail',
     component: Post
   },

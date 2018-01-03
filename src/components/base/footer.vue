@@ -8,21 +8,14 @@
           <span class="author" itemprop="copyrightHolder">刘帝伟</span>
         </div>
         <div class="powered-by">
-          Powered by <a class="theme-link" href="http://www.csuldw.com">@csuldw</a>
-        </div>
-        <div class="theme-info">
           Theme -
           <a class="theme-link" href="#">
             MLZone
           </a>
-          <span id="">
-            &nbsp; | &nbsp;  用户量: 10,000
-            <span id=""></span>
-          </span>
-          <span id="">
-            &nbsp; | &nbsp;  总访问量: 9,000,000
-            <span id=""></span>
-          </span>
+          Powered by <a class="theme-link" href="http://www.csuldw.com">@csuldw</a>
+        </div>
+        <div class="theme-info">
+          湖南省长沙市天心区
         </div>
       </div>
     </footer>

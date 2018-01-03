@@ -17,7 +17,7 @@
           </div>
           <div class="u-archive-content" >
             <article class="u-archive-main" v-for="article in articleList">
-              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}" >
+              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
                 {{getDateFromStr(article.publicDate)}}
                 [{{article.articleCategoryEntity.categoryName}}] {{ article.title }}
               </router-link>
@@ -27,7 +27,7 @@
             <el-pagination
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
-              :page-sizes="[5, 50, 100, 200, 300]"
+              :page-sizes="[20, 50, 100, 200, 300]"
               :page-size="queryData.pageSize"
               layout="total, sizes, prev, pager, next, jumper"
               :total="total">

@@ -18,21 +18,19 @@
             <h1>最新发布</h1>
             <div class="article-item" v-for="article in articleList">
               <article class="u-article-excerpt">
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
                   <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
                 </router-link>
                 <h2>
                   <span>[{{ getPostType(article.postType)}}] </span>
-                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
                       {{ article.title }}
                     </router-link>
                 </h2>
                 <div class="note">{{ article.title }}</div>
                 <div class="meta">
                   <time>{{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}</time>
-                  <router-link :to="{ name: 'QueryPage', params: { categoryName: article.articleCategoryEntity.categoryName}}">
-                    {{article.articleCategoryEntity.categoryName}}
-                  </router-link>
+                  <a :href="combineQueryUrl('category', article.articleCategoryEntity.categoryName)" > {{article.articleCategoryEntity.categoryName}}</a>
                   <span class="meta-cmt">评论数({{article.commentCount}})</span>
                 </div>
               </article>
@@ -42,21 +40,19 @@
             <h1>文章推荐</h1>
             <div class="article-item" v-for="article in articleList">
               <article class="u-article-excerpt">
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
                   <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
                 </router-link>
                 <h2>
                   <span>[{{ getPostType(article.postType)}}] </span>
-                  <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                  <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
                     {{ article.title }}
                   </router-link>
                 </h2>
                 <div class="note">{{ article.title }}</div>
                 <div class="meta">
                   <time>{{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}</time>
-                  <router-link :to="{ name: 'QueryPage', params: { categoryName: article.articleCategoryEntity.categoryName}}">
-                    {{article.articleCategoryEntity.categoryName}}
-                  </router-link>
+                  <a :href="combineQueryUrl('category', article.articleCategoryEntity.categoryName)" > {{article.articleCategoryEntity.categoryName}}</a>
                   <span class="meta-cmt">评论数({{article.commentCount}})</span>
                 </div>
               </article>
@@ -90,9 +86,9 @@
             <div class="archive-list">
               <li v-for="item in articleCountStat">
                 <span class="archive-detail">
-                  <router-link :to="{ name: 'QueryPage', params: { publicDate: item.queryType }}">
-                    {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
-                  </router-link>
+                  <a :href="combineQueryUrl('date', item.queryType)" >
+                     {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
+                  </a>
                   （{{item.articleNumber}}）
                 </span>
               </li>

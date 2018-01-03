@@ -7,9 +7,11 @@
           <div class="pageside">
             <div class="pagemenus">
               <ul class="pagemenu">
-                <li class="active"><a href="#/links">友情链接</a></li>
+                <!--<li class="active"><a href="#/links">友情链接</a></li>-->
                 <!--<li><a href="#/job-desc">免费发布招聘</a></li>-->
-                <li><a href="#/copyright">免责声明</a></li>
+                <!--<li><a href="/copyright">免责声明</a></li>-->
+                <li class="active"><router-link :to="{ path: '/links'}">友情链接</router-link></li>
+                <li><router-link :to="{ path: '/copyright'}">免责声明</router-link></li>
               </ul>
             </div>
           </div>
@@ -41,7 +43,7 @@
         </div>
       </div>
       <div class="g-post-plugin-comment">
-        <comment-select :articleId="0" :articleUserId="articleInfo.userId"></comment-select>
+        <comment-select :articleId="-2" :articleUserId="articleInfo.userId"></comment-select>
         <!--<comment-select :to="{articleId:'articleInfo.id',userId:'articleInfo.userEntity.id'}"></comment-select>-->
       </div>
     </div>
@@ -79,5 +81,6 @@ export default {
 <style scoped>
   .g-container-comment{
     float: right;
+    width: 74%;
   }
 </style>

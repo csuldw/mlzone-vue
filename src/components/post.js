@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted() {
-    this.getArticleDetailInfo()
+    this.getArticleDetailInfo();
     this.openOrCloseToc();
     this.scrollAction();
     this.markdown();
@@ -220,6 +220,9 @@ export default {
         }
       });
     },
+    combineQueryUrl(type, value){
+      return "/query/" + type + "/" + value;
+    }
   },
 
 }

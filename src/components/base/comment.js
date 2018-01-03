@@ -200,7 +200,6 @@ export default {
       }
     },
     cancelSubComment : function () {
-      // $(".u-comment-input").css("display", "block");
       $("[id^='index']").each(function(){
         $(this).css("display","none");
       });
@@ -208,8 +207,6 @@ export default {
 
     login: function () {
       this.loginFormVisible = true
-      // $("#before-comment").css("display", "none")
-      // $("#comment-main").css("display", "block")
     },
     logout: function () {
       this.$confirm('确认退出登录吗？', '提示', {}).then(() => {

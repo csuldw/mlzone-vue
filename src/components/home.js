@@ -82,6 +82,19 @@ export default {
     getDateFromStr(dataStr, pattern) {
       return utils.getDateFromStr(dataStr, pattern)
     },
+    getFileName(path){
+      var pos1 = path.lastIndexOf('/');
+      var pos2 = path.lastIndexOf('\\');
+      var pos  = Math.max(pos1, pos2)
+      if( pos<0 ){
+        return path.split(".")[0];
+      }else{
+        return path.substring(pos+1).split(".")[0];
+      }
+    },
+    combineQueryUrl(type, value){
+      return "/query/" + type + "/" + value;
+    }
   },
   mounted:  function () {
     this.getArticleInfos();

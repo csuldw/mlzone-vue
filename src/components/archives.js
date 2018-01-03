@@ -13,7 +13,7 @@ export default {
     return {
       queryData : {
         pageNum: 1,
-        pageSize: 5,
+        pageSize: 20,
         categoryName: '',
         title:'',
         tags:'',
@@ -58,6 +58,16 @@ export default {
     getDateFromStr(dataStr) {
       return utils.getDateFromStr(dataStr, "yyyy-MM-dd hh:mm")
     },
+    getFileName(path){
+      var pos1 = path.lastIndexOf('/');
+      var pos2 = path.lastIndexOf('\\');
+      var pos  = Math.max(pos1, pos2)
+      if( pos<0 ){
+        return path.split(".")[0];
+      }else{
+        return path.substring(pos+1).split(".")[0];
+      }
+    }
   },
   mounted() {
     this.getArticleInfos();

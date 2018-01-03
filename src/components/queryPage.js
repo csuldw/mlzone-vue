@@ -28,13 +28,29 @@ export default {
   computed: {
   },
   methods: {
+    handleSizeChange(val) {
+      this.queryData.pageSize = val;
+      this.handleCurrentChange(1);
+      this.getArticleInfos();
+    },
+    handleCurrentChange(val) {
+      this.queryData.pageNum = val;
+      this.getArticleInfos();
+    },
     getArticleInfos() {
-      let publicDate = this.$route.params.publicDate;
-      let categoryName = this.$route.params.categoryName;
+      let queryType = this.$route.params.queryType;
+      var publicDate = null;
+      var categoryName = null;
+      if(queryType === "date"){
+        publicDate = this.$route.params.keyword;
+      }
+      else if(queryType === "category"){
+        categoryName = this.$route.params.keyword;
+      }
       if(publicDate != null && publicDate !='')
       {
           this.queryData.publicDate = publicDate;
-          this.pageTitle = publicDate
+          this.pageTitle = this.getDateFromStr(publicDate, "yyyy年MM月")
       }
       if(categoryName != null && categoryName !='')
       {
@@ -59,6 +75,16 @@ export default {
     getDateFromStr(dataStr, pattern) {
       return utils.getDateFromStr(dataStr, pattern)
     },
+    getFileName(path){
+      var pos1 = path.lastIndexOf('/');
+      var pos2 = path.lastIndexOf('\\');
+      var pos  = Math.max(pos1, pos2)
+      if( pos<0 ){
+        return path.split(".")[0];
+      }else{
+        return path.substring(pos+1).split(".")[0];
+      }
+    }
   },
   mounted() {
     this.getArticleInfos();

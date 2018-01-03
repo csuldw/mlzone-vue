@@ -14,7 +14,7 @@ export default {
       queryData : {
         pageNum: 1,
         pageSize: 10,
-        categoryName: '',
+        categoryName: '机器学习',
         title:'',
         tags:'',
         keywords:'',

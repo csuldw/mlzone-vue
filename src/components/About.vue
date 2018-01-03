@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="g-post-plugin-comment">
-        <comment-select :articleId="0" :articleUserId="712"></comment-select>
+        <comment-select :articleId="-1" :articleUserId="712"></comment-select>
         <!--<comment-select :to="{articleId:'articleInfo.id',userId:'articleInfo.userEntity.id'}"></comment-select>-->
       </div>
     </div>
@@ -43,5 +43,6 @@
 <style scoped>
   .g-container-comment{
     float: right;
+    width: 74%;
   }
 </style>

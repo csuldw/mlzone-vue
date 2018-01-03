@@ -11,19 +11,17 @@
               </h1>
               <div class="u-post-meta">
                 <span class="u-post-time">
-                  Posted on
+                  发布于
                   <time itemprop="dateCreated" datetime="2017-09-22T23:10:00+08:00" content="2017-09-22">
                     {{articleInfo.publicDate}}
                   </time>
                 </span>
                 <span class="u-post-category">
-                  &nbsp; | &nbsp; In
+                  &nbsp; | &nbsp; 类别:
                   <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                     <a href="/categories/杂谈/" itemprop="url" rel="index">
                       <span itemprop="name">
-                        <router-link :to="{ name: 'QueryPage', params: { categoryName: articleInfo.articleCategoryEntity.categoryName}}">
-                          {{articleInfo.articleCategoryEntity.categoryName}}
-                      </router-link>
+                        <a :href="combineQueryUrl('category', articleInfo.articleCategoryEntity.categoryName)" > {{articleInfo.articleCategoryEntity.categoryName}}</a>
                       </span>
                     </a>
                   </span>
@@ -31,13 +29,15 @@
                 <span class="u-post-comments-count">
                   &nbsp; | &nbsp;
                   <a href="/2017/09/22/2017-09-22-hello-september/#comments" itemprop="discussionUrl">
-                    <span class="u-post-comments-count u-disqus-comment-count" data-disqus-identifier="2017/09/22/2017-09-22-hello-september/" itemprop="commentsCount"></span>
+                    <span class="u-post-comments-count u-disqus-comment-count" data-disqus-identifier="2017/09/22/2017-09-22-hello-september/" itemprop="commentsCount">
+                      评论数：{{articleInfo.commentCount}}
+                    </span>
                   </a>
                 </span>
                 <span id="/2017/09/22/2017-09-22-hello-september/" class="u-leancloud_visitors" data-flag-title="Hello，九月">
                   &nbsp; | &nbsp;
-                  views
-                  : 1777
+                  阅读
+                  : {{articleInfo.viewCount}}
                 </span>
               </div>
             </header>
