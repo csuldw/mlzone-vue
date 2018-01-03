@@ -7,8 +7,9 @@
           <div class="pageside">
             <div class="pagemenus">
               <ul class="pagemenu">
-                <!--<li><a href="#/about">关于本站</a></li>-->
                 <li class="active"><a href="#/links">友情链接</a></li>
+                <!--<li><a href="#/job-desc">免费发布招聘</a></li>-->
+                <li><a href="#/copyright">免责声明</a></li>
               </ul>
             </div>
           </div>
@@ -37,11 +38,14 @@
               </div>
             </div>
           </div>
-
         </div>
-
+      </div>
+      <div class="g-post-plugin-comment">
+        <comment-select :articleId="0" :articleUserId="articleInfo.userId"></comment-select>
+        <!--<comment-select :to="{articleId:'articleInfo.id',userId:'articleInfo.userEntity.id'}"></comment-select>-->
       </div>
     </div>
+
     <footer-select></footer-select>
 	</div>
 </template>
@@ -50,14 +54,20 @@
 import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
+import comment from './base/comment.vue';
 
 export default {
   components: {
     'header-select': header,
-    'footer-select': footer
+    'footer-select': footer,
+    'comment-select': comment
   },
 	data () {
 		return {
+      articleInfo: {
+        "id": this.$route.params.articleId,
+        "userId": '712'
+      }
 		}
 	},
 	computed: {
@@ -67,5 +77,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .g-container-comment{
+    float: right;
+  }
 </style>
