@@ -12,8 +12,6 @@ export default {
   },
   data () {
     return {
-      msg: '一切从这里开始...',
-      linkName: 'Mini项目管理工具入口',
       currentDate: new Date(),
       numSize: 4,
       subTitle: "人物简介",
