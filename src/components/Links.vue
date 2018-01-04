@@ -30,12 +30,10 @@
           <div class="plinks">
             <div id="linkcat-2" class="linkcat">
               <div style="width:100%; left: 0; position: absolute;">
-                <ul class="xoxo blogroll">
-                  <li><a href="#" target="_blank"><img src="#">嗨酷哥</a></li>
-                  <li><a href="#" target="_blank"><img src="#">百度程序媛</a></li>
-                  <li><a href="#" target="_blank"><img src="#">pluskid</a></li>
-                  <li><a href="#" target="_blank"><img src="#">csuldw</a></li>
-                  <li><a href="#" target="_blank"><img src="#">拾毅者</a></li>
+                <ul>
+                  <li v-for="sourceItem in sourceList" >
+                    <a :href="sourceItem.url" class="link-item" target="_blank">{{sourceItem.name}}</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -57,6 +55,7 @@ import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
 import comment from './base/comment.vue';
+import {getWebSourceListByParam} from '../api/api';
 
 export default {
   components: {
@@ -69,11 +68,29 @@ export default {
       articleInfo: {
         "id": this.$route.params.articleId,
         "userId": '712'
-      }
+      },
+      queryData : {
+        pageNum: 1,
+        pageSize: 0,
+        sourceType: 'link',
+      },
+      sourceList : [],
+      total　: 0
 		}
 	},
-	computed: {
-	},
+  methods: {
+    getWebSourceList() {
+      let para = this.queryData;
+      getWebSourceListByParam(para).then((res) => {
+        this.total = res.data.total;//res.data.total;
+        this.sourceList = res.data.list; //res.data.articleList;
+        console.log(this.sourceList)
+      });
+    },
+  },
+  mounted(){
+    this.getWebSourceList();
+  }
 }
 </script>
 
@@ -82,5 +99,11 @@ export default {
   .g-container-comment{
     float: right;
     width: 74%;
+  }
+  .link-item{
+    text-align:center;
+  }
+  .link-item:hover{
+    border: 1px solid #00AAEE;
   }
 </style>
