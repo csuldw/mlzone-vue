@@ -21,9 +21,9 @@
             <!--<router-link :to="{ name: 'Archives'}">文章列表</router-link>-->
             <a href="/archives">文章列表</a>
           </li>
- <!--         <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015">
-            <router-link :to="{ path: '/openSource'}">开源传送门</router-link>
-          </li>-->
+          <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015">
+            <router-link :to="{ path: 'openSource'}">开源传送门</router-link>
+          </li>
           <!--<li id="menu-item-5012" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5012"><a href="#">生活天地</a></li>-->
           <!--<li id="menu-item-6364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364"><a href="#">招聘信息</a></li>-->
           <li class="menusns">
