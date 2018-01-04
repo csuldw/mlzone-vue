@@ -13,37 +13,40 @@
           <div class="u-page-left">
           </div>
         </div>
-      </div>
-      <div class="g-source-container">
-        <!--<h1>此功能尚未开放！</h1>-->
-        <div class="u-archive-content">
-          <div class="col-xs-8" v-for="sourceItem in sourceList">
-            <div class="collection-wrap">
-              <a target="_blank" :href="sourceItem.url">
-                <img class="avatar-collection" src="//upload.jianshu.io/collections/images/7975/20120411203246_hNuSk.thumb.600_0.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180" alt="180">
-                <h2 class="name">{{sourceItem.name}}</h2>
-              </a>
-              <div class="wrap-content"><p class="collection-description">{{sourceItem.desc}} </p></div>
-              <div class="wrap-bottom"><a target="_blank" :href="sourceItem.url">查看详情</a></div>
+        <div class="g-source-container">
+          <div style="width: 100%;float:left">
+            <!--<h1>此功能尚未开放！</h1>-->
+            <div class="u-archive-content">
+              <div class="col-xs-8" v-for="sourceItem in sourceList">
+                <div class="collection-wrap">
+                  <a target="_blank" :href="sourceItem.url">
+                    <img class="avatar-collection" :src="getAvator(sourceItem.avator)">
+                    <h2 class="name">{{sourceItem.name}}</h2>
+                  </a>
+                  <div class="wrap-content"><p class="collection-description">{{sourceItem.desc}} </p></div>
+                  <div class="wrap-bottom"><a target="_blank" :href="sourceItem.url">查看详情</a></div>
+                </div>
+              </div>
             </div>
+            <!--//upload.jianshu.io/collections/images/38/android.graphics.Bitmap_f3edcb1.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
+            //upload.jianshu.io/collections/images/16/computer_guy.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
+            //upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
+            -->
+
+          </div>
+          <div class="source-pagination-meta" v-if="showPagination">
+            <el-pagination
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :page-sizes="[9, 12, 24, 48]"
+              :page-size="queryData.pageSize"
+              layout="total, sizes, prev, pager, next, jumper"
+              :total="total">
+            </el-pagination>
           </div>
         </div>
-        <!--//upload.jianshu.io/collections/images/38/android.graphics.Bitmap_f3edcb1.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
-        //upload.jianshu.io/collections/images/16/computer_guy.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
-        //upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
-        -->
-        <div class="source-pagination-meta" v-if="showPagination">
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :page-sizes="[9, 12, 24, 48]"
-            :page-size="queryData.pageSize"
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="total">
-          </el-pagination>
-        </div>
-      </div>
 
+      </div>
 		</div>
     <footer-select></footer-select>
 	</div>
@@ -88,7 +91,7 @@
     padding: 0 20px;
     border: 1px solid #e6e6e6;
     border-radius: 4px;
-    background-color: hsla(0, 0%, 71%, .1);
+    /*background-color: hsla(0, 0%, 71%, .1);*/
     transition: .2s ease;
     -webkit-transition: .2s ease;
     -moz-transition: .2s ease;
@@ -98,8 +101,8 @@
 
   .g-source-container {
     float: left;
-    margin-left: -74%;
     width: 74%;
+    margin-left: 10px;
     position: relative;
     min-height: 500px;
     BACKGROUND-COLOR: #FFF;

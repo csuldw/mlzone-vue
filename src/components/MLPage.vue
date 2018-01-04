@@ -23,13 +23,15 @@
           <div class="u-page-content" >
             <div class="article-item" v-for="article in articleList">
               <article class="u-article-excerpt u-excerpt-page" >
-                <a onclick="_hmt.push(['_trackEvent', 'kgc', 'click', 'home'])" class="focus" href="#" target="_blank">
-                  <img src="http://www.daqianduan.com/wp-content/uploads/2017/10/kgc2.jpg" class="thumb">
-                </a>
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                  <a onclick="_hmt.push(['_trackEvent', 'kgc', 'click', 'home'])" class="focus" href="#" target="_blank">
+                    <img src="http://www.daqianduan.com/wp-content/uploads/2017/10/kgc2.jpg" class="thumb">
+                  </a>
+                </router-link>
                 <header>
                   <h2>
-                    [{{ getPostType(article.postType)}}]
-                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id }}">
+                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                      [{{ getPostType(article.postType)}}]
                       {{ article.title }}
                     </router-link>
                   </h2>

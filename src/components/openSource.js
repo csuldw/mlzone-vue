@@ -47,6 +47,14 @@ export default {
         console.log(this.sourceList)
       });
     },
+    getAvator(avatorPath){
+      if(avatorPath === null || avatorPath === ''){
+        return "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180";
+      }
+      else{
+        return avatorPath;
+      }
+    }
   },
   mounted() {
     this.getWebSourceList();
