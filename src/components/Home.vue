@@ -49,7 +49,9 @@
                     {{ article.title }}
                   </router-link>
                 </h2>
-                <div class="note">{{ article.title }}</div>
+                <div class="note">
+                  {{ article.articleAbstract }}
+                </div>
                 <div class="meta">
                   <time>{{ getDateFromStr(article.publicDate, "yyyy-MM-dd hh:mm") }}</time>
                   <a :href="combineQueryUrl('category', article.articleCategoryEntity.categoryName)" > {{article.articleCategoryEntity.categoryName}}</a>

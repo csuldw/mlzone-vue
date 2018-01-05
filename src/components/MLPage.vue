@@ -42,7 +42,7 @@
                   </time>
                   <span class="author"><i class="fa fa-user"></i>{{ article.author }}</span>
                 </p>
-                <p class="note">工作累，拿钱少？想转行，但是自己学历不高，又没有其他技能怎么办？难道自己一辈子就这样了......不，我要逆袭！敲敲代码，照样月月高薪，0基础也不怕，快来看腾讯前端大咖揭秘月薪30k的方法......</p>
+                <p class="note">{{article.articleAbstract}}</p>
               </article>
             </div>
           </div>
