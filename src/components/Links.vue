@@ -105,5 +105,7 @@ export default {
   }
   .link-item:hover{
     border: 1px solid #00AAEE;
+    transform: translate(0,0);
+    transition: all .2s ease-in 0.1s;
   }
 </style>
