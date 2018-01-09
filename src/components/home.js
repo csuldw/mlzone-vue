@@ -43,6 +43,7 @@ export default {
       },
       pageTitle: "机器学习",
       articleList: [],
+      articleList2: [],
       articleCountStat: [],
       total : 0,
     }
@@ -60,6 +61,20 @@ export default {
         this.total = res.data.total;//res.data.total;
         this.articleList = res.data.list; //res.data.articleList;
         console.log(this.articleList)
+      });
+    },
+
+    getArticleInfosOrderByViewCount() {
+      let para ={
+          pageNum: 1,
+          pageSize: 10,
+          isPublish: 1,
+          orderColumn: "viewCount",
+          orderType: "desc"
+        }
+      getArticleListByPage(para).then((res) => {
+        this.total = res.data.total;//res.data.total;
+        this.articleList2 = res.data.list; //res.data.articleList;
       });
     },
 
@@ -98,6 +113,7 @@ export default {
   },
   mounted:  function () {
     this.getArticleInfos();
+    this.getArticleInfosOrderByViewCount()
     this.getArticleStatInfo();
   }
 }
