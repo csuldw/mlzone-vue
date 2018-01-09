@@ -81,18 +81,17 @@
           </ul>
         </div>
 
-        <!--归档-->
+        <!--阅读排行榜-->
         <div class="u-widget u-post-archive">
-          <h3>归档</h3>
+          <h3>阅读排行榜</h3>
           <ul class="archive-content">
-            <div class="archive-list">
-              <li v-for="item in articleCountStat">
-                <span class="archive-detail">
-                  <a :href="combineQueryUrl('date', item.queryType)" >
-                     {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
-                  </a>
-                  （{{item.articleNumber}}）
-                </span>
+            <div class="view-list">
+              <li v-for="(article, index) in articleList2">
+                <router-link  :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}">
+                  <span class="archive-detail num-x" v-if="index < 3">{{index + 1}}</span>
+                  <span class="archive-detail" v-if="index >= 3">{{index + 1}}</span>
+                  <e >{{ article.title }} ({{article.viewCount}})</e>
+                </router-link>
               </li>
             </div>
           </ul>
@@ -120,6 +119,23 @@
                 <p class="prog-detail">一个用于爬取新浪微博的爬虫项目.</p>
               </div>
             </li>
+          </ul>
+        </div>
+
+        <!--归档-->
+        <div class="u-widget u-post-archive">
+          <h3>归档</h3>
+          <ul class="archive-content">
+            <div class="archive-list">
+              <li v-for="item in articleCountStat">
+                <span class="archive-detail">
+                  <a :href="combineQueryUrl('date', item.queryType)" >
+                     {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
+                  </a>
+                  ({{item.articleNumber}})
+                </span>
+              </li>
+            </div>
           </ul>
         </div>
 
@@ -151,4 +167,39 @@
 </script>
 
 <style scoped>
+  .view-list{
+    margin-left: -10px;
+  }
+  .view-list li{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  .view-list li .archive-detail {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    background: #a6a6a6;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    text-indent: -1px;
+    left: 0;
+  }
+  .view-list li .num-x{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+    border: 1px solid #f36e01;
+    background: #f36e01;
+  }
+  .view-list li a {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+  }
 </style>
