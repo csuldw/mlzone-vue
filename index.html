@@ -22,7 +22,10 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" id=""></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+    <link href="http://www.csuldw.com/others/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" media="all" />
     <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script src="http://www.csuldw.com/others/jquery/index.js?v=2.1.3"></script>
+    <script src="http://www.csuldw.com/others/fancybox/source/jquery.fancybox.pack.js"></script>
   </head>
     <title>we-show</title>
   </head>
@@ -30,4 +33,25 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    // 给图片添加链接
+    function testFunction() {
+      $(document).ready(function() {
+        $("p img").each(function() {
+          var strA = "<a id='yourid' href='" + this.src + "'></a>";
+          $(this).wrapAll(strA);
+        });
+      });
+
+      // fancybox
+      $("#yourid").fancybox({
+        openEffect    : 'elastic',
+        closeEffect   : 'elastic',
+        'speedIn'       :   600,
+        'speedOut'      :   200,
+        'overlayShow'   :   false
+      });
+    }
+    setTimeout("testFunction()","5000");
+  </script>
 </html>
