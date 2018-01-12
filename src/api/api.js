@@ -7,8 +7,17 @@ let headers = {
   "Content-Type":"multipart/form-data"
 };
 
+let headers2 = {
+//     "Content-Type":"multipart/form-data"
+  'content-type': 'application/json'
+};
+
 var instance = axios.create({
     headers: headers
+});
+
+var instance2 = axios.create({
+  headers: headers2
 });
 
 function setHeader() {
@@ -38,6 +47,13 @@ export const getCommentListByParam = params => { return axios.post(`/MLZone/comm
 export const loadContentByPath = params => { return axios.post(`/MLZone/file/loadContentByPath.do`, qs.stringify(params)).then(res => res.data); };
 
 export const getWebSourceListByParam = params => { return axios.post(`/MLZone/webSource/getWebSourceListByParam.do`, qs.stringify(params)).then(res => res.data); };
+
+export const checkEmailExistByUsername = params => { return axios.post(`/MLZone/user/checkEmailExistByUsername.do`, qs.stringify(params)).then(res => res.data); };
+
+export const checkUserExistByUsername = params => { return axios.post(`/MLZone/user/checkUserExistByUsername.do`, qs.stringify(params)).then(res => res.data); };
+
+export const saveOrUpdateUser = params => { return instance2.post(`/MLZone/user/saveOrUpdateUser.do`, JSON.stringify(params)).then(res => res.data); };
+
 
 // export const getBugInfoListPage = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 // export const getBugInfoListPage = params => { return axios.post(`/api/ProjectPlugin/bug/getBugInfoListByParam.do`, qs.stringify(params)).then(res => res.data); };
