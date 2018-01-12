@@ -2,7 +2,7 @@
   <div class="g-container-comment">
     <div id="comment-list" class="u-comment-list">
       <div id="before-comment" style="text-align: center;height: 50px;">
-        目前您尚未登录，请 <a @click="login">登录</a> 或 <a>注册</a> 后进行评论
+        目前您尚未登录，请 <a @click="login">登录</a> 或 <a @click="reg">注册</a> 后进行评论
       </div>
 
       <!--登录界面-->
@@ -26,6 +26,37 @@
         <div slot="footer" class="dialog-footer" style="text-align: center">
           <el-button @click.native="loginFormVisible=false"> &nbsp;取消&nbsp;</el-button>
           <el-button type="primary" @click.native="loginSubmit" :loading="loginLoading">&nbsp;登录&nbsp;</el-button>
+        </div>
+      </el-dialog>
+
+      <!--登录界面-->
+      <el-dialog title="注册" @keyup.enter.native="regSubmit" v-model="regFormVisible" :close-on-click-modal="false" class="el-dialog-login" style="width:800px;">
+        <el-form :model="dataForm" label-width="100px" :rules="regFormRules" ref="dataForm" style="text-align:center;">
+          <el-row >
+            <el-col :span="18">
+              <el-form-item label="用户名：" prop="username">
+                <el-input  v-model="dataForm.username" auto-complete="off" >111</el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row >
+            <el-col :span="18">
+              <el-form-item label="密码：" prop="password">
+                <el-input  v-model="dataForm.password" auto-complete="off" type="password">111</el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row >
+            <el-col :span="18">
+              <el-form-item label="密码确认：" prop="password2">
+                <el-input  v-model="password2" auto-complete="off" type="password">111</el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+        <div slot="footer" class="dialog-footer" style="text-align: center">
+          <el-button @click.native="regFormVisible=false"> &nbsp;取消&nbsp;</el-button>
+          <el-button type="primary" @click.native="regSubmit" :loading="loginLoading">&nbsp;登录&nbsp;</el-button>
         </div>
       </el-dialog>
 
