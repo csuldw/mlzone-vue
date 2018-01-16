@@ -90,8 +90,9 @@
                 <router-link  :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}">
                   <span class="archive-detail num-x" v-if="index < 3">{{index + 1}}</span>
                   <span class="archive-detail" v-if="index >= 3">{{index + 1}}</span>
-                  <e >{{ article.title }} ({{article.viewCount}})</e>
+                  <e >{{ article.title }} </e>
                 </router-link>
+                <item>({{article.viewCount}})</item>
               </li>
             </div>
           </ul>
@@ -132,8 +133,8 @@
                   <a :href="combineQueryUrl('date', item.queryType)" >
                      {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
                   </a>
-                  ({{item.articleNumber}})
                 </span>
+                <item>({{item.articleNumber}})</item>
               </li>
             </div>
           </ul>
@@ -177,7 +178,7 @@
   }
   .view-list li .archive-detail {
     position: absolute;
-    top: 5px;
+    top: 0;
     left: 0;
     width: 18px;
     height: 18px;
@@ -198,8 +199,13 @@
     background: #f36e01;
   }
   .view-list li a {
-    display: block;
+    /*display: block;*/
     position: relative;
     padding-left: 25px;
+  }
+  li item {
+    float:right;
+    padding-right: 13px;
+    color: #bbb
   }
 </style>
