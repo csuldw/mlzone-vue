@@ -2,7 +2,7 @@ import '../assets/css/grid.styl'; //引入外部css
 import header from './base/header.vue';
 import footer from './base/footer.vue';
 import utils from "../common/js/util.js"
-import {getArticleListByPage, getArticleCategoryListByParam, getArticleStatInfoByParam} from '../api/api';
+import {getArticleListByPage, getArticleCategoryListByParam, getRecArticelInfoList, getArticleStatInfoByParam} from '../api/api';
 
 export default {
 
@@ -44,6 +44,7 @@ export default {
       pageTitle: "机器学习",
       articleList: [],
       articleList2: [],
+      recArticleList: [],
       articleCountStat: [],
       total : 0,
     }
@@ -61,6 +62,17 @@ export default {
         this.total = res.data.total;//res.data.total;
         this.articleList = res.data.list; //res.data.articleList;
         console.log(this.articleList)
+      });
+    },
+    getRecArticleInfos() {
+      let para = {
+          pageNum: 1,
+          pageSize: 4,
+      };
+      console.log(para.pageNum)
+      getRecArticelInfoList(para).then((res) => {
+        this.recArticleList = res.data.list; //res.data.articleList;
+        console.log(this.recArticleList)
       });
     },
 
@@ -113,6 +125,7 @@ export default {
   },
   mounted:  function () {
     this.getArticleInfos();
+    this.getRecArticleInfos();
     this.getArticleInfosOrderByViewCount()
     this.getArticleStatInfo();
   }
