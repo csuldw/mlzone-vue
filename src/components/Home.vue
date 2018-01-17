@@ -38,7 +38,7 @@
           </div>
           <div class="u-article-push">
             <h1>文章推荐</h1>
-            <div class="article-item" v-for="article in articleList">
+            <div class="article-item" v-for="article in recArticleList">
               <article class="u-article-excerpt">
                 <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
                   <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
@@ -64,7 +64,7 @@
       </div>
       <div class="g-sidebar">
         <!--公告 -->
-        <div class="u-widget u-widget-tops">
+       <!-- <div class="u-widget u-widget-tops">
           <ul class="u-widget-nav">
             <li class="active">网站公告</li>
           </ul>
@@ -79,7 +79,7 @@
               </ul>
             </li>
           </ul>
-        </div>
+        </div>-->
 
         <!--阅读排行榜-->
         <div class="u-widget u-post-archive">
@@ -90,9 +90,9 @@
                 <router-link  :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}">
                   <span class="archive-detail num-x" v-if="index < 3">{{index + 1}}</span>
                   <span class="archive-detail" v-if="index >= 3">{{index + 1}}</span>
-                  <e >{{ article.title }} </e>
+                  <span >{{ article.title }} </span>
                 </router-link>
-                <item>({{article.viewCount}})</item>
+                <span class="item">({{article.viewCount}})</span>
               </li>
             </div>
           </ul>
@@ -134,30 +134,18 @@
                      {{ getDateFromStr(item.queryType, "yyyy年MM月") }}
                   </a>
                 </span>
-                <item>({{item.articleNumber}})</item>
+                <span class="item">({{item.articleNumber}})</span>
               </li>
             </div>
           </ul>
         </div>
 
         <!-- 标签云 -->
-        <div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
+        <!--<div class="u-widget u-widget_ui_tags"><h3>标签云</h3>
           <div class="items">
             <a href="#">前端技巧 (61)</a>
-            <a href="#">CSS (53)</a>
-            <a href="#">JavaScript (50)</a>
-            <a href="#">用户体验 (46)</a>
-            <a href="h#">设计思路 (43)</a>
-            <a href="/tag/html5">HTML5 (40)</a>
-            <a href="">SEO (40)</a>
-            <a href="">网页设计 (40)</a>
-            <a href="">CSS3 (37)</a>
-            <a href="://../tag/professional">职业 (34)</a>
-            <a href="://../tag/front-resources">前端资源 (33)</a>
-            <a href="://..com/tag/daqianduan">大前端 (31)</a>
-            <a href="://..com/tag/company">企业公司 (30)</a>
           </div>
-        </div>
+        </div>-->
       </div>
 		</div>
     <footer-select></footer-select>
@@ -203,7 +191,7 @@
     position: relative;
     padding-left: 25px;
   }
-  li item {
+  .item {
     float:right;
     padding-right: 13px;
     color: #bbb
