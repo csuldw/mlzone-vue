@@ -36,6 +36,8 @@ export const getAuth = params => { setHeader(); return axios.get(`/MLZone/user/g
 
 export const getArticleListByPage = params => { return axios.post(`/MLZone/articleInfo/getArticelInfoList.do`, qs.stringify(params)).then(res => res.data); };
 
+export const getRecArticelInfoList = params => { return axios.post(`/MLZone/articleInfo/getRecArticelInfoList.do`, qs.stringify(params)).then(res => res.data); };
+
 export const getArticleStatInfoByParam = params => { return axios.post(`/MLZone/article/getArticleCountStatByParam.do`, qs.stringify(params)).then(res => res.data); };
 
 export const getArticelDetailInfoById = params => { return axios.post(`/MLZone/articleInfo/getArticelInfoById.do`, qs.stringify(params)).then(res => res.data); };
