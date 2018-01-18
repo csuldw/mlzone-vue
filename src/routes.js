@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/machine-learning',
     name: 'MLPage',
-    component: MLPage
+    component: MLPage,
   },
   {
     path: '/openSource',
@@ -38,12 +38,14 @@ const routes = [
   {
     path: '/archives',
     name: 'Archives',
-    component: Archives
+    component: Archives,
+    meta: {keepAlive: true}
   },
   {
     path: '/details/:path/:articleId',
     name: 'PostDetail',
-    component: Post
+    component: Post,
+    canReuse: true,
   },
   {
     path: '/userDetail',
