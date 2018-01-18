@@ -14,12 +14,12 @@
           <li id="menu-item-3685" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3685"><a href="/">首页</a></li>
           <li id="menu-item-4244" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4244">
             <!--<router-link :to="{ path: 'page', query: { pageTitle: '机器学习' }}">机器学习</router-link>-->
-            <a href="/machine-learning">机器学习</a>
+            <a href="#/machine-learning">机器学习</a>
             <!--<router-link :to="{ name: 'PostPage', params: { categoryName: 'ML' }}">机器学习</router-link>-->
           </li>
           <li id="menu-item-5154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5154">
             <!--<router-link :to="{ name: 'Archives'}">文章列表</router-link>-->
-            <a href="/archives">文章列表</a>
+            <a href="#/archives">文章列表</a>
           </li>
           <li id="menu-item-5015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015">
             <router-link :to="{ name: 'OpenSource'}">开源传送门</router-link>
