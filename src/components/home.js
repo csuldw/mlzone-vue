@@ -120,7 +120,7 @@ export default {
       }
     },
     combineQueryUrl(type, value){
-      return "/query/" + type + "/" + value;
+      return "#/query/" + type + "/" + value;
     }
   },
   mounted:  function () {
