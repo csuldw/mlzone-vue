@@ -25,7 +25,8 @@ axios.defaults.withCredentials = true
 
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
+  //base: '/mlzone-vue/',
   routes : routes,
 })
 
