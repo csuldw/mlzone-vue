@@ -17,7 +17,7 @@
           </div>
           <div class="u-archive-content" >
             <article class="u-archive-main" v-for="article in articleList">
-              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+              <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                 {{getDateFromStr(article.publicDate)}}
                 [{{article.articleCategoryEntity.categoryName}}] {{ article.title }}
               </router-link>
