@@ -18,12 +18,12 @@
             <h1>最新发布</h1>
             <div class="article-item" v-for="article in articleList">
               <article class="u-article-excerpt">
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                   <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
                 </router-link>
                 <h2>
                   <span>[{{ getPostType(article.postType)}}] </span>
-                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                       {{ article.title }}
                     </router-link>
                 </h2>
@@ -40,12 +40,12 @@
             <h1>文章推荐</h1>
             <div class="article-item" v-for="article in recArticleList">
               <article class="u-article-excerpt">
-                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                   <span class="focus" ><img src="http://www.daqianduan.com/wp-content/uploads/2017/08/git.jpg" class="thumb" alt="教你添加网站浏览器图标 favicon.ico_themebetter"></span>
                 </router-link>
                 <h2>
                   <span>[{{ getPostType(article.postType)}}] </span>
-                  <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                  <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                     {{ article.title }}
                   </router-link>
                 </h2>
@@ -87,7 +87,7 @@
           <ul class="archive-content">
             <div class="view-list">
               <li v-for="(article, index) in articleList2">
-                <router-link  :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}">
+                <router-link  :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                   <span class="archive-detail num-x" v-if="index < 3">{{index + 1}}</span>
                   <span class="archive-detail" v-if="index >= 3">{{index + 1}}</span>
                   <span >{{ article.title }} </span>
