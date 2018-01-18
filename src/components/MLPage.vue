@@ -30,7 +30,7 @@
                 </router-link>
                 <header>
                   <h2>
-                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" >
+                    <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                       [{{ getPostType(article.postType)}}]
                       {{ article.title }}
                     </router-link>
