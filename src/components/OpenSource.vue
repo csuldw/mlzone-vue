@@ -3,6 +3,8 @@
      <header-select></header-select>
 		<div class="g-container-down">
       <div class="g-container-wrap">
+
+
         <div class="g-page-sidebar">
           <div class="u-page-left-search">
             <el-input v-model="queryData.keywords" placeholder="关键字" @keyup.enter.native="getWebSourceList"></el-input>
@@ -13,9 +15,20 @@
           <div class="u-page-left">
           </div>
         </div>
+
+        <!--<h1>开源框架</h1>-->
         <div class="g-source-container">
-          <div style="width: 100%;float:left">
-            <!--<h1>此功能尚未开放！</h1>-->
+
+          <div class="jianshe_b" v-for="sourceItem in sourceList">
+            <div class="js_li">
+              <a :href="sourceItem.url" TARGET="_blank">
+                <img class="img-circle" :src="getAvator(sourceItem.avator)" alt="" width="140" height="140">
+                <h2>{{sourceItem.name}}</h2>
+                <p>{{sourceItem.desc}}</p>
+              </a>
+            </div>
+          </div>
+          <!--<div style="width: 100%;float:left">
             <div class="u-archive-content">
               <div class="col-xs-8" v-for="sourceItem in sourceList">
                 <div class="collection-wrap">
@@ -28,12 +41,7 @@
                 </div>
               </div>
             </div>
-            <!--//upload.jianshu.io/collections/images/38/android.graphics.Bitmap_f3edcb1.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
-            //upload.jianshu.io/collections/images/16/computer_guy.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
-            //upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180
-            -->
-
-          </div>
+          </div>-->
           <div class="source-pagination-meta" v-if="showPagination">
             <el-pagination
               @size-change="handleSizeChange"
@@ -44,8 +52,14 @@
               :total="total">
             </el-pagination>
           </div>
+          <div v-if="!showPagination">
+            <div class="search_null search_null02" name="noResult_correct">
+              <h1 class="search_msg">抱歉，没有找到与“<span class="key_search">{{queryData.keywords}}</span>”相关的商品！</h1>
+              <div class="search_null_ts">1、看看输入的文字是否有误</div>
+              <div class="search_null_ts">2、请调整关键字，使关键词精准或者简单，如“redis”</div>
+            </div>
+          </div>
         </div>
-
       </div>
 		</div>
     <footer-select></footer-select>
@@ -130,5 +144,88 @@
     margin-top: 50px;
     float: left;
   }
-
+<!-- -->
+  .jianshe_b {
+    max-width: 1150px;
+    overflow: hidden;
+    margin: auto;
+  }
+  .js_li {
+    text-align: center;
+    margin: 15px 0;
+    padding-top: 10px;
+    width: 33.3%;
+    float: left;
+    border: 1px solid transparent;
+  }
+  .js_li img {
+    padding: 7px;
+    background: #fff;
+    border: 1px solid #CCC;
+    height: 120px;
+    width: 120px;
+  }
+  .js_li p {
+    color: #838383;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 5px 25px;
+    text-align: left;
+    height: 90px;
+  }
+  .js_li:hover{
+    border: 1px solid #00AAEE;
+    transform: translate(0, 0);
+    transition: all 0.2s ease-in 0.1s;
+  }
+  .js_li:hover img{
+    transform: scale(1.1);
+    transition: all 0.8s;
+  }
+  .js_li h2 {
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: #262626;
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: normal;
+  }
+  .search_null02 {
+    padding: 0 0 18px 28px;
+    margin: 12px auto 20px;
+  }
+  .search_null {
+    padding: 0 0 10px;
+    background: #f6f6f6;
+    margin-bottom: 30px;
+  }
+  .search_null .search_msg {
+    font-size: 14px;
+    font-weight: bold;
+    color: #505050;
+    line-height: 24px;
+    padding: 16px 20px 4px 12px;
+  }
+  .search_null .search_null_ts {
+    color: #797979;
+    line-height: 24px;
+    margin-left: 27px;
+    text-align: left;
+  }
+  .search_null .search_null_ts {
+    color: #797979;
+    line-height: 24px;
+    margin-left: 27px;
+    text-align: left;
+  }
+  span.key_search {
+    color: #ff2328;
+    font-weight: bold;
+    float: none;
+    margin-left: 0;
+  }
 </style>
