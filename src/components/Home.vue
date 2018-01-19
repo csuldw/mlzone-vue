@@ -63,8 +63,10 @@
         </div>
       </div>
       <div class="g-sidebar">
+        <!-- 微博秀 -->
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1669282904&verifier=a6902c2e&dpc=1"></iframe>
         <!--公告 -->
-       <!-- <div class="u-widget u-widget-tops">
+        <!-- <div class="u-widget u-widget-tops">
           <ul class="u-widget-nav">
             <li class="active">网站公告</li>
           </ul>
