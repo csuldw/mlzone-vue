@@ -21,7 +21,7 @@
                 <router-link :to="{ name: 'PostDetail', params: { articleId: article.id, path: getFileName(article.filePath) }}" target="_blank">
                   <header class="post-header">
                     <div class="post-meta">{{getDateFromStr(article.publicDate)}}</div>
-                    <span class="post-title">[{{article.articleCategoryEntity.categoryName}}] {{ article.title }}</span>
+                    <span class="post-title"><!--[{{article.articleCategoryEntity.categoryName}}] -->{{ article.title }}</span>
                   </header>
                 </router-link>
               </article>
@@ -53,7 +53,7 @@
     border-left: 1px solid #ececec;
   }
   .u-archive-main{
-    padding: 20px 10px 15px 0;
+    padding: 15px 10px 15px 0;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
     transition-delay: 0s;
