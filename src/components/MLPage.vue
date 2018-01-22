@@ -80,7 +80,7 @@
     background: #FFFFFF !important;
     border: 1px #f0f0f0 solid !important;
     padding: 8px;
-    font-size: 15px;
+    font-size: 1em;
   }
   .u-page-left-up div.muted i {
     color: #73BF00;
