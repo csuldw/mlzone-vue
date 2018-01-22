@@ -102,7 +102,7 @@
 
         <!-- 开源项目 -->
         <div class="u-widget u-post-archive">
-          <h3>我的开源项目 <a href="https://github.com/csuldw?tab=repositories" target="_blank"><span style="font-size: 1em;float: right;">更多 »</span></a></h3>
+          <h3>我的开源项目 <a href="https://github.com/csuldw?tab=repositories" target="_blank"><span style="font-size: 1em;float: right;color: #aaa;">更多 »</span></a></h3>
           <ul class="open-source-content">
             <li>
               <div>
