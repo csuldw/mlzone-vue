@@ -82,6 +82,11 @@
   }
   .u-archive-main:hover::before{
     background: #222;
+    width: 7px;
+    height: 7px;
+  }
+  .u-archive-main a:hover{
+    color: #666 !important;
   }
   .post-header {
     padding-left: 10px;
