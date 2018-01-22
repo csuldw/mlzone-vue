@@ -1,9 +1,17 @@
 <template>
 	<div class="g-container">
      <header-select></header-select>
-    <!--<div style="height:100px;"></div>-->
-    <!--<h1> {{msg}}</h1>-->
-    <!--<h2><router-link to='/projectManagement'> {{linkName}} </router-link></h2>-->
+    <!--<div class="fasearch1">
+      <div class="search">
+        <div class="search-bd">
+          <form action="/search" id="search-form" class="form" method="GET">
+            <div class="form-group">
+              <input type="text" id="home-searchInput" name="" value="" class="form-control" autocomplete="off" placeholder="请输入关键字">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>-->
 		<div class="g-container-up">
       <el-carousel :interval="2000" type="card" height="360px">
         <el-carousel-item v-for="item in images" :key="item.value">
@@ -197,5 +205,35 @@
     float:right;
     padding-right: 13px;
     color: #bbb
+  }
+
+  .fasearch1 {
+    height: 60px;
+    padding-top: 28px;
+    box-shadow: 0px 0px 3px #c1bebd;
+    -webkit-box-shadow: none;
+
+  }
+  .search {
+    width: 890px;
+    margin: 0 auto;
+  }
+  .search-bd .form-group {
+    border: 1px solid #e4dddd;
+    position: relative;
+    height: 50px;
+    z-index: 3;
+  }
+  .search-bd .form input {
+    width: 100%;
+    height: 32px;
+    line-height: 18px;
+    color: #222;
+    position: absolute;
+    top: 1px;
+    left: 0px;
+    outline: none;
+    border: none !important;
+    padding: 20px 0 27px 20px;
   }
 </style>
